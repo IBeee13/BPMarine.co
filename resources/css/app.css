@@ -1,0 +1,74 @@
+
+@import "tailwindcss";
+
+@source "../**/*.blade.php";
+@source "../**/*.js";
+
+* {
+    font-family: 'jost', sans-serif;
+}
+
+[x-cloak] { display: none !important; }
+
+@theme {
+    --font-sans: 'Jost', sans-serif;
+    --color-primary: #18254D;
+    --color-secondary: #C7A578;
+    --color-accent: #5B6275;
+    --color-accentsecond: #BBBCCB;
+    --color-accentthird: #E4E5F2;
+    --color-background: #FCFCFF;
+    --color-secondbackground: #F9F9F9;
+}
+
+@keyframes leftscroll {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes rightscroll {
+    from {
+        transform: translateX(-50%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+.animate-leftscroll {
+    animation: leftscroll 80s linear infinite;
+}
+
+.animate-rightscroll {
+    animation: rightscroll 80s linear infinite;
+}
+
+[data-aos="custom-blur-up"] {
+    opacity: 0;
+    transform: translateY(40px);
+    filter: blur(2px);
+    transition-property: transform, opacity, filter;
+}
+
+[data-aos="custom-blur-up"].aos-animate {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+}
+
+[data-aos="custom-zoom-in-up"] {
+    opacity: 0;
+    transform: translateY(20px) scale(0.88);
+    transition: all 1s ease;
+}
+
+[data-aos="custom-zoom-in-up"].aos-animate {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
