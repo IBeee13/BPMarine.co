@@ -301,12 +301,37 @@ if (document.readyState === 'loading') {
 
     function initTimeline() {
         const section = document.getElementById('story-section');
-        const fill = document.getElementById('timeline-line-fill');
-        const track = fill?.parentElement;
-        const items = document.querySelectorAll('#timeline-wrapper .timeline-item');
-        if (!section || !fill || !track) return;
+        if (!section) return;
+
+        // ── Deteksi mobile/desktop ──
+        function isMobile() {
+            return window.innerWidth < 768; // md breakpoint Tailwind
+        }
+
+        // ── Ambil elemen fill & track sesuai breakpoint ──
+        function getLineEls() {
+            if (isMobile()) {
+                const fill = document.getElementById('timeline-line-fill-mobile');
+                return { fill, track: fill?.parentElement };
+            } else {
+                const fill = document.getElementById('timeline-line-fill');
+                return { fill, track: fill?.parentElement };
+            }
+        }
+
+        // ── Ambil semua timeline items (mobile + desktop, tapi hanya yang visible) ──
+        function getVisibleItems() {
+            if (isMobile()) {
+                return document.querySelectorAll('#timeline-wrapper .timeline-item-mobile');
+            } else {
+                return document.querySelectorAll('#timeline-wrapper .timeline-item');
+            }
+        }
 
         function updateLine() {
+            const { fill, track } = getLineEls();
+            if (!fill || !track) return;
+
             const trackRect = track.getBoundingClientRect();
             const vh = window.innerHeight;
 
@@ -316,8 +341,9 @@ if (document.readyState === 'loading') {
 
             fill.style.height = pct + '%';
 
-            // Posisi pixel ujung bawah garis fill relatif ke viewport
             const lineBottom = trackRect.top + (trackRect.height * pct / 100);
+
+            const items = getVisibleItems();
 
             items.forEach((item) => {
                 const rect = item.getBoundingClientRect();
@@ -330,7 +356,7 @@ if (document.readyState === 'loading') {
                     const dot = item.querySelector('[data-dot]');
                     const badge = item.querySelector('.tl-index-badge');
 
-                    if (dot && dot.style.transform !== 'scale(1)') {
+                    if (dot && dot.style.transform.indexOf('scale(1)') === -1) {
                         setTimeout(() => {
                             dot.style.transform = 'scale(1)';
                             dot.style.opacity = '1';
@@ -344,6 +370,7 @@ if (document.readyState === 'loading') {
                     }
                 }
 
+                // ── Dot glow saat garis mencapainya ──
                 const dot = item.querySelector('[data-dot]');
                 if (dot) {
                     const dotRect = dot.getBoundingClientRect();
@@ -375,11 +402,11 @@ if (document.readyState === 'loading') {
         }
 
         window.addEventListener('scroll', updateLine, { passive: true });
-        window.addEventListener('resize', updateLine);
+        window.addEventListener('resize', updateLine); // re-check saat resize (mobile <-> desktop)
         updateLine();
     }
 
-    // ── Counter + timeline trigger via IntersectionObserver ────────────────────
+    // ── Counter + timeline trigger via IntersectionObserver ──
     const section = document.getElementById('story-section');
     let countersRan = false;
     let timelineInited = false;

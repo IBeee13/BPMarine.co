@@ -32,9 +32,9 @@
             <div class="flex flex-col gap-8">
                 <div data-aos="fade-up" class="flex items-center gap-2">
                     <picture>
-                        <source srcset="{{ url('img/Bina Pusaka/aset/LOGO BINA PUSAKA 21.webp') }}" type="image/webp">
-                        <img src="{{ url('img/Bina Pusaka/aset/LOGO BINA PUSAKA 21.png') }}" alt="Logo Bina Pusaka Marine"
-                            class="h-14 w-auto -ml-[2vw] lg:ml-0">
+                        <source srcset="{{ url('img/Bina Pusaka/Aset/LOGO BINA PUSAKA 21.webp') }}" type="image/webp">
+                        <img src="{{ url('img/Bina Pusaka/Aset/LOGO BINA PUSAKA 21.webp') }}" alt="Logo Bina Pusaka Marine"
+                            class="h-14 w-auto -ml-[2vw] lg:ml-[0.2vw]">
                     </picture>
                     <div class="flex flex-col leading-tight md:w-[16vw]">
                         <span class="text-[2.8vh] md:text-[3vh] text-primary">BINA PUSAKA</span>

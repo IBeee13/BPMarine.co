@@ -116,7 +116,7 @@ Sulawesi, dedicated to preserving the art of traditional Indonesian boatbuilding
                 </a>
             </div>
             <div data-aos="zoom-out-up" data-aos-delay="100" class="flex-1 min-h-0 rounded-2xl overflow-hidden">
-                <img src="{{ url('img/Bina Pusaka/The Maj Oceanic/TMO-Areal-view-scaled-e1664971034548-1024x576_imgupscaler.ai_V1(Fast)_2K.png') }}"
+                <img src="{{ url('img/Bina Pusaka/The Maj Oceanic/TMO-areal-view.webp') }}"
                     alt="The Maj Oceanic Pinisi - Aerial View" loading="lazy"
                     class="h-full w-full object-cover hover:scale-110 transition duration-500"
                     alt="The Maj Oceanic Pinisi">
@@ -150,9 +150,12 @@ Sulawesi, dedicated to preserving the art of traditional Indonesian boatbuilding
 </section>
 
 
-<section class="relative w-full h-420 rounded-b-4xl px-8 md:px-13 lg:px-23 py-16 md:py-24 bg-primary overflow-hidden"
+<section
+    class="relative w-full rounded-b-4xl h-400 md:h-480 lg:h-420 px-5 sm:px-8 md:px-13 lg:px-23 py-12 md:py-20 lg:py-24 bg-primary overflow-hidden"
     id="story-section">
-    <div class="absolute inset-0 pointer-events-none z-0"
+
+    {{-- Background grid lines --}}
+    <div class="absolute inset-0 pointer-events-none z-0 hidden sm:block"
         style="display: grid; grid-template-columns: 6% 22% 22% 22% 22% 1fr;">
         <div class="border-r border-accent opacity-30"></div>
         <div class="border-r border-accent opacity-30"></div>
@@ -161,33 +164,36 @@ Sulawesi, dedicated to preserving the art of traditional Indonesian boatbuilding
         <div class="border-r border-accent opacity-30"></div>
     </div>
 
-    <div class="relative z-10 flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-14 md:mb-20">
+    {{-- Header + Stats --}}
+    <div
+        class="relative z-10 flex flex-col md:flex-row md:items-end md:justify-between gap-6 md:gap-8 mb-10 md:mb-16 lg:mb-20">
         <div>
             <h2 data-aos="custom-blur-up"
-                class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-background leading-tight"
+                class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-background leading-tight"
                 style="font-family: 'Poppins', sans-serif;">
                 600 Years in the Making
             </h2>
-            <p data-aos="custom-blur-up" class="mt-3 text-base md:text-lg text-secondary max-w-md">
+            <p data-aos="custom-blur-up" class="mt-3 text-sm sm:text-base md:text-lg text-secondary max-w-md">
                 From the shores of Sulawesi to the world's oceans — a living tradition of Pinisi craftsmanship.
             </p>
         </div>
 
         {{-- Stats --}}
-        <div data-aos="fade-up" class="flex flex-col sm:flex-row gap-3 md:gap-4 flex-shrink-0">
+        <div data-aos="fade-up" class="flex flex-row gap-2 sm:gap-3 md:gap-4 flex-shrink-0 flex-wrap sm:flex-nowrap">
             @foreach([
             ['num' => 20, 'suffix' => '+', 'label' => 'Ships Built'],
             ['num' => 25, 'suffix' => '+', 'label' => 'Years of Excellence'],
             ['num' => 600, 'suffix' => '', 'label' => 'Years of Pinisi Heritage'],
             ] as $stat)
-            <div class="flex flex-col justify-between border bg-primary border-accentsecond rounded-xl px-5 py-4 stat-item min-w-[120px]"
+            <div class="flex flex-col justify-between border bg-primary border-accentsecond rounded-xl px-4 sm:px-5 py-3 sm:py-4 stat-item flex-1 sm:flex-none sm:min-w-[120px]"
                 data-target="{{ $stat['num'] }}" data-suffix="{{ $stat['suffix'] }}">
                 <div class="flex items-baseline gap-0.5">
                     <span
-                        class="stat-number text-3xl md:text-4xl font-bold text-background transition-all duration-300">0</span>
-                    <span class="text-xl md:text-2xl font-bold text-secondary">{{ $stat['suffix'] }}</span>
+                        class="stat-number text-2xl sm:text-3xl md:text-4xl font-bold text-background transition-all duration-300">0</span>
+                    <span class="text-lg sm:text-xl md:text-2xl font-bold text-secondary">{{ $stat['suffix'] }}</span>
                 </div>
-                <p class="text-[10px] uppercase tracking-[2px] text-accentthird font-medium mt-2">{{ $stat['label'] }}
+                <p class="text-[9px] sm:text-[10px] uppercase tracking-[2px] text-accentthird font-medium mt-1 sm:mt-2">
+                    {{ $stat['label'] }}
                 </p>
             </div>
             @endforeach
@@ -245,52 +251,118 @@ Sulawesi, dedicated to preserving the art of traditional Indonesian boatbuilding
 
     <div class="relative z-10" id="timeline-wrapper">
 
+        {{-- Vertical center line (desktop only) --}}
         <div
-            class="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px bg-accent overflow-hidden pointer-events-none">
+            class="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px bg-accent overflow-hidden pointer-events-none hidden md:block">
             <div id="timeline-line-fill" class="w-full bg-secondary transition-all duration-1000 ease-out"
+                style="height: 0%;"></div>
+        </div>
+
+        {{-- Mobile: left line --}}
+        <div class="absolute left-4 top-0 bottom-0 w-px bg-accent overflow-hidden pointer-events-none md:hidden">
+            <div id="timeline-line-fill-mobile" class="w-full bg-secondary transition-all duration-1000 ease-out"
                 style="height: 0%;"></div>
         </div>
 
         @foreach($milestones as $index => $item)
         @php $cardOnLeft = $item['side'] === 'left'; @endphp
 
-        <div class="timeline-item group relative grid items-center border-t border-accent last:border-b last:border-accent
+        {{-- ===================== MOBILE LAYOUT ===================== --}}
+        <div class="md:hidden timeline-item-mobile group relative border-t border-accent last:border-b last:border-accent
+            cursor-pointer transition-colors duration-300 pl-12 pr-4 py-5
+            {{ $item['active'] ? 'bg-secondary/3 hover:bg-secondary/10' : 'hover:bg-accent/5' }}"
+            style="opacity: 0; transform: translateY(16px);
+                   transition: opacity .5s ease {{ $index * 120 }}ms, transform .5s ease {{ $index * 120 }}ms, background-color .3s ease;" data-aos="fade-up" data-aos-delay="{{ $index * 120 }}">
+
+            {{-- Dot (mobile) --}}
+            <div class="absolute left-[2px] top-1/2 -translate-y-1/2 flex items-center justify-center" style="transform: scale(0) translateY(-50%); opacity: 0;
+                       transition: transform .4s cubic-bezier(.34,1.56,.64,1) {{ $index * 120 + 200 }}ms,
+                                   opacity .3s ease {{ $index * 120 + 200 }}ms;" data-dot
+                data-dot-index="{{ $index }}">
+                <div
+                    class="dot-inner w-7 h-7 rounded-lg flex items-center justify-center
+                    transition-all duration-500 ease-out
+                    {{ $item['active']
+                        ? 'bg-secondary'
+                        : 'bg-primary border-2 border-accentsecond group-hover:border-secondary group-hover:bg-secondary' }}">
+                    <i class="ti {{ $item['icon'] }} text-xs transition-colors duration-300
+                        {{ $item['active'] ? 'text-primary' : 'text-accentsecond group-hover:text-primary' }}"
+                        aria-hidden="true"></i>
+                </div>
+            </div>
+
+            {{-- Year badge --}}
+            <div class="flex items-center gap-2 mb-2">
+                <span class="text-xl sm:text-2xl font-extrabold tabular-nums leading-none transition-colors duration-300
+                    {{ $item['active'] ? 'text-secondary' : 'text-background group-hover:text-secondary' }}"
+                    style="font-family: 'Poppins', sans-serif;">
+                    {{ $item['year'] }}
+                </span>
+                <span class="text-[9px] uppercase tracking-[1.5px] transition-colors duration-300
+                    {{ $item['active'] ? 'text-secondary/60' : 'text-accentsecond' }}">
+                    {{ $item['sublabel'] }}
+                </span>
+                <span
+                    class="ml-auto text-[9px] uppercase tracking-[2px] font-semibold px-2 py-0.5 rounded-full border
+                    {{ $item['active'] ? 'border-secondary/40 text-secondary' : 'border-accentsecond text-accentsecond' }}">
+                    {{ $item['badge'] }}
+                </span>
+            </div>
+
+            {{-- Card content --}}
+            <div class="border rounded-xl px-4 py-4 transition-all duration-300
+                {{ $item['active']
+                    ? 'bg-primary border-secondary group-hover:bg-secondary/80 group-hover:border-background'
+                    : 'bg-primary border-accentsecond group-hover:border-secondary' }}">
+                <h3
+                    class="text-base font-bold mb-1 leading-snug transition-colors duration-300
+                    {{ $item['active'] ? 'text-secondary group-hover:text-background' : 'text-background group-hover:text-secondary' }}">
+                    {{ $item['title'] }}
+                </h3>
+                <p
+                    class="text-sm text-accentsecond leading-relaxed transition-colors duration-300 group-hover:text-secondbackground">
+                    {{ $item['desc'] }}
+                </p>
+            </div>
+        </div>
+
+        {{-- ===================== DESKTOP LAYOUT ===================== --}}
+        <div class="hidden md:grid timeline-item group relative items-center border-t border-accent last:border-b last:border-accent
             cursor-pointer transition-colors duration-300
             {{ $item['active'] ? 'bg-secondary/3 hover:bg-secondary/10' : 'hover:bg-accent/5' }}"
             style="grid-template-columns: 1fr 56px 1fr; min-height: 110px;
                 opacity: 0; transform: translateY(16px);
                 transition: opacity .5s ease {{ $index * 120 }}ms, transform .5s ease {{ $index * 120 }}ms, background-color .3s ease;" data-aos="fade-up" data-aos-delay="{{ $index * 120 }}">
 
+            {{-- LEFT COLUMN --}}
             <div class="flex justify-end pr-6 py-7 min-w-0">
                 @if($cardOnLeft)
-                <div class="w-full border rounded-xl px-6 py-5 transition-all duration-300
-                        {{ $item['active']
-                            ? 'bg-secondary/5 border-secondary/35 group-hover:bg-secondary/20 group-hover:border-secondary/60'
-                            : 'bg-primary border-accentsecond group-hover:border-secondary group-hover:bg-primary' }}">
+                <div class="w-full border rounded-xl px-5 lg:px-6 py-4 lg:py-5 transition-all duration-300
+                    {{ $item['active']
+                        ? 'bg-secondary/5 border-secondary/35 group-hover:bg-secondary/20 group-hover:border-secondary/60'
+                        : 'bg-primary border-accentsecond group-hover:border-secondary group-hover:bg-primary' }}">
                     <span class="text-xs uppercase tracking-[2.5px] font-semibold block mb-2 transition-colors duration-300
-                            {{ $item['active'] ? 'text-secondary' : 'text-accentsecond group-hover:text-secondary' }}">
+                        {{ $item['active'] ? 'text-secondary' : 'text-accentsecond group-hover:text-secondary' }}">
                         {{ $item['badge'] }}
                     </span>
-                    <h3 class="text-xl font-bold mb-2 leading-snug transition-colors duration-300
-                            {{ $item['active'] ? 'text-background' : 'text-background group-hover:text-secondary' }}">
+                    <h3 class="text-lg lg:text-xl font-bold mb-2 leading-snug transition-colors duration-300
+                        {{ $item['active'] ? 'text-background' : 'text-background group-hover:text-secondary' }}">
                         {{ $item['title'] }}
                     </h3>
                     <p
-                        class="text-md text-accentsecond leading-relaxed transition-colors duration-300 group-hover:text-secondbackground">
+                        class="text-sm lg:text-md text-accentsecond leading-relaxed transition-colors duration-300 group-hover:text-secondbackground">
                         {{ $item['desc'] }}
                     </p>
                 </div>
                 @else
-                {{-- YEAR on LEFT --}}
                 <div class="flex flex-col items-end transition-all duration-300 group-hover:-translate-x-1">
-                    <span class="text-4xl md:text-5xl font-extrabold tabular-nums leading-none transition-colors duration-300
-                            {{ $item['active'] ? 'text-secondary' : 'text-background group-hover:text-secondary' }}"
+                    <span class="text-3xl md:text-4xl lg:text-5xl font-extrabold tabular-nums leading-none transition-colors duration-300
+                        {{ $item['active'] ? 'text-secondary' : 'text-background group-hover:text-secondary' }}"
                         style="font-family: 'Poppins', sans-serif;">
                         {{ $item['year'] }}
                     </span>
-                    <span
-                        class="text-xs uppercase tracking-[1.5px] mt-2 transition-colors duration-300
-                            {{ $item['active'] ? 'text-secondary/60' : 'text-accentsecond group-hover:text-background' }}">
+                    <span class="text-xs uppercase tracking-[1.5px] mt-2 transition-colors duration-300
+                        {{ $item['active'] ? 'text-secondary/60' : 'text-accentsecond group-hover:text-background' }}">
                         {{ $item['sublabel'] }}
                     </span>
                 </div>
@@ -316,50 +388,46 @@ Sulawesi, dedicated to preserving the art of traditional Indonesian boatbuilding
             {{-- RIGHT COLUMN --}}
             <div class="flex justify-start pl-6 py-7 min-w-0">
                 @if(!$cardOnLeft)
-                <div class="w-full border rounded-xl px-6 py-5 transition-all duration-300
-                        {{ $item['active']
-                            ? 'bg-primary border-secondary group-hover:bg-secondary/80 group-hover:border-secondbackground'
-                            : 'bg-primary border-accentsecond group-hover:border-secondary group-hover:bg-primary' }}">
+                <div class="w-full border rounded-xl px-5 lg:px-6 py-4 lg:py-5 transition-all duration-300
+                    {{ $item['active']
+                        ? 'bg-primary border-secondary group-hover:bg-secondary/80 group-hover:border-secondbackground'
+                        : 'bg-primary border-accentsecond group-hover:border-secondary group-hover:bg-primary' }}">
                     <span
                         class="text-xs uppercase tracking-[2.5px] font-semibold block mb-2 transition-colors duration-300
-                            {{ $item['active'] ? 'text-secondary group-hover:text-background' : 'text-background group-hover:text-secondary' }}">
+                        {{ $item['active'] ? 'text-secondary group-hover:text-background' : 'text-background group-hover:text-secondary' }}">
                         {{ $item['badge'] }}
                     </span>
                     <h3
-                        class="text-xl font-bold mb-2 leading-snug transition-colors duration-300
-                            {{ $item['active'] ? 'text-secondary group-hover:text-background' : 'text-background group-hover:text-secondary' }}">
+                        class="text-lg lg:text-xl font-bold mb-2 leading-snug transition-colors duration-300
+                        {{ $item['active'] ? 'text-secondary group-hover:text-background' : 'text-background group-hover:text-secondary' }}">
                         {{ $item['title'] }}
                     </h3>
                     <p
-                        class="text-md text-accentsecond leading-relaxed transition-colors duration-300 group-hover:text-background">
+                        class="text-sm lg:text-md text-accentsecond leading-relaxed transition-colors duration-300 group-hover:text-background">
                         {{ $item['desc'] }}
                     </p>
                 </div>
                 @else
-                {{-- YEAR on RIGHT --}}
                 <div class="flex flex-col items-start transition-all duration-300 group-hover:translate-x-1">
-                    <span class="text-4xl md:text-5xl font-extrabold tabular-nums leading-none transition-colors duration-300
-                            {{ $item['active'] ? 'text-secondary' : 'text-background group-hover:text-secondary' }}"
+                    <span class="text-3xl md:text-4xl lg:text-5xl font-extrabold tabular-nums leading-none transition-colors duration-300
+                        {{ $item['active'] ? 'text-secondary' : 'text-background group-hover:text-secondary' }}"
                         style="font-family: 'Poppins', sans-serif;">
                         {{ $item['year'] }}
                     </span>
-                    <span
-                        class="text-[10px] uppercase tracking-[1.5px] mt-2 transition-colors duration-300
-                            {{ $item['active'] ? 'text-secondary/60' : 'text-accentsecond group-hover:text-background' }}">
+                    <span class="text-[10px] uppercase tracking-[1.5px] mt-2 transition-colors duration-300
+                        {{ $item['active'] ? 'text-secondary/60' : 'text-accentsecond group-hover:text-background' }}">
                         {{ $item['sublabel'] }}
                     </span>
                 </div>
                 @endif
             </div>
-
         </div>
         @endforeach
-
     </div>
 </section>
 
 {{-- CHARTING THE FUTURE SECTION --}}
-<section class="w-full -mt-88 px-8 md:px-13 lg:px-23 pb-16 md:pb-32bg-background overflow-hidden">
+<section class="w-full -mt-112 md:-mt-72 lg:-mt-88 px-8 md:px-13 lg:px-23 pb-16 md:pb-32bg-background overflow-hidden">
     <div class="flex items-center h-full w-max overflow-hidden">
         <h1 data-aos="fade-up" class="text-xl text-background">
             /Charting The Future</h1>
@@ -399,7 +467,8 @@ Sulawesi, dedicated to preserving the art of traditional Indonesian boatbuilding
                             group-hover:bg-secondary/20 transition-colors duration-300">
                     <i class="ti {{ $item['icon'] }} text-xl text-secondary" aria-hidden="true"></i>
                 </div>
-                <span class="text-3xl font-extrabold text-accentthird "
+                <span
+                    class="text-3xl font-extrabold text-accentthird group-hover:text-secondary transition-colors duration-300"
                     style="font-family: 'Poppins', sans-serif;">{{ $item['idx'] }}</span>
             </div>
             <div class="flex flex-col gap-2">
@@ -436,7 +505,7 @@ Sulawesi, dedicated to preserving the art of traditional Indonesian boatbuilding
         {{-- Founder --}}
         <div
             class="bg-background md:border-r-2 md:border-accentthird border-b-2 md:border-b-0 border-accentthird flex w-full md:w-1/2">
-            <img data-aos="custom-zoom-in-up" src="{{ url('img/Bina Pusaka/Aset/co Founder.png') }}"
+            <img data-aos="custom-zoom-in-up" src="{{ url('img/Bina Pusaka/Aset/co Founder.webp') }}"
                 alt="CO Founder - Bina Pusaka Marine" loading="lazy"
                 class="w-2/5 md:w-[50%] h-56 sm:h-72 md:h-[70vh] lg:h-[83.5vh] object-cover flex-shrink-0">
             <div class="flex-1 flex flex-col justify-between p-4 md:p-5 lg:p-6">
@@ -488,7 +557,7 @@ Sulawesi, dedicated to preserving the art of traditional Indonesian boatbuilding
                         company with a vision to bring traditional Pinisi craftsmanship to a global stage.</p>
                 </div>
             </div>
-            <img data-aos="custom-zoom-in-up" src="{{ url('img/Bina Pusaka/Aset/CEO.png') }}"
+            <img data-aos="custom-zoom-in-up" src="{{ url('img/Bina Pusaka/Aset/CEO.webp') }}"
                 alt="CEO - Bina Pusaka Marine" loading="lazy"
                 class="w-2/5 md:w-[50%] h-56 sm:h-72 md:h-[70vh] lg:h-[83.5vh] object-cover flex-shrink-0">
         </div>
@@ -559,7 +628,7 @@ Sulawesi, dedicated to preserving the art of traditional Indonesian boatbuilding
 
         <div target="_blank" rel="noopener noreferrer"
             class="group relative w-full lg:w-1/2 min-h-[220px] md:min-h-[280px] overflow-hidden block">
-            <img src="{{ url('img/Bina Pusaka/Prana/tale-of-prana-header-1024x507-1.jpg') }}" loading="lazy"
+            <img src="{{ url('img/Bina Pusaka/Prana/679c9730b8ad5230db05317b.webp') }}" loading="lazy"
                 alt="Kapal Pinisi"
                 class="w-full h-full object-cover object-center absolute inset-0 transition duration-500 group-hover:scale-105">
             <div
@@ -587,19 +656,19 @@ Sulawesi, dedicated to preserving the art of traditional Indonesian boatbuilding
     {{-- Quote Card --}}
     <div data-aos="custom-zoom-in-up"
         class="relative h-80 md:h-[420px] lg:h-140 rounded-xl overflow-hidden bg-background">
-        <img src="{{ url('img/Bina Pusaka/Aset/IMG_0668_2.png') }}" loading="lazy" alt="Background"
+        <img src="{{ url('img/Bina Pusaka/Aset/IMG_0668_2.webp') }}" loading="lazy" alt="Background"
             class="absolute inset-0 w-full h-full object-cover object-top">
         <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/20"></div>
 
         <div data-aos="custom-zoom-in-up"
             class="hidden lg:block absolute bottom-8 right-8 w-80 h-80 rounded-xl border-2 border-secondary overflow-hidden z-10">
-            <img src="{{ url('img/Bina Pusaka/Aset/IMG_0669.png') }}" loading="lazy" alt="Surya Paloh"
+            <img src="{{ url('img/Bina Pusaka/Aset/IMG_0669.webp') }}" loading="lazy" alt="Surya Paloh"
                 class="w-full h-full object-cover object-top scale-120">
         </div>
 
         <div data-aos="custom-zoom-in-up"
             class="hidden md:block lg:hidden absolute bottom-4 right-4 w-40 h-48 rounded-xl border-2 border-secondary overflow-hidden z-10">
-            <img src="{{ url('img/Bina Pusaka/Aset/IMG_0669.png') }}" loading="lazy" alt="Surya Paloh"
+            <img src="{{ url('img/Bina Pusaka/Aset/IMG_0669.webp') }}" loading="lazy" alt="Surya Paloh"
                 class="w-full h-full object-cover object-top">
         </div>
 
@@ -692,7 +761,7 @@ $countryNames = [
         <div class="hidden md:block sticky top-8 flex-shrink-0 w-56 lg:w-72">
             <div class="w-full h-[64vh] lg:h-[65vh] rounded-2xl overflow-hidden bg-primary relative">
                 @foreach ($testimonials as $index => $item)
-                <img src="{{ $item->photo ? Storage::url($item->photo) : asset('img/default-avatar.png') }}"
+                <img src="{{ $item->photo ? Storage::url($item->photo) : asset('img/default-avatar.webp') }}"
                     loading="lazy" alt="{{ $item->name }}" data-photo="{{ $index }}"
                     class="absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-700 {{ $index === 0 ? 'opacity-100' : 'opacity-0' }}">
                 @endforeach

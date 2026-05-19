@@ -1,48 +1,61 @@
 @extends('layouts.app')
 
-@section('content')
 @section('meta_description', 'BP Marine Co builds handcrafted Pinisi vessels that blend 600 years of Indonesian maritime
 heritage with modern shipbuilding excellence. Discover our fleet and legacy.')
 
-{{-- HERO SECTION --}}
+@push('head')
+@section('content')
+
+{{-- ============================================================ --}}
+{{-- HERO SECTION                                                  --}}
+{{-- ============================================================ --}}
 <section class="relative w-full min-h-screen overflow-hidden px-8 md:px-13 lg:px-23 py-16">
-    {{-- Teks besar di belakang --}}
-    <div
-        class="md:absolute -mx-6 -my-16 md:-mx-0 md:-my-0 inset-0 z-0 pointer-events-none overflow-hidden flex md:top-72">
+
+    {{-- Teks besar scroll di belakang --}}
+    <div class="md:absolute -mx-6 -my-16 md:-mx-0 md:-my-0 inset-0 z-0 pointer-events-none overflow-hidden flex md:top-72"
+        aria-hidden="true">
+        {{-- ✅ FIX: Satu elemen duplikat saja (cukup untuk seamless loop) --}}
         <div class="whitespace-nowrap animate-leftscroll text-[30vw] md:text-[20vw] font-medium">
-            <h1
+            <p
                 style="color:transparent;-webkit-text-stroke:2px var(--color-accentthird); font-family: 'Poppins', sans-serif;">
                 We Carry a 14th-Century Maritime Legacy into the Future of Indonesia &nbsp;
                 We Carry a 14th-Century Maritime Legacy into the Future of Indonesia &nbsp;
-            </h1>
+            </p>
         </div>
     </div>
 
     {{-- Mobile: stack vertikal --}}
     <div class="relative z-10 flex flex-col md:hidden gap-6 pt-4 -mt-24">
         <div data-aos="custom-zoom-in-up" class="w-full h-[260px] sm:h-[320px] rounded-2xl overflow-hidden">
-            <img src="{{ url('img/Bina Pusaka/Vela/Vela-exterior-web-gallery_-11.jpg') }}" alt="vela pinisi"
-                class="h-full w-full object-cover">
+            {{-- ✅ FIX: LCP image — eager + fetchpriority high + eksplisit dimensi --}}
+            <img src="{{ url('img/Bina Pusaka/Vela/vela-exterior-11.webp') }}" alt="Kapal Pinisi Vela - BP Marine Co"
+                width="600" height="320" loading="eager" fetchpriority="high" decoding="sync"
+                class="h-full w-full hover:scale-110 transition duration-500 object-cover">
         </div>
-        <div data-aos="custom-blur-up" class="text-primary">
-            <h1 class="text-3xl sm:text-4xl font-medium leading-tight">Traditional Phinisi,</h1>
-            <h1 class="text-3xl sm:text-4xl font-medium leading-tight">Built for Global Luxury</h1>
+        <div data-aos="custom-blur-up">
+            <h1 class="text-3xl sm:text-4xl font-medium leading-tight text-primary">Traditional Phinisi, Built for
+                Global Luxury</h1>
             <p class="text-accentsecond text-base mt-2">Proudly Crafted in Indonesia</p>
         </div>
-        <a href="/collection" data-aos="custom-zoom-in-up"
+        <a href="/collection" data-aos="custom-zoom-in-up" aria-label="View Our Collection of Pinisi vessels"
             class="bg-secondary relative group overflow-hidden text-background px-7 py-3 inline-flex items-center rounded-full shadow-md w-max transition ease-in-out duration-500">
             <span
-                class="absolute bg-primary rounded-full inset-y-0 left-0 w-0 group-hover:w-full transition-all duration-300"></span>
+                class="absolute bg-primary rounded-full inset-y-0 left-0 w-0 group-hover:w-full transition-all duration-300"
+                aria-hidden="true"></span>
             <span class="relative group-hover:text-background text-md font-base">View Our Collection</span>
         </a>
         <div data-aos="custom-zoom-in-up" class="flex gap-3 h-[220px] sm:h-[280px]">
             <div class="flex-1 rounded-2xl overflow-hidden">
-                <img src="{{ url('img/Bina Pusaka/Ilike/vessel_Ilike_liveaboard_06-640x600.webp') }}" alt="Ilike Pinisi"
-                    loading="lazy" class="h-full w-full object-cover">
+                {{-- ✅ FIX: lazy + decoding async + will-change via class --}}
+                <img src="{{ url('img/Bina Pusaka/Ilike/vessel_Ilike_liveaboard_06-640x600.webp') }}"
+                    alt="Kapal Pinisi Ilike - Interior Liveaboard" width="300" height="280" loading="lazy"
+                    decoding="async"
+                    class="h-full w-full object-cover hover:scale-110 transition duration-500 img-hover">
             </div>
             <div class="flex-1 rounded-2xl overflow-hidden">
-                <img src="{{ url('img/Bina Pusaka/The Maj Oceanic/TMO-Areal-view-scaled-e1664971034548-1024x576_imgupscaler.ai_V1(Fast)_2K.png') }}"
-                    alt="The Maj Oceanic Pinisi" loading="lazy" class="h-full w-full object-cover">
+                <img src="{{ url('img/Bina Pusaka/Sanctuary/Charter_Indonesia_Sanctuary_28-1536x864.webp') }}"
+                    alt="The Maj Oceanic - Kapal Pinisi Mewah" width="300" height="280" loading="lazy" decoding="async"
+                    class="h-full w-full object-cover hover:scale-110 transition duration-500 img-hover">
             </div>
         </div>
     </div>
@@ -51,38 +64,43 @@ heritage with modern shipbuilding excellence. Discover our fleet and legacy.')
     <div class="relative z-10 hidden md:flex items-start gap-3 lg:gap-4 h-auto md:h-[80vh] lg:h-[85vh]">
         <div data-aos="custom-zoom-in-up"
             class="flex-shrink-0 w-[22%] lg:w-[21%] h-[55%] md:h-[60%] lg:h-[70%] rounded-2xl overflow-hidden self-start mt-4">
-            <img src="{{ url('img/Bina Pusaka/Vela/Vela-exterior-web-gallery_-11.jpg') }}" alt="vela pinisi"
-                class="h-full w-full object-cover hover:scale-110 transition duration-500">
+            {{-- ✅ FIX: LCP desktop — eager + fetchpriority high --}}
+            <img src="{{ url('img/Bina Pusaka/Vela/vela-exterior-11.webp') }}" alt="Kapal Pinisi Vela - BP Marine Co"
+                width="420" height="560" loading="eager" fetchpriority="high" decoding="sync"
+                class="h-full w-full object-cover hover:scale-110 transition duration-500 img-hover">
         </div>
 
         <div class="flex-1 flex flex-col h-full gap-4 ml-4 lg:ml-9">
             <div class="flex">
-                <div data-aos="custom-blur-up" class="text-primary">
-                    <h1 class="text-[6vw] flex items-center gap-3 font-bold leading-none"
+                <div data-aos="custom-blur-up">
+                    <h1 class="text-[6vw] flex items-center gap-3 font-bold leading-none text-primary"
                         style="font-family: 'Poppins', sans-serif;">
                         Traditional
-                        <div class="flex flex-col">
-                            <p class="text-accentsecond text-xs md:text-sm font-light"
-                                style="font-family: 'Poppins', sans-serif;">Proudly Crafted in</p>
-                            <p class="text-accentsecond text-xs md:text-sm font-light"
-                                style="font-family: 'Poppins', sans-serif;">Indonesia</p>
-                        </div>
+                        <span class="flex flex-col">
+                            <span class="text-accentsecond text-xs md:text-sm font-light"
+                                style="font-family: 'Poppins', sans-serif;">Proudly Crafted in</span>
+                            <span class="text-accentsecond text-xs md:text-sm font-light"
+                                style="font-family: 'Poppins', sans-serif;">Indonesia</span>
+                        </span>
                     </h1>
-                    <h1 class="text-[5.5vw] font-bold leading-none" style="font-family: 'Poppins', sans-serif;">
-                        Phinisi,<span class="text-accent"
+                    <p class="text-[5.5vw] font-bold leading-none text-primary"
+                        style="font-family: 'Poppins', sans-serif;">
+                        Phinisi,<span
                             style="color:transparent;-webkit-text-stroke:2px var(--color-accent); font-family: 'Poppins', sans-serif;">Built
                             for</span>
-                    </h1>
-                    <h1 class="text-[6vw] font-bold leading-none text-accent"
+                    </p>
+                    <p class="text-[6vw] font-bold leading-none"
                         style="color:transparent;-webkit-text-stroke:2px var(--color-accent); font-family: 'Poppins', sans-serif;">
-                        Global Luxury</h1>
+                        Global Luxury
+                    </p>
                 </div>
             </div>
             <div class="flex gap-4 flex-1 md:ml-40 lg:ml-88">
                 <div data-aos="custom-zoom-in-up" class="flex-1 rounded-2xl overflow-hidden">
                     <img src="{{ url('img/Bina Pusaka/Ilike/vessel_Ilike_liveaboard_06-640x600.webp') }}"
-                        alt="Ilike Pinisi" loading="lazy"
-                        class="h-full w-full object-cover hover:scale-110 transition duration-500">
+                        alt="Kapal Pinisi Ilike - Interior Liveaboard" width="640" height="600" loading="lazy"
+                        decoding="async"
+                        class="h-full w-full object-cover hover:scale-110 transition duration-500 img-hover">
                 </div>
             </div>
         </div>
@@ -90,109 +108,123 @@ heritage with modern shipbuilding excellence. Discover our fleet and legacy.')
         <div
             class="flex-shrink-0 w-[22%] lg:w-[24%] pt-16 md:pt-20 lg:pt-24 gap-4 flex flex-col justify-between h-[100%]">
             <div data-aos="custom-zoom-in-up" class="md:ml-8 lg:ml-24">
-                <a href="/collection"
+                <a href="/collection" aria-label="View Our Collection of Pinisi vessels"
                     class="bg-secondary relative group overflow-hidden text-background px-4 md:px-6 py-3 flex justify-center items-center rounded-full shadow-md transition ease-in-out duration-500">
                     <span
-                        class="absolute bg-primary rounded-full inset-y-0 left-0 w-0 group-hover:w-full transition-all duration-300"></span>
+                        class="absolute bg-primary rounded-full inset-y-0 left-0 w-0 group-hover:w-full transition-all duration-300"
+                        aria-hidden="true"></span>
                     <span class="relative group-hover:text-background text-sm md:text-lg font-base">View Our
                         Collection</span>
                 </a>
             </div>
             <div data-aos="custom-zoom-in-up" class="flex-1 rounded-2xl overflow-hidden">
-                <img src="{{ url('img/Bina Pusaka/The Maj Oceanic/TMO-Areal-view-scaled-e1664971034548-1024x576_imgupscaler.ai_V1(Fast)_2K.png') }}"
-                    alt="The Maj Oceanic Pinisi" loading="lazy"
-                    class="h-full w-full object-cover hover:scale-110 transition duration-500">
+                <img src="{{ url('img/Bina Pusaka/The Maj Oceanic/TMO-areal-view.webp') }}"
+                    alt="The Maj Oceanic - Kapal Pinisi Mewah Aerial View" width="480" height="320" loading="lazy"
+                    decoding="async"
+                    class="h-full w-full object-cover hover:scale-110 transition duration-500 img-hover">
             </div>
         </div>
     </div>
 </section>
 
-{{-- OUR LEGACY SECTION --}}
+{{-- ============================================================ --}}
+{{-- OUR LEGACY SECTION                                            --}}
+{{-- ============================================================ --}}
 <section class="flex flex-col md:flex-row gap-6 md:gap-8 lg:gap-13 w-full px-8 md:px-13 lg:px-23 py-12 md:py-16">
     <div data-aos="custom-zoom-in-up"
         class="w-full md:w-[240px] lg:w-[280px] h-[240px] md:h-[320px] lg:h-[380px] rounded-2xl overflow-hidden flex-shrink-0">
-        <img src="{{ url('img/Bina Pusaka/The-Maj-Oceanic-Ambience-01-1024x575_imgupscaler.ai_V1(Fast)_2K.png') }}"
-            alt="The Maj Oceanic Pinisi - Suasana Kapal" loading="lazy"
-            class="h-full w-full object-cover hover:scale-110 transition duration-500">
+        <img src="{{ url('img/Bina Pusaka/The Maj Oceanic/TMO-ambience-01.webp') }}"
+            alt="The Maj Oceanic - Suasana Dek Kapal Pinisi" width="280" height="380" loading="lazy" decoding="async"
+            class="h-full w-full object-cover hover:scale-110 transition duration-500 img-hover">
     </div>
     <div class="flex flex-col gap-4 md:gap-6 lg:gap-8">
-        <div class="flex items-center h-max w-max overflow-hidden">
-            <h1 data-aos="fade-up" class="text-xl text-accent mb-2 md:mb-4">/Our Legacy</h1>
+        <div class="overflow-hidden">
+            <p data-aos="fade-up" class="text-xl text-accent mb-2 md:mb-4">/Our Legacy</p>
         </div>
         <div data-aos="custom-blur-up">
-            <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-6xl text-primary">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-6xl text-primary">
                 BP Marine Co Is A Traditional Shipyard Dedicated To Preserving The Legacy Of Authentic Pinisi
                 Craftsmanship.
-            </h1>
+            </h2>
         </div>
         <div data-aos="custom-zoom-in-up" class="w-max">
-            <a href="/about"
+            <a href="/about" aria-label="Discover Our Story - About BP Marine Co"
                 class="bg-secondary relative group overflow-hidden text-background px-7 py-3 flex items-center rounded-full shadow-md transition ease-in-out duration-500">
                 <span
-                    class="absolute bg-primary rounded-full inset-y-0 left-0 w-0 group-hover:w-full transition-all duration-300"></span>
+                    class="absolute bg-primary rounded-full inset-y-0 left-0 w-0 group-hover:w-full transition-all duration-300"
+                    aria-hidden="true"></span>
                 <span class="relative group-hover:text-background text-lg font-base">Discover Our Story</span>
             </a>
         </div>
     </div>
 </section>
 
-{{-- MARQUEE STATS SECTION --}}
+{{-- ============================================================ --}}
+{{-- MARQUEE STATS SECTION                                         --}}
+{{-- ============================================================ --}}
 <section data-aos="custom-zoom-in-up" data-marquee-stats
-    class="relative w-full overflow-hidden flex flex-col gap-2 py-8">
-    <div class="flex w-max gap-2 animate-leftscroll">
+    class="relative w-full overflow-hidden flex flex-col gap-2 py-8"
+    aria-label="Statistics and milestones of BP Marine Co">
+
+    {{-- ✅ FIX: Gunakan class CSS animasi (GPU composited via translate3d) --}}
+    <div class="flex w-max gap-2 animate-leftscroll" aria-hidden="true">
         @foreach([
-        ['img' => 'img/Bina Pusaka/AGY_Indonesia_Prana-01.webp', 'num' => '25+', 'title' => 'Years of Excellence',
+        ['img' => 'img/Bina Pusaka/Prana/AGY_Indonesia_Prana-01.webp', 'num' => '25+', 'title' => 'Years of Excellence',
         'desc' => 'Since 1998, BP Marine Co has been preserving the art of Pinisi shipbuilding, delivering vessels that
         embody heritage, strength, and global standards.'],
-        ['img' => 'img/Bina Pusaka/1-Photo-top-home-page--1170x658_imgupscaler.ai_V1(Fast)_2K.png', 'num' => '20+',
+        ['img' => 'img/Bina Pusaka/Prana/Prana-by-Atzaro-Onboard.webp', 'num' =>
+        '20+',
         'title' => 'Ships Built with Precision', 'desc' => 'Each vessel reflects our commitment to craftsmanship,
         combining traditional Pinisi heritage with modern shipbuilding standards.'],
-        ['img' => 'img/Bina Pusaka/AGY_Indonesia_Prana-01.webp', 'num' => '25+', 'title' => 'Years of Excellence',
+        ['img' => 'img/Bina Pusaka/Sanctuary/6792458c3e882fa0b3049d3a.webp', 'num' => '25+', 'title' => 'Years of
+        Excellence',
         'desc' => 'Since 1998, BP Marine Co has been preserving the art of Pinisi shipbuilding, delivering vessels that
         embody heritage, strength, and global standards.'],
-        ['img' => 'img/Bina Pusaka/1-Photo-top-home-page--1170x658_imgupscaler.ai_V1(Fast)_2K.png', 'num' => '20+',
+        ['img' => 'img/Bina Pusaka/Vela/vela-exterior-12.webp', 'num' => '20+',
         'title' => 'Ships Built with Precision', 'desc' => 'Each vessel reflects our commitment to craftsmanship,
         combining traditional Pinisi heritage with modern shipbuilding standards.'],
         ] as $item)
         <div class="overflow-hidden flex-shrink-0">
-            <img src="{{ url($item['img']) }}" alt="{{ $item['name'] ?? 'Kapal Pinisi BP Marine' }}" loading="lazy"
-                class="h-44 md:h-56 w-72 md:w-104 object-cover hover:scale-110 transition duration-500">
+            <img src="{{ url($item['img']) }}" alt="Kapal Pinisi BP Marine Co" width="416" height="224" loading="lazy"
+                decoding="async" class="h-44 md:h-56 w-72 md:w-104 object-cover img-hover">
         </div>
         <div
             class="border-2 border-accentthird bg-background h-44 md:h-56 w-72 md:w-104 gap-3 md:gap-4 px-4 flex shrink-0 items-center justify-center">
-            <h1 class="text-5xl md:text-7xl text-primary font-medium" data-countup="{{ $item['num'] }}">0</h1>
+            <p class="text-5xl md:text-7xl text-primary font-medium" data-countup="{{ $item['num'] }}">0</p>
             <div class="flex flex-col gap-2 md:gap-4">
-                <h1 class="text-primary text-base md:text-lg font-medium">{{ $item['title'] }}</h1>
+                <p class="text-primary text-base md:text-lg font-medium">{{ $item['title'] }}</p>
                 <p class="text-justify text-xs md:text-sm text-accent">{{ $item['desc'] }}</p>
             </div>
         </div>
         @endforeach
     </div>
 
-    <div class="flex w-max gap-2 animate-rightscroll">
+    <div class="flex w-max gap-2 animate-rightscroll" aria-hidden="true">
         @foreach([
         ['img' => 'img/Bina Pusaka/Sanctuary/6792458c3e882fa0b3049d3a.webp', 'num' => '1983', 'title' => 'From Indonesia
-        to the World', 'desc' => 'Our legacy expanded globally when the Pinisi was introduced at Expo Vancouver 1983 in
-        Canada.'],
+        to the World',
+        'desc' => 'Our legacy expanded globally when the Pinisi was introduced at Expo Vancouver 1983 in Canada.'],
         ['img' => 'img/Bina Pusaka/Tiger Blue/tiger-blue-phinisi.webp', 'num' => '1998', 'title' => 'Continuing a
-        600-Year Legacy', 'desc' => 'BP Marine Co carries forward the legacy of Pinisi craftsmanship, combining
-        generations of heritage with modern shipbuilding expertise.'],
-        ['img' => 'img/Bina Pusaka/Sanctuary/6792458c3e882fa0b3049d3a.webp', 'num' => '1983', 'title' => 'From Indonesia
-        to the World', 'desc' => 'Our legacy expanded globally when the Pinisi was introduced at Expo Vancouver 1983 in
-        Canada.'],
-        ['img' => 'img/Bina Pusaka/Tiger Blue/tiger-blue-phinisi.webp', 'num' => '1998', 'title' => 'Continuing a
-        600-Year Legacy', 'desc' => 'BP Marine Co carries forward the legacy of Pinisi craftsmanship, combining
-        generations of heritage with modern shipbuilding expertise.'],
+        600-Year Legacy',
+        'desc' => 'BP Marine Co carries forward the legacy of Pinisi craftsmanship, combining generations of heritage
+        with modern shipbuilding expertise.'],
+        ['img' => 'img/Bina Pusaka/Ilike/Ilike-sails-1_11zon_11zon.webp', 'num' => '1983', 'title' => 'From Indonesia
+        to the World',
+        'desc' => 'Our legacy expanded globally when the Pinisi was introduced at Expo Vancouver 1983 in Canada.'],
+        ['img' => 'img/Bina Pusaka/Vela/vela-exterior-03.webp', 'num' => '1998', 'title' => 'Continuing a
+        600-Year Legacy',
+        'desc' => 'BP Marine Co carries forward the legacy of Pinisi craftsmanship, combining generations of heritage
+        with modern shipbuilding expertise.'],
         ] as $item)
         <div class="overflow-hidden flex-shrink-0">
-            <img src="{{ url($item['img']) }}" alt="{{ $item['name'] ?? 'Kapal Pinisi BP Marine' }}" loading="lazy"
-                class="h-44 md:h-56 w-72 md:w-104 object-cover hover:scale-110 transition duration-500">
+            <img src="{{ url($item['img']) }}" alt="Kapal Pinisi BP Marine Co" width="416" height="224" loading="lazy"
+                decoding="async" class="h-44 md:h-56 w-72 md:w-104 object-cover img-hover">
         </div>
         <div
             class="border-2 border-accentthird bg-background h-44 md:h-56 w-72 md:w-104 gap-3 md:gap-4 px-4 flex shrink-0 items-center justify-center">
-            <h1 class="text-5xl md:text-6xl text-primary font-medium" data-countup="{{ $item['num'] }}">0</h1>
+            <p class="text-5xl md:text-6xl text-primary font-medium" data-countup="{{ $item['num'] }}">0</p>
             <div class="flex flex-col gap-2 md:gap-4">
-                <h1 class="text-primary text-base md:text-lg font-medium">{{ $item['title'] }}</h1>
+                <p class="text-primary text-base md:text-lg font-medium">{{ $item['title'] }}</p>
                 <p class="text-justify text-xs md:text-sm text-accent">{{ $item['desc'] }}</p>
             </div>
         </div>
@@ -200,25 +232,29 @@ heritage with modern shipbuilding excellence. Discover our fleet and legacy.')
     </div>
 </section>
 
-{{-- OUR FLEET SECTION --}}
+{{-- ============================================================ --}}
+{{-- OUR FLEET SECTION                                             --}}
+{{-- ============================================================ --}}
 <section class="px-8 md:px-13 lg:px-23 py-16 md:py-24 lg:py-32">
     <div class="flex flex-col md:flex-row gap-6 md:gap-8 lg:gap-59 mb-10 md:mb-16">
-        <div class="flex items-center h-max w-max overflow-hidden">
-            <h1 data-aos="fade-up" class="text-xl text-accent mb-2 md:mb-4">/Our Fleet</h1>
+        <div class="overflow-hidden">
+            <p data-aos="fade-up" class="text-xl text-accent mb-2 md:mb-4">/Our Fleet</p>
         </div>
         <div data-aos="custom-blur-up" class="flex-1">
-            <h1 class="text-4xl md:text-5xl lg:text-7xl text-primary">STORIES AT</h1>
-            <h1 class="flex flex-col sm:flex-row gap-2 sm:gap-4 text-4xl md:text-5xl lg:text-7xl text-primary">SEA
+            <h2 class="text-4xl md:text-5xl lg:text-7xl text-primary">STORIES AT</h2>
+            <div class="flex flex-col sm:flex-row gap-2 sm:gap-4 text-4xl md:text-5xl lg:text-7xl text-primary">
+                <span>SEA</span>
                 <p class="text-justify text-sm md:text-base lg:text-lg text-accentsecond max-w-md self-end">Each project
-                    tells a story
-                    — of heritage, dedication, and the pursuit of excellence in every vessel we create.</p>
-            </h1>
+                    tells a story — of heritage, dedication, and the pursuit of excellence in every vessel we create.
+                </p>
+            </div>
         </div>
         <div data-aos="custom-zoom-in-up" class="w-max self-start md:self-center">
-            <a href="/collection"
+            <a href="/collection" aria-label="Discover Our Fleet of Pinisi vessels"
                 class="group bg-secondary relative overflow-hidden text-background px-7 py-3 flex items-center rounded-full shadow-md transition ease-in-out duration-500">
                 <span
-                    class="absolute bg-primary rounded-full inset-y-0 left-0 w-0 group-hover:w-full transition-all duration-300"></span>
+                    class="absolute bg-primary rounded-full inset-y-0 left-0 w-0 group-hover:w-full transition-all duration-300"
+                    aria-hidden="true"></span>
                 <span class="relative group-hover:text-background text-lg font-base">Discover Our Fleet</span>
             </a>
         </div>
@@ -228,27 +264,31 @@ heritage with modern shipbuilding excellence. Discover our fleet and legacy.')
     <div class="w-full columns-1 sm:columns-2 gap-4">
         @foreach($featuredProjects as $project)
         <div data-aos="custom-zoom-in-up" class="group cursor-pointer break-inside-avoid mb-4 md:mb-6">
-            <a href="{{ route('collection.show', $project->id) }}">
+            <a href="{{ route('collection.show', $project->id) }}" aria-label="Lihat detail kapal {{ $project->name }}">
                 <div class="mag-area relative overflow-hidden rounded-xl">
-                    <img src="{{ url('storage/' . $project->cover_image) }}" alt="{{ $project->name }}" loading="lazy"
-                        class="w-full h-auto object-cover group-hover:scale-110 transition ease-in-out duration-500">
+                    {{-- ✅ FIX: lazy + decoding async, akan-change via class --}}
+                    <img src="{{ url('storage/' . $project->cover_image) }}"
+                        alt="{{ $project->name }} - Kapal Pinisi BP Marine Co" width="600" height="400" loading="lazy"
+                        decoding="async"
+                        class="w-full h-auto object-cover hover:scale-110 transition duration-500 img-hover">
                     <div
                         class="absolute inset-0 flex flex-col justify-end p-4 md:p-8 gap-2 items-center rounded-xl bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none">
-                        <h1 class="text-base md:text-xl text-white font-base">{{ $project->name }}</h1>
-                        <h1 class="text-xs md:text-sm text-white py-1 px-2 rounded-sm bg-white/30 font-medium">
-                            {{ $project->year }}</h1>
+                        <p class="text-base md:text-xl text-white font-base">{{ $project->name }}</p>
+                        <p class="text-xs md:text-sm text-white py-1 px-2 rounded-sm bg-white/30 font-medium">
+                            {{ $project->year }}</p>
                     </div>
                     <div
                         class="group/item absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
                         <div class="group/item mag-btn pointer-events-auto">
                             <div
                                 class="flex justify-center items-center relative overflow-hidden bg-black/50 rounded-full w-12 h-12 group-hover/item:w-44 transition-all duration-500">
-                                <i
-                                    class="ti ti-eye absolute text-white text-2xl group-hover/item:opacity-0 group-hover/item:translate-y-[-40px] delay-100 transition ease-in-out duration-300"></i>
-                                <i
-                                    class="ti ti-eye-search absolute flex items-center justify-center gap-2 text-white text-2xl opacity-0 group-hover/item:opacity-100 delay-100 ease-in-out duration-300 translate-y-10 transition-all group-hover/item:translate-y-0">
-                                    <h1 class="text-base font-normal shrink-0">View Heritage</h1>
-                                </i>
+                                <i class="ti ti-eye absolute text-white text-2xl group-hover/item:opacity-0 group-hover/item:translate-y-[-40px] delay-100 transition ease-in-out duration-300"
+                                    aria-hidden="true"></i>
+                                <span
+                                    class="absolute flex items-center justify-center gap-2 text-white text-2xl opacity-0 group-hover/item:opacity-100 delay-100 ease-in-out duration-300 translate-y-10 transition-all group-hover/item:translate-y-0">
+                                    <i class="ti ti-eye-search" aria-hidden="true"></i>
+                                    <span class="text-base font-normal shrink-0">View Heritage</span>
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -259,10 +299,12 @@ heritage with modern shipbuilding excellence. Discover our fleet and legacy.')
     </div>
 </section>
 
-{{-- VOICES SECTION --}}
+{{-- ============================================================ --}}
+{{-- VOICES SECTION                                                --}}
+{{-- ============================================================ --}}
 <section
     class="relative w-full px-8 md:px-13 lg:px-23 py-16 md:py-24 flex flex-col gap-12 md:gap-20 lg:gap-32 bg-primary overflow-hidden">
-    <div class="absolute inset-0 pointer-events-none z-0"
+    <div class="absolute inset-0 pointer-events-none z-0" aria-hidden="true"
         style="display: grid; grid-template-columns: 6% 22% 22% 22% 22% 1fr;">
         <div class="border-r border-accent opacity-30"></div>
         <div class="border-r border-accent opacity-30"></div>
@@ -271,8 +313,8 @@ heritage with modern shipbuilding excellence. Discover our fleet and legacy.')
         <div class="border-r border-accent opacity-30"></div>
     </div>
     <div class="flex justify-between items-end mb-10 md:mb-14">
-        <div class="w-max h-max object-cover overflow-hidden">
-            <h1 data-aos="fade-up" class="text-xl text-accentthird">/Voice Of Heritage</h1>
+        <div class="overflow-hidden">
+            <p data-aos="fade-up" class="text-xl text-accentthird">/Voice Of Heritage</p>
         </div>
         <div class="text-right">
             <h2 data-aos="custom-blur-up"
@@ -283,11 +325,12 @@ heritage with modern shipbuilding excellence. Discover our fleet and legacy.')
         </div>
     </div>
 
-    <div data-aos="custom-zoom-in-up" class="flex flex-col lg:flex-row rounded-xl overflow-hidden">
+    <div data-aos="custom-zoom-in-up"
+        class="flex flex-col lg:flex-row border border-secondary rounded-xl overflow-hidden">
         <div class="w-full lg:w-1/2 flex flex-col gap-4 p-6 md:p-8 bg-background">
             <div class="flex items-center gap-3">
                 <div class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center flex-shrink-0">
-                    <i class="ti ti-star text-accentthird"></i>
+                    <i class="ti ti-star text-accentthird" aria-hidden="true"></i>
                 </div>
                 <div>
                     <p class="text-sm font-medium text-primary">Pengakuan UNESCO</p>
@@ -296,51 +339,48 @@ heritage with modern shipbuilding excellence. Discover our fleet and legacy.')
                 <span
                     class="ml-auto text-xs font-medium bg-primary text-accentthird rounded px-2 py-0.5 flex-shrink-0">2021</span>
             </div>
-
             <hr class="border-accentthird">
             <p class="text-sm text-accent leading-relaxed">
                 <em>Art of Boatbuilding and Seafaring of the Pinisi</em> resmi diakui UNESCO sebagai Warisan
-                Budaya Tak Benda umat manusia — mengukuhkan Pinisi sebagai kebanggaan maritim Indonesia di mata
-                dunia.
+                Budaya Tak Benda umat manusia — mengukuhkan Pinisi sebagai kebanggaan maritim Indonesia di mata dunia.
             </p>
             <div class="flex flex-wrap gap-2">
-                <span class="text-xs font-medium px-2 py-0.5 rounded bg-secondary text-background">UNESCO
-                    ICH 2021</span>
-                <span class="text-xs px-2 py-0.5 rounded bg-secondary text-background">Art of
-                    Boatbuilding</span>
-                <span class="text-xs px-2 py-0.5 rounded bg-secondary text-background">Warisan
-                    Budaya Tak Benda</span>
+                <span class="text-xs font-medium px-2 py-0.5 rounded bg-secondary text-background">UNESCO ICH
+                    2021</span>
+                <span class="text-xs px-2 py-0.5 rounded bg-secondary text-background">Art of Boatbuilding</span>
+                <span class="text-xs px-2 py-0.5 rounded bg-secondary text-background">Warisan Budaya Tak Benda</span>
             </div>
         </div>
-        <div class="hidden lg:flex w-px bg-accentthird items-center justify-center relative">
+        <div class="hidden lg:flex w-px bg-accentthird items-center justify-center relative" aria-hidden="true">
             <div
                 class="absolute w-8 h-8 rounded-full bg-background border border-accentthird flex items-center justify-center z-10">
-                <i class="ti ti-anchor text-secondary"></i>
+                <i class="ti ti-anchor text-secondary" aria-hidden="true"></i>
             </div>
         </div>
-
-        <div target="_blank" rel="noopener noreferrer"
-            class="group relative w-full lg:w-1/2 min-h-[220px] md:min-h-[280px] overflow-hidden block">
-            <img src="{{ url('img/Bina Pusaka/Prana/tale-of-prana-header-1024x507-1.jpg') }}" loading="lazy"
-                alt="Kapal Pinisi"
-                class="w-full h-full object-cover object-center absolute inset-0 transition duration-500 group-hover:scale-105">
+        <div class="group relative w-full lg:w-1/2 min-h-[220px] md:min-h-[280px] overflow-hidden block">
+            <img src="{{ url('img/Bina Pusaka/Prana/679c9730b8ad5230db05317b.webp') }}" loading="lazy" decoding="async"
+                alt="Kapal Pinisi Prana - Warisan Budaya Maritim Indonesia" width="512" height="280"
+                class="w-full h-full object-cover object-center absolute inset-0 img-hover group-hover:scale-110 transition duration-500">
             <div
-                class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparen group-hover:backdrop-blur-xs transition duration-300 flex flex-col items-center justify-end gap-3 p-6 md:p-8">
+                class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent group-hover:backdrop-blur-xs transition duration-300 flex flex-col items-center justify-end gap-3 p-6 md:p-8">
                 <div
                     class="flex items-center gap-2 bg-black/30 border border-accentthird rounded px-3 py-1 text-xs text-background font-medium tracking-wide">
-                    <i class="ti ti-world text-background text-lg"></i>
+                    <i class="ti ti-world text-background text-lg" aria-hidden="true"></i>
                     ich.unesco.org
                 </div>
                 <p class="text-background font-medium text-center text-base leading-snug">
                     Perahu Pinisi<br>dalam Catatan UNESCO
                 </p>
                 <a href="https://ich.unesco.org/en/RL/pinisi-art-of-boatbuilding-in-south-sulawesi-01197"
+                    target="_blank" rel="noopener noreferrer"
+                    aria-label="Kunjungi halaman UNESCO tentang Pinisi (membuka tab baru)"
                     class="bg-secondary relative group/item overflow-hidden text-background border px-4 py-2 flex items-center rounded-lg shadow-md transition ease-in-out duration-500">
                     <span
-                        class="absolute bg-primary rounded-lg inset-y-0 left-0 w-0 group-hover/item:w-full transition-all duration-300"></span>
+                        class="absolute bg-primary rounded-lg inset-y-0 left-0 w-0 group-hover/item:w-full transition-all duration-300"
+                        aria-hidden="true"></span>
                     <span class="relative text-xs font-medium flex items-center">
-                        <i class="ti ti-external-link text-lg pr-2"></i>Kunjungi Situs
-                        UNESCO</span>
+                        <i class="ti ti-external-link text-lg pr-2" aria-hidden="true"></i>Kunjungi Situs UNESCO
+                    </span>
                 </a>
             </div>
         </div>
@@ -348,36 +388,39 @@ heritage with modern shipbuilding excellence. Discover our fleet and legacy.')
 
     {{-- Quote Card --}}
     <div data-aos="custom-zoom-in-up"
-        class="relative h-80 md:h-[420px] lg:h-140 rounded-xl overflow-hidden bg-background">
-        <img src="{{ url('img/Bina Pusaka/Aset/IMG_0668_2.png') }}" loading="lazy" alt="Background"
+        class="relative h-80 md:h-[420px] lg:h-140 rounded-xl border border-secondary overflow-hidden bg-background">
+        <img src="{{ url('img/Bina Pusaka/Aset/IMG_0668_2.webp') }}" loading="lazy" decoding="async"
+            alt="Suasana kapal Pinisi BP Marine Co" width="1200" height="560"
             class="absolute inset-0 w-full h-full object-cover object-top">
-        <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/20"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/20" aria-hidden="true"></div>
 
         <div data-aos="custom-zoom-in-up"
             class="hidden lg:block absolute bottom-8 right-8 w-80 h-80 rounded-xl border-2 border-secondary overflow-hidden z-10">
-            <img src="{{ url('img/Bina Pusaka/Aset/IMG_0669.png') }}" loading="lazy" alt="Surya Paloh"
+            <img src="{{ url('img/Bina Pusaka/Aset/IMG_0669.webp') }}" loading="lazy" decoding="async"
+                alt="Surya Paloh - Tokoh Nasional & Pendiri Media Group" width="320" height="320"
                 class="w-full h-full object-cover object-top scale-120">
         </div>
-
         <div data-aos="custom-zoom-in-up"
             class="hidden md:block lg:hidden absolute bottom-4 right-4 w-40 h-48 rounded-xl border-2 border-secondary overflow-hidden z-10">
-            <img src="{{ url('img/Bina Pusaka/Aset/IMG_0669.png') }}" loading="lazy" alt="Surya Paloh"
+            <img src="{{ url('img/Bina Pusaka/Aset/IMG_0669.webp') }}" loading="lazy" decoding="async"
+                alt="Surya Paloh - Tokoh Nasional & Pendiri Media Group" width="160" height="192"
                 class="w-full h-full object-cover object-top">
         </div>
 
-
-        <div
+        <figure
             class="relative z-10 flex flex-col justify-end gap-3 md:gap-5 p-6 md:p-8 h-full w-full md:w-[75%] lg:w-[70%]">
             <span data-aos="custom-blur-up" class="text-xs md:text-sm tracking-widest uppercase text-secondary">(Success
                 Project)</span>
-            <span data-aos="custom-blur-up" class="text-5xl md:text-7xl text-secondary font-serif leading-none">"</span>
-            <p data-aos="custom-blur-up"
+            <span data-aos="custom-blur-up" class="text-5xl md:text-7xl text-secondary font-serif leading-none"
+                aria-hidden="true">"</span>
+            <blockquote data-aos="custom-blur-up"
                 class="text-base md:text-xl lg:text-3xl text-background font-light italic leading-relaxed line-clamp-4 md:line-clamp-none">
                 Pinisi adalah bukti nyata bahwa Indonesia adalah bangsa pelaut yang besar. Kita harus
                 bangga dan terus melestarikan warisan maritim ini untuk generasi mendatang.
-            </p>
-            <div class="flex items-center gap-3 pt-3 md:pt-4 border-t border-secondary/40">
-                <div data-aos="custom-blur-up" class="w-6 md:w-8 h-px bg-secondary flex-shrink-0"></div>
+            </blockquote>
+            <figcaption class="flex items-center gap-3 pt-3 md:pt-4 border-t border-secondary/40">
+                <div data-aos="custom-blur-up" class="w-6 md:w-8 h-px bg-secondary flex-shrink-0" aria-hidden="true">
+                </div>
                 <div class="flex flex-col">
                     <span data-aos="custom-blur-up" class="text-base md:text-lg font-medium text-background">Surya
                         Paloh</span>
@@ -386,57 +429,34 @@ heritage with modern shipbuilding excellence. Discover our fleet and legacy.')
                         Tokoh Nasional & Pendiri Media Group
                     </span>
                 </div>
-            </div>
-        </div>
+            </figcaption>
+        </figure>
     </div>
 </section>
 
-{{-- TESTIMONIAL SECTION --}}
+{{-- ============================================================ --}}
+{{-- TESTIMONIAL SECTION                                           --}}
+{{-- ============================================================ --}}
 @php
 $countryNames = [
-'ID' => 'Indonesia',
-'AU' => 'Australia',
-'JP' => 'Japan',
-'FR' => 'France',
-'MX' => 'Mexico',
-'IE' => 'Ireland',
-'SE' => 'Sweden',
-'US' => 'United States',
-'GB' => 'United Kingdom',
-'DE' => 'Germany',
-'NL' => 'Netherlands',
-'IT' => 'Italy',
-'ES' => 'Spain',
-'SG' => 'Singapore',
-'MY' => 'Malaysia',
-'CN' => 'China',
-'KR' => 'South Korea',
-'IN' => 'India',
-'BR' => 'Brazil',
-'ZA' => 'South Africa',
-'NZ' => 'New Zealand',
-'CA' => 'Canada',
-'RU' => 'Russia',
-'AE' => 'United Arab Emirates',
-'SA' => 'Saudi Arabia',
-'TH' => 'Thailand',
-'PH' => 'Philippines',
-'VN' => 'Vietnam',
-'PT' => 'Portugal',
-'CH' => 'Switzerland',
+'ID' => 'Indonesia', 'AU' => 'Australia', 'JP' => 'Japan',
+'FR' => 'France', 'MX' => 'Mexico', 'IE' => 'Ireland',
+'SE' => 'Sweden', 'US' => 'United States', 'GB' => 'United Kingdom',
+'DE' => 'Germany', 'NL' => 'Netherlands', 'IT' => 'Italy',
+'ES' => 'Spain', 'SG' => 'Singapore', 'MY' => 'Malaysia',
+'CN' => 'China', 'KR' => 'South Korea', 'IN' => 'India',
+'BR' => 'Brazil', 'ZA' => 'South Africa', 'NZ' => 'New Zealand',
+'CA' => 'Canada', 'RU' => 'Russia', 'AE' => 'United Arab Emirates',
+'SA' => 'Saudi Arabia', 'TH' => 'Thailand', 'PH' => 'Philippines',
+'VN' => 'Vietnam', 'PT' => 'Portugal', 'CH' => 'Switzerland',
 ];
 @endphp
 
-<style>
-#testimonial-scroll::-webkit-scrollbar {
-    display: none;
-}
-</style>
-
-<section class="px-8 md:px-13 lg:px-23 py-16 md:py-24 lg:py-32 flex flex-col gap-16 md:gap-24 lg:gap-40">
+<section class="px-8 md:px-13 lg:px-23 py-16 md:py-24 lg:py-32 flex flex-col gap-16 md:gap-24 lg:gap-40"
+    aria-label="Testimonials from BP Marine Co clients">
     <div class="flex justify-between items-end mb-10 md:mb-14">
-        <div class="w-max h-max object-cover overflow-hidden">
-            <h1 data-aos="fade-up" class="text-xl text-accent">/Testimonial</h1>
+        <div class="overflow-hidden">
+            <p data-aos="fade-up" class="text-xl text-accent">/Testimonial</p>
         </div>
         <div class="text-right">
             <h2 data-aos="custom-blur-up"
@@ -449,28 +469,25 @@ $countryNames = [
 
     @if ($testimonials->count() > 0)
     <div data-aos="custom-zoom-in-up" class="flex flex-col md:flex-row items-stretch gap-0">
-        <div class="hidden md:block sticky top-8 flex-shrink-0 w-56 lg:w-72">
+        <div class="hidden md:block sticky top-8 flex-shrink-0 w-56 lg:w-72" aria-hidden="true">
             <div class="w-full h-[64vh] lg:h-[65vh] rounded-2xl overflow-hidden bg-primary relative">
                 @foreach ($testimonials as $index => $item)
                 <img src="{{ $item->photo ? Storage::url($item->photo) : asset('img/default-avatar.png') }}"
-                    loading="lazy" alt="{{ $item->name }}" data-photo="{{ $index }}"
+                    loading="lazy" decoding="async" alt="{{ $item->name }}" width="288" height="520"
+                    data-photo="{{ $index }}"
                     class="absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-700 {{ $index === 0 ? 'opacity-100' : 'opacity-0' }}">
                 @endforeach
-
-                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"
+                    aria-hidden="true"></div>
                 <div class="absolute bottom-0 left-0 right-0 p-4 md:p-5">
                     @foreach ($testimonials as $index => $item)
                     <div data-info="{{ $index }}"
                         class="transition-opacity flex flex-col gap-1 duration-500 {{ $index === 0 ? 'opacity-100' : 'opacity-0 absolute' }}">
-                        <p class="text-sm font-medium text-background leading-snug">
-                            {{ Str::limit($item->quote, 80) }}
+                        <p class="text-sm font-medium text-background leading-snug">{{ Str::limit($item->quote, 80) }}
                         </p>
                         <p class="text-xs md:text-sm text-accentsecond">— {{ $item->name }}</p>
                         @if ($item->country)
-                        <p class="text-xs text-accentthird">
-                            {{ $countryNames[$item->country] ?? $item->country }}
-                        </p>
+                        <p class="text-xs text-accentthird">{{ $countryNames[$item->country] ?? $item->country }}</p>
                         @endif
                     </div>
                     @endforeach
@@ -478,53 +495,51 @@ $countryNames = [
             </div>
         </div>
 
-        {{-- Scroll area --}}
         <div class="flex-1 min-w-0">
             <div id="testimonial-scroll"
                 class="overflow-x-auto rounded-2xl md:ml-6 pr-2 md:pr-8 cursor-grab active:cursor-grabbing select-none"
-                style="-ms-overflow-style: none; scrollbar-width: none;">
+                style="-ms-overflow-style: none; scrollbar-width: none;" role="list"
+                aria-label="Daftar testimonial klien">
                 <div class="flex gap-3 md:gap-4 w-max items-stretch">
                     @foreach ($testimonials as $index => $item)
-                    <div data-card="{{ $index }}"
-                        class="w-64 md:w-72 bg-background border border-border border-accentthird rounded-2xl p-5 md:p-6 flex flex-col justify-between min-h-[340px] md:min-h-[420px] flex-shrink-0 transition-all duration-500 group hover:bg-primary hover:border-primary cursor-pointer">
+                    <article data-card="{{ $index }}" role="listitem"
+                        class="w-64 md:w-72 bg-background border border-accentthird rounded-2xl p-5 md:p-6 flex flex-col justify-between min-h-[340px] md:min-h-[420px] flex-shrink-0 transition-all duration-500 group hover:bg-primary hover:border-primary cursor-pointer">
                         <div>
-                            <p
-                                class="text-3xl text-secondary font-serif leading-none mb-4 md:mb-5 group-hover:text-secondary duration-500">
-                                "</p>
-                            <p
+                            <p class="text-3xl text-secondary font-serif leading-none mb-4 md:mb-5 group-hover:text-secondary duration-500"
+                                aria-hidden="true">"</p>
+                            <blockquote
                                 class="text-sm text-accent italic leading-relaxed group-hover:text-background duration-500">
                                 {{ $item->quote }}
-                            </p>
+                            </blockquote>
                         </div>
-                        <div
-                            class="flex flex-col gap-3 md:gap-4 pt-4 md:pt-5 mt-4 border-t border-secondary border-border">
+                        <footer class="flex flex-col gap-3 md:gap-4 pt-4 md:pt-5 mt-4 border-t border-secondary">
                             <div
-                                class="w-12 h-12 md:w-16 md:h-16 rounded-xl overflow-hidden border border-secondary border-border flex-shrink-0">
+                                class="w-12 h-12 md:w-16 md:h-16 rounded-xl overflow-hidden border border-secondary flex-shrink-0">
                                 <img src="{{ $item->photo ? Storage::url($item->photo) : asset('img/default-avatar.png') }}"
-                                    loading="lazy" alt="{{ $item->name }}"
+                                    loading="lazy" decoding="async" alt="Foto {{ $item->name }}" width="64" height="64"
                                     class="w-full h-full object-cover object-top">
                             </div>
                             <div class="flex flex-col gap-1">
                                 <p class="text-sm font-medium text-primary group-hover:text-background duration-500">
-                                    {{ $item->name }}
-                                </p>
+                                    {{ $item->name }}</p>
                                 <p class="text-xs text-accent group-hover:text-accentthird duration-500">
-                                    {{ $item->position }}
-                                </p>
+                                    {{ $item->position }}</p>
                                 @if ($item->country)
                                 <p class="text-xs text-accentsecond group-hover:text-secondary duration-500">
                                     {{ $countryNames[$item->country] ?? $item->country }}
                                 </p>
                                 @endif
                             </div>
-                        </div>
-                    </div>
+                        </footer>
+                    </article>
                     @endforeach
                 </div>
             </div>
-            <div id="testimonial-dots" class="flex items-center gap-2 pl-2 md:pl-8 mt-4">
+            <div id="testimonial-dots" class="flex items-center gap-2 pl-2 md:pl-8 mt-4" role="tablist"
+                aria-label="Testimonial navigation dots">
                 @foreach ($testimonials as $index => $item)
-                <div data-dot="{{ $index }}"
+                <div data-dot="{{ $index }}" role="tab" aria-label="Testimonial {{ $index + 1 }} dari {{ $item->name }}"
+                    aria-selected="{{ $index === 0 ? 'true' : 'false' }}"
                     class="h-1 rounded-full transition-all duration-500 {{ $index === 0 ? 'w-6 bg-secondary' : 'w-2 bg-accentthird' }}">
                 </div>
                 @endforeach
@@ -532,33 +547,34 @@ $countryNames = [
         </div>
     </div>
     @else
-    {{-- Empty state --}}
     <div data-aos="custom-zoom-in-up"
         class="flex flex-col items-center justify-center gap-6 py-16 md:py-24 border-2 bg-background border-accentthird rounded-2xl">
         <div class="flex items-center justify-center w-20 h-20 rounded-full border-2 border-accentsecond">
-            <i class="ti ti-message-circle text-4xl text-accentsecond"></i>
+            <i class="ti ti-message-circle text-4xl text-accentsecond" aria-hidden="true"></i>
         </div>
         <div class="flex flex-col items-center gap-2 text-center">
-            <h1 class="text-xl md:text-2xl text-primary font-medium">Testimonials Coming Soon</h1>
+            <p class="text-xl md:text-2xl text-primary font-medium">Testimonials Coming Soon</p>
             <p class="text-sm text-accent max-w-sm">We are gathering stories from our clients. Be the first to share
                 your experience with us.</p>
         </div>
-        <a href="/contact"
+        <a href="/contact" aria-label="Contact us - Get in touch with BP Marine Co"
             class="bg-secondary relative group overflow-hidden text-background px-6 py-3 flex items-center rounded-full shadow-md transition ease-in-out duration-500">
             <span
-                class="absolute bg-primary rounded-full inset-y-0 left-0 w-0 group-hover:w-full transition-all duration-300"></span>
+                class="absolute bg-primary rounded-full inset-y-0 left-0 w-0 group-hover:w-full transition-all duration-300"
+                aria-hidden="true"></span>
             <span class="relative text-sm font-medium">Get In Touch</span>
         </a>
     </div>
     @endif
 </section>
 
-{{-- FAQ SECTION --}}
+{{-- ============================================================ --}}
+{{-- FAQ SECTION                                                   --}}
+{{-- ============================================================ --}}
 <section class="w-full px-8 md:px-13 lg:px-23 py-16 md:py-24 lg:py-32">
-    {{-- Header --}}
     <div class="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-4 mb-10 md:mb-14">
-        <div class="w-max h-max overflow-hidden">
-            <h1 data-aos="fade-up" class="text-xl text-accent">/Frequently Asked Questions</h1>
+        <div class="overflow-hidden">
+            <p data-aos="fade-up" class="text-xl text-accent">/Frequently Asked Questions</p>
         </div>
         <div class="sm:text-right">
             <h2 data-aos="custom-blur-up"
@@ -596,20 +612,20 @@ $countryNames = [
     @endphp
 
     <div class="flex flex-col gap-2" x-data="{ active: null }">
-
         @foreach($faqs as $index => $faq)
         <div data-aos="custom-blur-up"
             class="group relative border rounded-lg overflow-hidden cursor-pointer transition-all duration-500"
             :class="active === {{ $index }} ? 'bg-primary border-background' : 'bg-background border-accentthird'"
-            @click="active === {{ $index }} ? active = null : active = {{ $index }}">
+            @click="active === {{ $index }} ? active = null : active = {{ $index }}" role="button"
+            :aria-expanded="active === {{ $index }} ? 'true' : 'false'" :aria-label="'{{ addslashes($faq['q']) }}'">
             <div class="absolute left-0 top-0 bottom-0 w-1 bg-secondary rounded-l-lg transition-all duration-500"
-                :class="active === {{ $index }} ? 'opacity-100 w-1' : 'opacity-0 w-0 group-hover:opacity-100 group-hover:w-1'">
-            </div>
+                :class="active === {{ $index }} ? 'opacity-100 w-1' : 'opacity-0 w-0 group-hover:opacity-100 group-hover:w-1'"
+                aria-hidden="true"></div>
             <div class="flex items-center gap-3 md:gap-4 px-3 md:px-4 py-3 md:py-4 select-none">
                 <span
                     class="font-bold text-xl sm:text-2xl md:text-3xl leading-none flex-shrink-0 w-7 sm:w-9 md:w-11 transition-colors duration-500"
                     :class="active === {{ $index }} ? 'text-background' : 'text-primary'"
-                    style="font-family: 'Poppins', sans-serif; letter-spacing: 0.02em;">
+                    style="font-family: 'Poppins', sans-serif; letter-spacing: 0.02em;" aria-hidden="true">
                     {{ str_pad($index + 1, 2, '0', STR_PAD_LEFT) }}
                 </span>
                 <span
@@ -618,9 +634,10 @@ $countryNames = [
                     {{ $faq['q'] }}
                 </span>
                 <div class="p-2 sm:p-3 md:p-4 rounded-full border flex items-center justify-center flex-shrink-0 transition-all duration-500"
-                    :class="active === {{ $index }} ? 'bg-secondary border-background' : 'bg-transparent border-primary'">
+                    :class="active === {{ $index }} ? 'bg-secondary border-background' : 'bg-transparent border-accentsecond'">
                     <i class="ti ti-chevron-down text-lg transition-transform duration-500"
-                        :class="active === {{ $index }} ? 'rotate-180 text-accentthird' : 'rotate-0 text-[#777]'"></i>
+                        :class="active === {{ $index }} ? 'rotate-180 text-accentthird' : 'rotate-0 text-accentsecond'"
+                        aria-hidden="true"></i>
                 </div>
             </div>
             <div x-show="active === {{ $index }}" x-collapse
@@ -636,23 +653,20 @@ $countryNames = [
         @endforeach
     </div>
 
-    {{-- Footer CTA --}}
     <div data-aos="custom-blur-up"
         class="mt-6 md:mt-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 sm:gap-0">
-        <div class="flex items-center gap-2">
-            <span class="text-lg text-accent tracking-wide">Still have questions?</span>
-        </div>
-        <a href="/contact"
+        <span class="text-lg text-accent tracking-wide">Still have questions?</span>
+        <a href="/contact" aria-label="Contact us with your questions about BP Marine Co"
             class="group relative overflow-hidden px-6 py-2 mr-3 bg-secondary rounded-full text-background w-max">
             <span
-                class="absolute rounded-full inset-y-0 left-0 w-0 bg-primary transition-all duration-500 group-hover:w-full"></span>
+                class="absolute rounded-full inset-y-0 left-0 w-0 bg-primary transition-all duration-500 group-hover:w-full"
+                aria-hidden="true"></span>
             <span
                 class="flex items-center gap-2 text-md text-background font-medium relative z-10 group-hover:text-white transition">
-                Contact Us <i class="ti ti-arrow-up-right"></i>
+                Contact Us <i class="ti ti-arrow-up-right" aria-hidden="true"></i>
             </span>
         </a>
     </div>
-
 </section>
 
 @endsection

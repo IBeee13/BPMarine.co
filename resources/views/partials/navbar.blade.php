@@ -4,7 +4,7 @@
     <div class="flex items-center gap-1 ">
         <picture>
             <source srcset="{{ url('img/Bina Pusaka/Aset/LOGO BINA PUSAKA 21.webp') }}" type="image/webp">
-            <img src="{{ url('img/Bina Pusaka/Aset/LOGO BINA PUSAKA 21.png') }}" alt="BP Marine Logo" class="h-12 w-auto">
+            <img src="{{ url('img/Bina Pusaka/Aset/LOGO BINA PUSAKA 21.webp') }}" alt="BP Marine Logo" class="h-12 w-auto">
         </picture>
         <div class="flex flex-col leading-tight">
             <span class="text-[16px] font-light">BINA PUSAKA</span>
