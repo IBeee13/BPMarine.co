@@ -1,5 +1,5 @@
-<footer class="pb-0 overflow-hidden">
-    <section class="px-8 md:px-13 lg:px-23 mt-8 mb-16">
+<footer class="pb-0 relative z-10">
+    <section class="px-7 md:px-13 lg:px-23 mt-8 mb-16">
         <div class="relative flex w-full items-center justify-center bg-primary min-h-[200px] md:h-78 px-6 md:px-20 py-12 md:py-0 overflow-hidden rounded-[40px]
         shadow-2xl shadow-primary/70
         hover:shadow-[0_25px_60px_rgba(24,37,77,0.5)]
@@ -26,44 +26,44 @@
         </div>
     </section>
 
-
-    <section class="mt-8 px-8 md:px-13 lg:px-19 rounded-t-[80px] pb-0">
-        <div class="flex flex-col md:flex-row gap-24 py-10">
-            <div class="flex flex-col gap-8">
+    <section class="mt-8 px-7 md:px-13 lg:px-19 rounded-t-[80px] pb-0">
+        <div class="flex flex-col md:flex-row gap-28 py-10">
+            <div class="flex flex-col gap-8 overflow-hidden">
                 <div data-aos="fade-up" class="flex items-center gap-2">
                     <picture>
-                        <source srcset="{{ url('img/Bina Pusaka/Aset/LOGO BINA PUSAKA 21.webp') }}" type="image/webp">
                         <img src="{{ url('img/Bina Pusaka/Aset/LOGO BINA PUSAKA 21.webp') }}" alt="Logo Bina Pusaka Marine"
                             class="h-14 w-auto -ml-[2vw] lg:ml-[0.2vw]">
                     </picture>
                     <div class="flex flex-col leading-tight md:w-[16vw]">
                         <span class="text-[2.8vh] md:text-[3vh] text-primary">BINA PUSAKA</span>
                         <span class="text-[1.3vh] md:text-[1.4vh] text-accentsecond font-light tracking-wide">
-                            Desain and Pinisi Construction
+                            Design and Pinisi Construction
                         </span>
                     </div>
                 </div>
                 <div data-aos="fade-up" class="flex gap-8 md:ml-[1vw] md:mt-[16vh]">
-                    <a href="https://www.tiktok.com/@ud.binapusakapinisi?is_from_webapp=1&sender_device=pc" aria-label="Tiktok"
+                    <a href="https://www.tiktok.com/@ud.binapusakapinisi?is_from_webapp=1&sender_device=pc"
+                        aria-label="Tiktok BP Marine Co"
                         class="flex-shrink-0 bg-secondary relative group overflow-hidden text-background w-11 h-11 flex items-center justify-center rounded-full shadow-md transition duration-500">
                         <span
                             class="absolute bg-primary rounded-full inset-y-0 left-0 w-0 group-hover:w-full transition-all duration-300"></span>
-                        <i class="ti ti-brand-tiktok relative text-xl"></i>
+                        <i class="ti ti-brand-tiktok relative text-xl" aria-hidden="true"></i>
                     </a>
-                    <a href="https://www.instagram.com/bpmarineco_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" aria-label="Instagram"
+                    <a href="https://www.instagram.com/bpmarineco_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                        aria-label="Instagram BP Marine Co"
                         class="flex-shrink-0 bg-secondary relative group overflow-hidden text-background w-11 h-11 flex items-center justify-center rounded-full shadow-md transition duration-500">
                         <span
                             class="absolute bg-primary rounded-full inset-y-0 left-0 w-0 group-hover:w-full transition-all duration-300"></span>
-                        <i class="ti ti-brand-instagram relative text-xl"></i>
+                        <i class="ti ti-brand-instagram relative text-xl" aria-hidden="true"></i>
                     </a>
-                    <a href="" aria-label="LinkedIn"
+                    <a href="#" aria-label="LinkedIn BP Marine Co (coming soon)"
                         class="flex-shrink-0 bg-secondary relative group overflow-hidden text-background w-11 h-11 flex items-center justify-center rounded-full shadow-md transition duration-500">
                         <span
                             class="absolute bg-primary rounded-full inset-y-0 left-0 w-0 group-hover:w-full transition-all duration-300"></span>
-                        <i class="ti ti-brand-linkedin relative text-xl"></i>
+                        <i class="ti ti-brand-linkedin relative text-xl" aria-hidden="true"></i>
                     </a>
                 </div>
-                <span data-aos="fade-up" class="text-sm text-primary md:ml-[1vw]">© 2027 BPMarine.Co (Bina
+                <span data-aos="fade-up" class="text-sm text-primary md:ml-[1vw]">© 2025 BPMarine.Co (Bina
                     Pusaka)</span>
             </div>
             <div class="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-0 w-full">
@@ -106,14 +106,13 @@
                 </div>
             </div>
         </div>
-        {{-- BIG TEXT FULL BLEED --}}
-        <div class="w-screen relative left-1/2 right-1/2 -mx-[50vw] overflow-hidden leading-none pb-0 mb-0"
-            style="height: 0.78em; font-size: clamp(80px, 15vw, 320px);">
+
+        <div class="w-screen relative left-1/2 -translate-x-1/2 overflow-hidden leading-none"
+            style="font-size: clamp(80px, 15vw, 320px); max-height: 0.78em;">
             <h1 class="animate-leftscroll whitespace-nowrap text-primary font-bold leading-none block"
                 style="font-family: 'Poppins', sans-serif;">
                 BPMARINE.CO • BPMARINE.CO • BPMARINE.CO • BPMARINE.CO •
             </h1>
         </div>
     </section>
-
 </footer>

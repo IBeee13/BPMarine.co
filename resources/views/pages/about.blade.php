@@ -1,90 +1,113 @@
 @extends('layouts.app')
 
-@section('content')
-@section('meta_description', 'Learn the story behind BP Marine Co — a family-rooted Pinisi shipyard in Bulukumba, South
+@section('title', 'About BPMarine.Co — Pinisi Shipyard Since 1998')
+@section('og_title', 'About BPMarine.Co — Traditional Pinisi Shipyard Since 1998')
+@section('meta_description', 'Learn the story behind BPMarine.Co — a family-rooted Pinisi shipyard in Bulukumba, South
 Sulawesi, dedicated to preserving the art of traditional Indonesian boatbuilding since 1998.')
 
-{{-- HERO SECTION --}}
-<section class="relative flex w-full min-h-screen overflow-hidden px-8 md:px-13 lg:px-23 py-8">
-    <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden flex top-72 md:top-72">
+@push('preload')
+<link rel="preload" as="image"
+    href="{{ url('img/Bina Pusaka/The Maj Oceanic/TMO-Areal-view-scaled-e1664971034548 (2).webp') }}"
+    fetchpriority="high" type="image/webp">
+@endpush
+
+@section('content')
+
+{{-- ============================================================ --}}
+{{-- HERO SECTION                                                  --}}
+{{-- ============================================================ --}}
+<section class="relative flex w-full min-h-screen overflow-hidden px-8 md:px-13 lg:px-23 py-8"
+    aria-label="Hero — About BP Marine Co">
+
+    <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden flex top-72 md:top-72" aria-hidden="true">
         <div class="whitespace-nowrap animate-leftscroll text-[30vw] md:text-[20vw] font-medium">
-            <h1
+            <p
                 style="color:transparent;-webkit-text-stroke:2px var(--color-accentthird); font-family: 'Poppins', sans-serif;">
                 We Carry a 14th-Century Maritime Legacy into the Future of Indonesia &nbsp;
                 We Carry a 14th-Century Maritime Legacy into the Future of Indonesia &nbsp;
-            </h1>
+            </p>
         </div>
     </div>
 
-    {{-- Mobile --}}
+    {{-- ── Mobile ──────────────────────────────────────────────────────────── --}}
     <div data-aos="custom-blur-up" class="relative z-10 flex flex-col md:hidden gap-5 pt-4 w-full">
         <h1 class="text-6xl sm:text-7xl text-primary font-extrabold leading-none"
             style="font-family: 'Poppins', sans-serif;">About</h1>
-        <h1 class="text-6xl sm:text-7xl font-extrabold leading-none"
-            style="color:transparent;-webkit-text-stroke:2px var(--color-accent); font-family: 'Poppins', sans-serif;">
-            Us</h1>
+        <span class="text-6xl sm:text-7xl font-extrabold leading-none"
+            style="color:transparent;-webkit-text-stroke:2px var(--color-accent); font-family: 'Poppins', sans-serif;"
+            aria-hidden="true">Us</span>
+
         <p data-aos="custom-blur-up" class="text-base text-primary font-medium">
             Crafted Since 1998 — <span class="text-accent">Since 1998, Bina Pusaka has built more than 20 Pinisi vessels
                 — preserving tradition while delivering vessels for modern maritime needs.</span>
         </p>
-        <a data-aos="custom-zoom-in-up" href="/collection"
+        <a data-aos="custom-zoom-in-up" href="/collection" aria-label="View Our Collection of Pinisi vessels"
             class="bg-secondary relative group overflow-hidden text-background px-6 py-3 flex justify-center items-center rounded-full shadow-md w-fit transition ease-in-out duration-500">
             <span
-                class="absolute bg-primary rounded-full inset-y-0 left-0 w-0 group-hover:w-full transition-all duration-300"></span>
+                class="absolute bg-primary rounded-full inset-y-0 left-0 w-0 group-hover:w-full transition-all duration-300"
+                aria-hidden="true"></span>
             <span class="relative group-hover:text-background text-md font-base">View Our Collection</span>
         </a>
         <div data-aos="custom-zoom-in-up" class="flex gap-4">
             <a href="https://www.tiktok.com/@ud.binapusakapinisi?is_from_webapp=1&sender_device=pc"
+                aria-label="Ikuti BP Marine Co di TikTok"
                 class="bg-secondary relative group overflow-hidden text-background w-10 h-10 flex items-center justify-center rounded-full shadow-md transition ease-in-out duration-500">
                 <span
-                    class="absolute bg-primary rounded-full inset-y-0 left-0 w-0 group-hover:w-full transition-all duration-300"></span>
-                <i class="ti ti-brand-tiktok relative group-hover:text-background text-xl"></i>
+                    class="absolute bg-primary rounded-full inset-y-0 left-0 w-0 group-hover:w-full transition-all duration-300"
+                    aria-hidden="true"></span>
+                <i class="ti ti-brand-tiktok relative group-hover:text-background text-xl" aria-hidden="true"></i>
             </a>
             <a href="https://www.instagram.com/bpmarineco_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                aria-label="Ikuti BP Marine Co di Instagram"
                 class="bg-secondary relative group overflow-hidden text-background w-10 h-10 flex items-center justify-center rounded-full shadow-md transition ease-in-out duration-500">
                 <span
-                    class="absolute bg-primary rounded-full inset-y-0 left-0 w-0 group-hover:w-full transition-all duration-300"></span>
-                <i class="ti ti-brand-instagram relative group-hover:text-background text-xl"></i>
+                    class="absolute bg-primary rounded-full inset-y-0 left-0 w-0 group-hover:w-full transition-all duration-300"
+                    aria-hidden="true"></span>
+                <i class="ti ti-brand-instagram relative group-hover:text-background text-xl" aria-hidden="true"></i>
             </a>
-            <a href=""
+            <a href="#" aria-label="LinkedIn BP Marine Co (segera hadir)" aria-disabled="true"
                 class="bg-secondary relative group overflow-hidden text-background w-10 h-10 flex items-center justify-center rounded-full shadow-md transition ease-in-out duration-500">
                 <span
-                    class="absolute bg-primary rounded-full inset-y-0 left-0 w-0 group-hover:w-full transition-all duration-300"></span>
-                <i class="ti ti-brand-linkedin relative group-hover:text-background text-xl font-bold"></i>
+                    class="absolute bg-primary rounded-full inset-y-0 left-0 w-0 group-hover:w-full transition-all duration-300"
+                    aria-hidden="true"></span>
+                <i class="ti ti-brand-linkedin relative group-hover:text-background text-xl font-bold"
+                    aria-hidden="true"></i>
             </a>
         </div>
         <div data-aos="custom-zoom-in-up" class="rounded-2xl overflow-hidden h-56 sm:h-64 w-full mt-16">
-            <img src="{{ url('img/Bina Pusaka/Tiger Blue/tiger-blue-phinisi.webp') }}" alt="Kapal Pinisi Tiger Blue"
-                loading="lazy" class="h-full w-full object-cover hover:scale-110 transition duration-500"
-                alt="The Maj Oceanic Pinisi">
+            <img src="{{ url('img/Bina Pusaka/Tiger Blue/tiger-blue-phinisi.webp') }}"
+                alt="Kapal Pinisi Tiger Blue — buatan BP Marine Co Bulukumba" width="600" height="256" loading="eager"
+                fetchpriority="high" decoding="sync"
+                class="h-full w-full object-cover hover:scale-110 transition duration-500">
         </div>
     </div>
 
-    {{-- Dekstop --}}
+    {{-- ── Desktop ──────────────────────────────────────────────────────────── --}}
     <div class="relative z-10 hidden md:flex items-stretch w-full h-[120vh]">
         <div data-aos="custom-blur-up" class="flex flex-col flex-1 justify-between py-4">
             <div>
                 <h1 class="text-[80px] lg:text-[180px] text-primary font-extrabold leading-none"
                     style="font-family: 'Poppins', sans-serif;">About</h1>
-                <h1 class="text-[80px] lg:text-[180px] text-accent font-extrabold leading-none"
-                    style="color:transparent;-webkit-text-stroke:2px var(--color-accent); font-family: 'Poppins', sans-serif;">
-                    Us</h1>
+                <span class="block text-[80px] lg:text-[180px] text-accent font-extrabold leading-none"
+                    style="color:transparent;-webkit-text-stroke:2px var(--color-accent); font-family: 'Poppins', sans-serif;"
+                    aria-hidden="true">Us</span>
             </div>
             <div class="flex gap-6 lg:gap-23 w-full">
                 <div data-aos="custom-zoom-in-up" class="w-[18vw] lg:w-[16vw] flex-shrink-0">
-                    <a href="/collection"
+                    <a href="/collection" aria-label="View Our Collection of Pinisi vessels"
                         class="bg-secondary relative group overflow-hidden text-background px-4 lg:px-6 py-3 flex justify-center items-center rounded-full shadow-md transition ease-in-out duration-500">
                         <span
-                            class="absolute bg-primary rounded-full inset-y-0 left-0 w-0 group-hover:w-full transition-all duration-300"></span>
+                            class="absolute bg-primary rounded-full inset-y-0 left-0 w-0 group-hover:w-full transition-all duration-300"
+                            aria-hidden="true"></span>
                         <span class="relative group-hover:text-background text-sm lg:text-lg font-base">View Our
                             Collection</span>
                     </a>
                 </div>
                 <div data-aos="custom-blur-up" class="flex-1">
-                    <h1 class="text-base lg:text-xl text-primary font-medium">Crafted Since 1998 —
+                    <p class="text-base lg:text-xl text-primary font-medium">Crafted Since 1998 —
                         <span class="text-accent">Since 1998, Bina Pusaka has built more than 20 Pinisi vessels —
                             preserving tradition while delivering vessels for modern maritime needs.</span>
-                    </h1>
+                    </p>
                 </div>
             </div>
         </div>
@@ -92,70 +115,84 @@ Sulawesi, dedicated to preserving the art of traditional Indonesian boatbuilding
         <div
             class="flex-shrink-0 w-[35%] lg:w-[30%] flex flex-col gap-4 lg:gap-8 ml-8 lg:ml-16 pt-4 lg:pt-32 h-full min-h-0">
             <div data-aos="custom-zoom-in-up" class="flex-shrink-0">
-                <h1 class="text-lg lg:text-xl text-accent font-medium">/At Sea With Us</h1>
+                <p class="text-lg lg:text-xl text-accent font-medium">/At Sea With Us</p>
             </div>
             <div data-aos="custom-zoom-in-up" class="flex gap-6 lg:gap-10 flex-shrink-0">
                 <a href="https://www.tiktok.com/@ud.binapusakapinisi?is_from_webapp=1&sender_device=pc"
+                    aria-label="Ikuti BP Marine Co di TikTok"
                     class="bg-secondary relative group overflow-hidden text-background w-10 h-10 lg:w-12 lg:h-12 flex items-center justify-center rounded-full shadow-md shadow-black/30 transition ease-in-out duration-500">
                     <span
-                        class="absolute bg-primary rounded-full inset-y-0 left-0 w-0 group-hover:w-full transition-all duration-300"></span>
-                    <i class="ti ti-brand-tiktok relative group-hover:text-background text-xl lg:text-2xl"></i>
+                        class="absolute bg-primary rounded-full inset-y-0 left-0 w-0 group-hover:w-full transition-all duration-300"
+                        aria-hidden="true"></span>
+                    <i class="ti ti-brand-tiktok relative group-hover:text-background text-xl lg:text-2xl"
+                        aria-hidden="true"></i>
                 </a>
                 <a href="https://www.instagram.com/bpmarineco_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                    aria-label="Ikuti BP Marine Co di Instagram"
                     class="bg-secondary relative group overflow-hidden text-background w-10 h-10 lg:w-12 lg:h-12 flex items-center justify-center rounded-full shadow-md shadow-black/30 transition ease-in-out duration-500">
                     <span
-                        class="absolute bg-primary rounded-full inset-y-0 left-0 w-0 group-hover:w-full transition-all duration-300"></span>
-                    <i class="ti ti-brand-instagram relative group-hover:text-background text-xl lg:text-2xl"></i>
+                        class="absolute bg-primary rounded-full inset-y-0 left-0 w-0 group-hover:w-full transition-all duration-300"
+                        aria-hidden="true"></span>
+                    <i class="ti ti-brand-instagram relative group-hover:text-background text-xl lg:text-2xl"
+                        aria-hidden="true"></i>
                 </a>
-                <a href=""
+                <a href="#" aria-label="LinkedIn BP Marine Co (segera hadir)" aria-disabled="true"
                     class="bg-secondary relative group overflow-hidden text-background w-10 h-10 lg:w-12 lg:h-12 flex items-center justify-center rounded-full shadow-md shadow-black/30 transition ease-in-out duration-500">
                     <span
-                        class="absolute bg-primary rounded-full inset-y-0 left-0 w-0 group-hover:w-full transition-all duration-300"></span>
-                    <i
-                        class="ti ti-brand-linkedin relative group-hover:text-background text-xl lg:text-2xl font-bold"></i>
+                        class="absolute bg-primary rounded-full inset-y-0 left-0 w-0 group-hover:w-full transition-all duration-300"
+                        aria-hidden="true"></span>
+                    <i class="ti ti-brand-linkedin relative group-hover:text-background text-xl lg:text-2xl font-bold"
+                        aria-hidden="true"></i>
                 </a>
             </div>
-            <div data-aos="zoom-out-up" data-aos-delay="100" class="flex-1 min-h-0 rounded-2xl overflow-hidden">
-                <img src="{{ url('img/Bina Pusaka/The Maj Oceanic/TMO-areal-view.webp') }}"
-                    alt="The Maj Oceanic Pinisi - Aerial View" loading="lazy"
-                    class="h-full w-full object-cover hover:scale-110 transition duration-500"
-                    alt="The Maj Oceanic Pinisi">
+            <div data-aos="custom-zoom-in-up" data-aos-delay="100" class="flex-1 min-h-0 rounded-2xl overflow-hidden">
+                <img src="{{ url('img/Bina Pusaka/The Maj Oceanic/TMO-Areal-view-scaled-e1664971034548__2_.webp') }}"
+                    alt="Aerial view kapal Pinisi The Maj Oceanic — buatan BP Marine Co" width="480" height="640"
+                    loading="eager" fetchpriority="high" decoding="sync"
+                    class="h-full w-full object-cover hover:scale-110 transition duration-500">
             </div>
         </div>
     </div>
 </section>
 
-{{-- WHO WE ARE SECTION --}}
-<section class="flex flex-col gap-6 md:gap-8 w-full px-6 md:px-12 lg:px-23 py-12 md:py-16">
+{{-- ============================================================ --}}
+{{-- WHO WE ARE SECTION                                            --}}
+{{-- ============================================================ --}}
+<section class="flex flex-col gap-6 md:gap-8 w-full px-6 md:px-12 lg:px-23 py-12 md:py-16"
+    aria-labelledby="who-we-are-heading">
     <div class="flex items-center h-full w-max overflow-hidden">
-        <h1 data-aos="fade-up" class="text-xl text-accent mb-2 md:mb-4">
-            /Who We Are</h1>
+        {{-- FIX: p bukan h1 untuk label section --}}
+        <p data-aos="fade-up" class="text-xl text-accent mb-2 md:mb-4">/Who We Are</p>
     </div>
     <div data-aos="custom-blur-up" class="flex flex-col md:flex-row gap-6 md:gap-8 lg:gap-14">
         <div class="w-full md:w-[40vw]">
-            <h1 class="text-4xl md:text-[4vw] lg:text-[6vw] text-primary font-extrabold leading-none"
-                style="font-family: 'Poppins', sans-serif;">Where It All</h1>
-            <h1 class="text-4xl md:text-[4vw] lg:text-[6vw] text-accent font-extrabold leading-none"
+            {{-- FIX: h2 yang sesungguhnya untuk section ini --}}
+            <h2 id="who-we-are-heading"
+                class="text-4xl md:text-[4vw] lg:text-[6vw] text-primary font-extrabold leading-none"
+                style="font-family: 'Poppins', sans-serif;">Where It All</h2>
+            <span class="block text-4xl md:text-[4vw] lg:text-[6vw] text-accent font-extrabold leading-none"
                 style="color:transparent;-webkit-text-stroke:2px var(--color-accent); font-family: 'Poppins', sans-serif;">
-                Begins</h1>
+                Begins</span>
         </div>
         <div class="w-full md:w-[43vw]">
-            <h1 class="text-base md:text-lg lg:text-2xl text-primary font-medium">
+            <p class="text-base md:text-lg lg:text-2xl text-primary font-medium">
                 Bina Pusaka is a traditional shipyard based in Bulukumba, Indonesia —
                 <span class="text-accent">the heart of Pinisi craftsmanship. We specialize in building authentic wooden
                     vessels, combining heritage techniques with modern engineering.</span>
-            </h1>
+            </p>
         </div>
     </div>
 </section>
 
-
+{{-- ============================================================ --}}
+{{-- STORY / TIMELINE SECTION                                      --}}
+{{-- ============================================================ --}}
 <section
     class="relative w-full rounded-b-4xl h-400 md:h-480 lg:h-420 px-5 sm:px-8 md:px-13 lg:px-23 py-12 md:py-20 lg:py-24 bg-primary overflow-hidden"
-    id="story-section">
+    id="story-section" aria-labelledby="story-heading">
 
     {{-- Background grid lines --}}
-    <div class="absolute inset-0 pointer-events-none z-0 hidden sm:block"
+    <div class="absolute inset-0 pointer-events-none z-0 hidden sm:block" aria-hidden="true"
         style="display: grid; grid-template-columns: 6% 22% 22% 22% 22% 1fr;">
         <div class="border-r border-accent opacity-30"></div>
         <div class="border-r border-accent opacity-30"></div>
@@ -168,7 +205,8 @@ Sulawesi, dedicated to preserving the art of traditional Indonesian boatbuilding
     <div
         class="relative z-10 flex flex-col md:flex-row md:items-end md:justify-between gap-6 md:gap-8 mb-10 md:mb-16 lg:mb-20">
         <div>
-            <h2 data-aos="custom-blur-up"
+            {{-- FIX: h2 untuk section --}}
+            <h2 id="story-heading" data-aos="custom-blur-up"
                 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-background leading-tight"
                 style="font-family: 'Poppins', sans-serif;">
                 600 Years in the Making
@@ -202,64 +240,31 @@ Sulawesi, dedicated to preserving the art of traditional Indonesian boatbuilding
 
     @php
     $milestones = [
-    [
-    'year' => '1983',
-    'sublabel' => 'Expo Vancouver',
-    'badge' => 'Milestone',
-    'icon' => 'ti-map-pin',
-    'active' => false,
-    'side' => 'left',
-    'title' => 'From Indonesia to the World',
-    'desc' => 'Pinisi introduced at Expo Vancouver, Canada — marking our global debut and proving Indonesian
-    craftsmanship belongs on the world stage.',
-    ],
-    [
-    'year' => '1998',
-    'sublabel' => 'Bulukumba, ID',
-    'badge' => 'Founded',
-    'icon' => 'ti-anchor',
-    'active' => false,
-    'side' => 'right',
-    'title' => 'BP Marine Co. Established',
-    'desc' => 'Continuing a 600-year legacy of Pinisi craftsmanship, combining generations of heritage with modern
-    shipbuilding expertise.',
-    ],
-    [
-    'year' => '2021',
-    'sublabel' => 'UNESCO ICH',
-    'badge' => 'Recognition',
-    'icon' => 'ti-award',
-    'active' => false,
-    'side' => 'left',
-    'title' => 'UNESCO Cultural Heritage',
-    'desc' => "Pinisi officially listed as Intangible Cultural Heritage of Humanity — a testament to the craft we've
-    dedicated our lives to preserving.",
-    ],
-    [
-    'year' => 'Now',
-    'sublabel' => 'Global Reach',
-    'badge' => 'Today',
-    'icon' => 'ti-ship',
-    'active' => true,
-    'side' => 'right',
-    'title' => '25+ Years, 20+ Vessels',
-    'desc' => 'Building heritage-grade Pinisi for discerning clients across the globe. Every vessel is a chapter in a
-    story that spans six centuries.',
-    ],
+    ['year' => '1983', 'sublabel' => 'Expo Vancouver', 'badge' => 'Milestone', 'icon' => 'ti-map-pin', 'active' =>
+    false, 'side' => 'left', 'title' => 'From Indonesia to the World', 'desc' => 'Pinisi introduced at Expo Vancouver,
+    Canada — marking our global debut and proving Indonesian craftsmanship belongs on the world stage.'],
+    ['year' => '1998', 'sublabel' => 'Bulukumba, ID', 'badge' => 'Founded', 'icon' => 'ti-anchor', 'active' => false,
+    'side' => 'right', 'title' => 'BP Marine Co. Established', 'desc' => 'Continuing a 600-year legacy of Pinisi
+    craftsmanship, combining generations of heritage with modern shipbuilding expertise.'],
+    ['year' => '2021', 'sublabel' => 'UNESCO ICH', 'badge' => 'Recognition','icon' => 'ti-award', 'active' => false,
+    'side' => 'left', 'title' => 'UNESCO Cultural Heritage', 'desc' => "Pinisi officially listed as Intangible Cultural
+    Heritage of Humanity — a testament to the craft we've dedicated our lives to preserving."],
+    ['year' => 'Now', 'sublabel' => 'Global Reach', 'badge' => 'Today', 'icon' => 'ti-ship', 'active' => true, 'side' =>
+    'right', 'title' => '25+ Years, 20+ Vessels', 'desc' => 'Building heritage-grade Pinisi for discerning clients
+    across the globe. Every vessel is a chapter in a story that spans six centuries.'],
     ];
     @endphp
 
     <div class="relative z-10" id="timeline-wrapper">
-
         {{-- Vertical center line (desktop only) --}}
-        <div
-            class="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px bg-accent overflow-hidden pointer-events-none hidden md:block">
+        <div class="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px bg-accent overflow-hidden pointer-events-none hidden md:block"
+            aria-hidden="true">
             <div id="timeline-line-fill" class="w-full bg-secondary transition-all duration-1000 ease-out"
                 style="height: 0%;"></div>
         </div>
-
         {{-- Mobile: left line --}}
-        <div class="absolute left-4 top-0 bottom-0 w-px bg-accent overflow-hidden pointer-events-none md:hidden">
+        <div class="absolute left-4 top-0 bottom-0 w-px bg-accent overflow-hidden pointer-events-none md:hidden"
+            aria-hidden="true">
             <div id="timeline-line-fill-mobile" class="w-full bg-secondary transition-all duration-1000 ease-out"
                 style="height: 0%;"></div>
         </div>
@@ -267,41 +272,32 @@ Sulawesi, dedicated to preserving the art of traditional Indonesian boatbuilding
         @foreach($milestones as $index => $item)
         @php $cardOnLeft = $item['side'] === 'left'; @endphp
 
-        {{-- ===================== MOBILE LAYOUT ===================== --}}
+        {{-- ── MOBILE ── --}}
         <div class="md:hidden timeline-item-mobile group relative border-t border-accent last:border-b last:border-accent
             cursor-pointer transition-colors duration-300 pl-12 pr-4 py-5
             {{ $item['active'] ? 'bg-secondary/3 hover:bg-secondary/10' : 'hover:bg-accent/5' }}"
             style="opacity: 0; transform: translateY(16px);
                    transition: opacity .5s ease {{ $index * 120 }}ms, transform .5s ease {{ $index * 120 }}ms, background-color .3s ease;" data-aos="fade-up" data-aos-delay="{{ $index * 120 }}">
 
-            {{-- Dot (mobile) --}}
             <div class="absolute left-[2px] top-1/2 -translate-y-1/2 flex items-center justify-center" style="transform: scale(0) translateY(-50%); opacity: 0;
                        transition: transform .4s cubic-bezier(.34,1.56,.64,1) {{ $index * 120 + 200 }}ms,
-                                   opacity .3s ease {{ $index * 120 + 200 }}ms;" data-dot
-                data-dot-index="{{ $index }}">
+                                   opacity .3s ease {{ $index * 120 + 200 }}ms;" data-dot data-dot-index="{{ $index }}"
+                aria-hidden="true">
                 <div
-                    class="dot-inner w-7 h-7 rounded-lg flex items-center justify-center
-                    transition-all duration-500 ease-out
-                    {{ $item['active']
-                        ? 'bg-secondary'
-                        : 'bg-primary border-2 border-accentsecond group-hover:border-secondary group-hover:bg-secondary' }}">
+                    class="dot-inner w-7 h-7 rounded-lg flex items-center justify-center transition-all duration-500 ease-out
+                    {{ $item['active'] ? 'bg-secondary' : 'bg-primary border-2 border-accentsecond group-hover:border-secondary group-hover:bg-secondary' }}">
                     <i class="ti {{ $item['icon'] }} text-xs transition-colors duration-300
                         {{ $item['active'] ? 'text-primary' : 'text-accentsecond group-hover:text-primary' }}"
                         aria-hidden="true"></i>
                 </div>
             </div>
 
-            {{-- Year badge --}}
             <div class="flex items-center gap-2 mb-2">
                 <span class="text-xl sm:text-2xl font-extrabold tabular-nums leading-none transition-colors duration-300
                     {{ $item['active'] ? 'text-secondary' : 'text-background group-hover:text-secondary' }}"
-                    style="font-family: 'Poppins', sans-serif;">
-                    {{ $item['year'] }}
-                </span>
+                    style="font-family: 'Poppins', sans-serif;">{{ $item['year'] }}</span>
                 <span class="text-[9px] uppercase tracking-[1.5px] transition-colors duration-300
-                    {{ $item['active'] ? 'text-secondary/60' : 'text-accentsecond' }}">
-                    {{ $item['sublabel'] }}
-                </span>
+                    {{ $item['active'] ? 'text-secondary/60' : 'text-accentsecond' }}">{{ $item['sublabel'] }}</span>
                 <span
                     class="ml-auto text-[9px] uppercase tracking-[2px] font-semibold px-2 py-0.5 rounded-full border
                     {{ $item['active'] ? 'border-secondary/40 text-secondary' : 'border-accentsecond text-accentsecond' }}">
@@ -309,11 +305,10 @@ Sulawesi, dedicated to preserving the art of traditional Indonesian boatbuilding
                 </span>
             </div>
 
-            {{-- Card content --}}
-            <div class="border rounded-xl px-4 py-4 transition-all duration-300
-                {{ $item['active']
-                    ? 'bg-primary border-secondary group-hover:bg-secondary/80 group-hover:border-background'
-                    : 'bg-primary border-accentsecond group-hover:border-secondary' }}">
+            <div
+                class="border rounded-xl px-4 py-4 transition-all duration-300
+                {{ $item['active'] ? 'bg-primary border-secondary group-hover:bg-secondary/80 group-hover:border-background' : 'bg-primary border-accentsecond group-hover:border-secondary' }}">
+                {{-- FIX: h3 untuk judul milestone --}}
                 <h3
                     class="text-base font-bold mb-1 leading-snug transition-colors duration-300
                     {{ $item['active'] ? 'text-secondary group-hover:text-background' : 'text-background group-hover:text-secondary' }}">
@@ -326,7 +321,7 @@ Sulawesi, dedicated to preserving the art of traditional Indonesian boatbuilding
             </div>
         </div>
 
-        {{-- ===================== DESKTOP LAYOUT ===================== --}}
+        {{-- ── DESKTOP ── --}}
         <div class="hidden md:grid timeline-item group relative items-center border-t border-accent last:border-b last:border-accent
             cursor-pointer transition-colors duration-300
             {{ $item['active'] ? 'bg-secondary/3 hover:bg-secondary/10' : 'hover:bg-accent/5' }}"
@@ -337,10 +332,9 @@ Sulawesi, dedicated to preserving the art of traditional Indonesian boatbuilding
             {{-- LEFT COLUMN --}}
             <div class="flex justify-end pr-6 py-7 min-w-0">
                 @if($cardOnLeft)
-                <div class="w-full border rounded-xl px-5 lg:px-6 py-4 lg:py-5 transition-all duration-300
-                    {{ $item['active']
-                        ? 'bg-secondary/5 border-secondary/35 group-hover:bg-secondary/20 group-hover:border-secondary/60'
-                        : 'bg-primary border-accentsecond group-hover:border-secondary group-hover:bg-primary' }}">
+                <div
+                    class="w-full border rounded-xl px-5 lg:px-6 py-4 lg:py-5 transition-all duration-300
+                    {{ $item['active'] ? 'bg-secondary/5 border-secondary/35 group-hover:bg-secondary/20 group-hover:border-secondary/60' : 'bg-primary border-accentsecond group-hover:border-secondary group-hover:bg-primary' }}">
                     <span class="text-xs uppercase tracking-[2.5px] font-semibold block mb-2 transition-colors duration-300
                         {{ $item['active'] ? 'text-secondary' : 'text-accentsecond group-hover:text-secondary' }}">
                         {{ $item['badge'] }}
@@ -358,9 +352,7 @@ Sulawesi, dedicated to preserving the art of traditional Indonesian boatbuilding
                 <div class="flex flex-col items-end transition-all duration-300 group-hover:-translate-x-1">
                     <span class="text-3xl md:text-4xl lg:text-5xl font-extrabold tabular-nums leading-none transition-colors duration-300
                         {{ $item['active'] ? 'text-secondary' : 'text-background group-hover:text-secondary' }}"
-                        style="font-family: 'Poppins', sans-serif;">
-                        {{ $item['year'] }}
-                    </span>
+                        style="font-family: 'Poppins', sans-serif;">{{ $item['year'] }}</span>
                     <span class="text-xs uppercase tracking-[1.5px] mt-2 transition-colors duration-300
                         {{ $item['active'] ? 'text-secondary/60' : 'text-accentsecond group-hover:text-background' }}">
                         {{ $item['sublabel'] }}
@@ -370,15 +362,13 @@ Sulawesi, dedicated to preserving the art of traditional Indonesian boatbuilding
             </div>
 
             {{-- CENTER DOT --}}
-            <div class="flex items-center justify-center" data-dot data-dot-index="{{ $index }}" style="transform: scale(0); opacity: 0;
+            <div class="flex items-center justify-center" data-dot data-dot-index="{{ $index }}" aria-hidden="true"
+                style="transform: scale(0); opacity: 0;
                        transition: transform .4s cubic-bezier(.34,1.56,.64,1) {{ $index * 120 + 200 }}ms,
                                    opacity .3s ease {{ $index * 120 + 200 }}ms;">
                 <div
-                    class="dot-inner w-10 h-10 rounded-xl flex items-center justify-center
-                    transition-all duration-500 ease-out
-                    {{ $item['active']
-                        ? 'bg-secondary group-hover:scale-110 group-hover:rounded-2xl'
-                        : 'bg-primary border-2 border-accentsecond group-hover:border-secondary group-hover:bg-secondary group-hover:scale-110 group-hover:rounded-2xl' }}">
+                    class="dot-inner w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-500 ease-out
+                    {{ $item['active'] ? 'bg-secondary group-hover:scale-110 group-hover:rounded-2xl' : 'bg-primary border-2 border-accentsecond group-hover:border-secondary group-hover:bg-secondary group-hover:scale-110 group-hover:rounded-2xl' }}">
                     <i class="ti {{ $item['icon'] }} text-base transition-colors duration-300
                         {{ $item['active'] ? 'text-primary' : 'text-accentsecond group-hover:text-primary' }}"
                         aria-hidden="true"></i>
@@ -388,10 +378,9 @@ Sulawesi, dedicated to preserving the art of traditional Indonesian boatbuilding
             {{-- RIGHT COLUMN --}}
             <div class="flex justify-start pl-6 py-7 min-w-0">
                 @if(!$cardOnLeft)
-                <div class="w-full border rounded-xl px-5 lg:px-6 py-4 lg:py-5 transition-all duration-300
-                    {{ $item['active']
-                        ? 'bg-primary border-secondary group-hover:bg-secondary/80 group-hover:border-secondbackground'
-                        : 'bg-primary border-accentsecond group-hover:border-secondary group-hover:bg-primary' }}">
+                <div
+                    class="w-full border rounded-xl px-5 lg:px-6 py-4 lg:py-5 transition-all duration-300
+                    {{ $item['active'] ? 'bg-primary border-secondary group-hover:bg-secondary/80 group-hover:border-secondbackground' : 'bg-primary border-accentsecond group-hover:border-secondary group-hover:bg-primary' }}">
                     <span
                         class="text-xs uppercase tracking-[2.5px] font-semibold block mb-2 transition-colors duration-300
                         {{ $item['active'] ? 'text-secondary group-hover:text-background' : 'text-background group-hover:text-secondary' }}">
@@ -411,9 +400,7 @@ Sulawesi, dedicated to preserving the art of traditional Indonesian boatbuilding
                 <div class="flex flex-col items-start transition-all duration-300 group-hover:translate-x-1">
                     <span class="text-3xl md:text-4xl lg:text-5xl font-extrabold tabular-nums leading-none transition-colors duration-300
                         {{ $item['active'] ? 'text-secondary' : 'text-background group-hover:text-secondary' }}"
-                        style="font-family: 'Poppins', sans-serif;">
-                        {{ $item['year'] }}
-                    </span>
+                        style="font-family: 'Poppins', sans-serif;">{{ $item['year'] }}</span>
                     <span class="text-[10px] uppercase tracking-[1.5px] mt-2 transition-colors duration-300
                         {{ $item['active'] ? 'text-secondary/60' : 'text-accentsecond group-hover:text-background' }}">
                         {{ $item['sublabel'] }}
@@ -426,31 +413,35 @@ Sulawesi, dedicated to preserving the art of traditional Indonesian boatbuilding
     </div>
 </section>
 
-{{-- CHARTING THE FUTURE SECTION --}}
-<section class="w-full -mt-112 md:-mt-72 lg:-mt-88 px-8 md:px-13 lg:px-23 pb-16 md:pb-32bg-background overflow-hidden">
+{{-- ============================================================ --}}
+{{-- CHARTING THE FUTURE SECTION                                   --}}
+{{-- ============================================================ --}}
+<section class="w-full -mt-112 md:-mt-72 lg:-mt-88 px-8 md:px-13 lg:px-23 pb-16 md:pb-32 overflow-hidden"
+    aria-labelledby="future-heading">
     <div class="flex items-center h-full w-max overflow-hidden">
-        <h1 data-aos="fade-up" class="text-xl text-background">
-            /Charting The Future</h1>
+        {{-- FIX: p bukan h1 untuk label section --}}
+        <p data-aos="fade-up" class="text-xl text-background">/Charting The Future</p>
     </div>
     <div data-aos="custom-blur-up" class="flex flex-col md:flex-row gap-6 md:gap-8 lg:gap-14 py-10 md:py-14">
         <div class="w-full md:w-[40vw]">
-            <h1 class="text-4xl md:text-[4vw] lg:text-[6vw] text-background font-extrabold leading-none"
-                style="font-family: 'Poppins', sans-serif;">The Future</h1>
-            <h1 class="text-4xl md:text-[4vw] lg:text-[6vw] text-secondary font-extrabold leading-none"
+            {{-- FIX: h2 untuk section heading --}}
+            <h2 id="future-heading"
+                class="text-4xl md:text-[4vw] lg:text-[6vw] text-background font-extrabold leading-none"
+                style="font-family: 'Poppins', sans-serif;">The Future</h2>
+            <span class="block text-4xl md:text-[4vw] lg:text-[6vw] text-secondary font-extrabold leading-none"
                 style="color:transparent;-webkit-text-stroke:2px var(--color-secondary); font-family: 'Poppins', sans-serif;">
-                We Build</h1>
+                We Build</span>
         </div>
         <div class="w-full md:w-[43vw]">
-            <h1 class="text-base md:text-lg lg:text-2xl text-accentsecond font-medium">
+            <blockquote class="text-base md:text-lg lg:text-2xl text-accentsecond font-medium">
                 "We stand where tradition meets ambition. Every Pinisi we craft carries the wisdom of generations into
                 the waters of the modern world."
-            </h1>
+            </blockquote>
         </div>
     </div>
 
     {{-- Cards --}}
     <div class="grid grid-cols-1 md:grid-cols-3 -mt-6 gap-4 md:gap-5">
-
         @foreach([
         ['idx' => '01', 'icon' => 'ti-hammer', 'title' => 'Preserving authentic Pinisi craftsmanship', 'desc' =>
         'Traditional techniques passed down through generations of master builders from Sulawesi.'],
@@ -460,39 +451,43 @@ Sulawesi, dedicated to preserving the art of traditional Indonesian boatbuilding
         'Delivering durable, high-quality Pinisi ships that meet modern maritime demands globally.'],
         ] as $i => $item)
         <div data-aos="fade-up" data-aos-delay="{{ $i * 100 }}" class="bg-background border border-secondary/30 rounded-2xl px-6 py-6 flex flex-col gap-5
-                hover:border-secondary hover:shadow-[0_0_20px_2px_color-mix(in_srgb,theme(colors.secondary)_15%,transparent)]
-                    transition-all duration-300 group">
+            hover:border-secondary hover:shadow-[0_0_20px_2px_color-mix(in_srgb,theme(colors.secondary)_15%,transparent)]
+            transition-all duration-300 group">
             <div class="flex items-center justify-between">
-                <div class="w-10 h-10 rounded-xl bg-secondary/10 flex items-center justify-center
-                            group-hover:bg-secondary/20 transition-colors duration-300">
+                <div
+                    class="w-10 h-10 rounded-xl bg-secondary/10 flex items-center justify-center group-hover:bg-secondary/20 transition-colors duration-300">
                     <i class="ti {{ $item['icon'] }} text-xl text-secondary" aria-hidden="true"></i>
                 </div>
                 <span
                     class="text-3xl font-extrabold text-accentthird group-hover:text-secondary transition-colors duration-300"
-                    style="font-family: 'Poppins', sans-serif;">{{ $item['idx'] }}</span>
+                    style="font-family: 'Poppins', sans-serif;" aria-hidden="true">{{ $item['idx'] }}</span>
             </div>
             <div class="flex flex-col gap-2">
-                <h3 class="text-md md:text-2xl font-bold text-primary leading-snug
-                        group-hover:text-secondary transition-colors duration-300">
+                {{-- FIX: h3 untuk judul card --}}
+                <h3
+                    class="text-md md:text-2xl font-bold text-primary leading-snug group-hover:text-secondary transition-colors duration-300">
                     {{ $item['title'] }}
                 </h3>
-                <p class="text-sm md:text-md text-accentsecond leading-relaxed">{{ $item['desc'] }}</p>
+                <p class="text-sm md:text-md text-accent leading-relaxed">{{ $item['desc'] }}</p>
             </div>
-            <div class="w-8 h-0.5 bg-secondary rounded-full mt-auto
-                        group-hover:w-16 transition-all duration-500"></div>
+            <div class="w-8 h-0.5 bg-secondary rounded-full mt-auto group-hover:w-16 transition-all duration-500"></div>
         </div>
         @endforeach
     </div>
 </section>
 
-{{-- MASTER BUILDERS SECTION --}}
-<section class="flex flex-col gap-6 md:gap-8 w-full px-8 md:px-13 lg:px-22 py-12 md:py-32">
+{{-- ============================================================ --}}
+{{-- MASTER BUILDERS SECTION                                       --}}
+{{-- ============================================================ --}}
+<section class="flex flex-col gap-6 md:gap-8 w-full px-8 md:px-13 lg:px-22 py-12 md:py-32"
+    aria-labelledby="builders-heading">
     <div class="flex justify-between items-end mb-10 md:mb-14">
         <div class="w-max h-max object-cover overflow-hidden">
-            <h1 data-aos="fade-up" class="text-xl text-accent">/Master Builders</h1>
+            <p data-aos="fade-up" class="text-xl text-accent">/Master Builders</p>
         </div>
         <div class="text-right">
-            <h2 data-aos="custom-blur-up"
+            {{-- FIX: h2 --}}
+            <h2 id="builders-heading" data-aos="custom-blur-up"
                 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-none text-primary"
                 style="font-family: 'Poppins', sans-serif;">
                 SAILING <span
@@ -501,22 +496,23 @@ Sulawesi, dedicated to preserving the art of traditional Indonesian boatbuilding
             </h2>
         </div>
     </div>
-    <div class="flex flex-col md:flex-row overflow-hidden border-2 border-accentthird gap-0">
+    <div class="flex flex-col md:flex-row overflow-hidden border-2 border-accentsecond gap-0">
         {{-- Founder --}}
         <div
-            class="bg-background md:border-r-2 md:border-accentthird border-b-2 md:border-b-0 border-accentthird flex w-full md:w-1/2">
+            class="bg-background md:border-r-2 md:border-accentsecond border-b-2 md:border-b-0 border-accentsecond flex w-full md:w-1/2">
             <img data-aos="custom-zoom-in-up" src="{{ url('img/Bina Pusaka/Aset/co Founder.webp') }}"
-                alt="CO Founder - Bina Pusaka Marine" loading="lazy"
+                alt="H. Abdullah Hasan — Founder Bina Pusaka Marine" width="400" height="560" loading="lazy"
+                decoding="async"
                 class="w-2/5 md:w-[50%] h-56 sm:h-72 md:h-[70vh] lg:h-[83.5vh] object-cover flex-shrink-0">
             <div class="flex-1 flex flex-col justify-between p-4 md:p-5 lg:p-6">
                 <div data-aos="custom-blur-up">
-                    <h1 class="text-base md:text-lg lg:text-2xl text-primary font-medium">H. Abdullah Hasan</h1>
+                    {{-- FIX: h3 untuk nama --}}
+                    <h3 class="text-base md:text-lg lg:text-2xl text-primary font-medium">H. Abdullah Hasan</h3>
                     <p class="text-sm md:text-base lg:text-lg text-accent italic">Founder</p>
                 </div>
                 <div data-aos="custom-blur-up">
                     <p class="text-xs md:text-sm lg:text-lg text-accent font-medium">Leading the preservation of
-                        Pinisi
-                        craftsmanship since 1998, delivering vessels defined by tradition and precision.</p>
+                        Pinisi craftsmanship since 1998, delivering vessels defined by tradition and precision.</p>
                 </div>
             </div>
         </div>
@@ -525,49 +521,58 @@ Sulawesi, dedicated to preserving the art of traditional Indonesian boatbuilding
         <div class="bg-background flex w-full md:w-1/2">
             <div class="flex-1 flex flex-col justify-between p-4 md:p-5 lg:p-6">
                 <div data-aos="custom-blur-up">
-                    <h1 class="text-base md:text-lg lg:text-2xl text-primary font-medium">Pahrul Islami</h1>
+                    <h3 class="text-base md:text-lg lg:text-2xl text-primary font-medium">Pahrul Islami</h3>
                     <p class="text-sm md:text-base lg:text-lg text-accent italic">CEO</p>
                 </div>
                 <div class="flex flex-col gap-3 md:gap-4">
                     <div data-aos="custom-zoom-in-up" class="flex gap-3 md:gap-4">
                         <a href="https://www.tiktok.com/@ud.binapusakapinisi?is_from_webapp=1&sender_device=pc"
+                            aria-label="Ikuti BP Marine Co di TikTok"
                             class="bg-secondary relative group overflow-hidden text-background w-9 h-9 md:w-10 md:h-10 lg:w-12 lg:h-12 flex items-center justify-center rounded-full shadow-md transition ease-in-out duration-500">
                             <span
-                                class="absolute bg-primary rounded-full inset-y-0 left-0 w-0 group-hover:w-full transition-all duration-300"></span>
-                            <i
-                                class="ti ti-brand-tiktok relative group-hover:text-background text-lg md:text-xl lg:text-2xl"></i>
+                                class="absolute bg-primary rounded-full inset-y-0 left-0 w-0 group-hover:w-full transition-all duration-300"
+                                aria-hidden="true"></span>
+                            <i class="ti ti-brand-tiktok relative group-hover:text-background text-lg md:text-xl lg:text-2xl"
+                                aria-hidden="true"></i>
                         </a>
                         <a href="https://www.instagram.com/bpmarineco_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                            aria-label="Ikuti BP Marine Co di Instagram"
                             class="bg-secondary relative group overflow-hidden text-background w-9 h-9 md:w-10 md:h-10 lg:w-12 lg:h-12 flex items-center justify-center rounded-full shadow-md transition ease-in-out duration-500">
                             <span
-                                class="absolute bg-primary rounded-full inset-y-0 left-0 w-0 group-hover:w-full transition-all duration-300"></span>
-                            <i
-                                class="ti ti-brand-instagram relative group-hover:text-background text-lg md:text-xl lg:text-2xl"></i>
+                                class="absolute bg-primary rounded-full inset-y-0 left-0 w-0 group-hover:w-full transition-all duration-300"
+                                aria-hidden="true"></span>
+                            <i class="ti ti-brand-instagram relative group-hover:text-background text-lg md:text-xl lg:text-2xl"
+                                aria-hidden="true"></i>
                         </a>
-                        <a href=""
+                        <a href="#" aria-label="LinkedIn BP Marine Co (segera hadir)" aria-disabled="true"
                             class="bg-secondary relative group overflow-hidden text-background w-9 h-9 md:w-10 md:h-10 lg:w-12 lg:h-12 flex items-center justify-center rounded-full shadow-md transition ease-in-out duration-500">
                             <span
-                                class="absolute bg-primary rounded-full inset-y-0 left-0 w-0 group-hover:w-full transition-all duration-300"></span>
-                            <i
-                                class="ti ti-brand-linkedin relative group-hover:text-background text-lg md:text-xl lg:text-2xl font-bold"></i>
+                                class="absolute bg-primary rounded-full inset-y-0 left-0 w-0 group-hover:w-full transition-all duration-300"
+                                aria-hidden="true"></span>
+                            <i class="ti ti-brand-linkedin relative group-hover:text-background text-lg md:text-xl lg:text-2xl font-bold"
+                                aria-hidden="true"></i>
                         </a>
                     </div>
                     <p data-aos="custom-blur-up"
-                        class="text-xs md:text-sm lg:text-lg mb-2 lg:mb-7 text-accent font-medium">Leading the
-                        company with a vision to bring traditional Pinisi craftsmanship to a global stage.</p>
+                        class="text-xs md:text-sm lg:text-lg mb-2 lg:mb-7 text-accent font-medium">
+                        Leading the company with a vision to bring traditional Pinisi craftsmanship to a global stage.
+                    </p>
                 </div>
             </div>
             <img data-aos="custom-zoom-in-up" src="{{ url('img/Bina Pusaka/Aset/CEO.webp') }}"
-                alt="CEO - Bina Pusaka Marine" loading="lazy"
+                alt="Pahrul Islami — CEO Bina Pusaka Marine" width="400" height="560" loading="lazy" decoding="async"
                 class="w-2/5 md:w-[50%] h-56 sm:h-72 md:h-[70vh] lg:h-[83.5vh] object-cover flex-shrink-0">
         </div>
     </div>
 </section>
 
-{{-- VOICES SECTION --}}
+{{-- ============================================================ --}}
+{{-- VOICES SECTION                                                --}}
+{{-- ============================================================ --}}
 <section
-    class="relative w-full px-8 md:px-13 lg:px-23 py-16 md:py-24 flex flex-col gap-12 md:gap-20 lg:gap-32 bg-primary overflow-hidden">
-    <div class="absolute inset-0 pointer-events-none z-0"
+    class="relative w-full px-8 md:px-13 lg:px-23 py-16 md:py-24 flex flex-col gap-12 md:gap-20 lg:gap-32 bg-primary overflow-hidden"
+    aria-labelledby="voices-about-heading">
+    <div class="absolute inset-0 pointer-events-none z-0" aria-hidden="true"
         style="display: grid; grid-template-columns: 6% 22% 22% 22% 22% 1fr;">
         <div class="border-r border-accent opacity-30"></div>
         <div class="border-r border-accent opacity-30"></div>
@@ -577,10 +582,11 @@ Sulawesi, dedicated to preserving the art of traditional Indonesian boatbuilding
     </div>
     <div class="flex justify-between items-end mb-10 md:mb-14">
         <div class="w-max h-max object-cover overflow-hidden">
-            <h1 data-aos="fade-up" class="text-xl text-accentthird">/Voice Of Heritage</h1>
+            <p data-aos="fade-up" class="text-xl text-accentthird">/Voice Of Heritage</p>
         </div>
         <div class="text-right">
-            <h2 data-aos="custom-blur-up"
+            {{-- FIX: h2 --}}
+            <h2 id="voices-about-heading" data-aos="custom-blur-up"
                 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-none text-accentthird"
                 style="font-family: 'Poppins', sans-serif;">
                 VOICES<span
@@ -590,11 +596,12 @@ Sulawesi, dedicated to preserving the art of traditional Indonesian boatbuilding
         </div>
     </div>
 
-    <div data-aos="custom-zoom-in-up" class="flex flex-col lg:flex-row rounded-xl overflow-hidden">
+    <div data-aos="custom-zoom-in-up"
+        class="flex flex-col lg:flex-row rounded-xl overflow-hidden border border-secondary">
         <div class="w-full lg:w-1/2 flex flex-col gap-4 p-6 md:p-8 bg-background">
             <div class="flex items-center gap-3">
                 <div class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center flex-shrink-0">
-                    <i class="ti ti-star text-accentthird"></i>
+                    <i class="ti ti-star text-accentthird" aria-hidden="true"></i>
                 </div>
                 <div>
                     <p class="text-sm font-medium text-primary">Pengakuan UNESCO</p>
@@ -603,51 +610,49 @@ Sulawesi, dedicated to preserving the art of traditional Indonesian boatbuilding
                 <span
                     class="ml-auto text-xs font-medium bg-primary text-accentthird rounded px-2 py-0.5 flex-shrink-0">2021</span>
             </div>
-
             <hr class="border-accentthird">
             <p class="text-sm text-accent leading-relaxed">
                 <em>Art of Boatbuilding and Seafaring of the Pinisi</em> resmi diakui UNESCO sebagai Warisan
-                Budaya Tak Benda umat manusia — mengukuhkan Pinisi sebagai kebanggaan maritim Indonesia di mata
-                dunia.
+                Budaya Tak Benda umat manusia — mengukuhkan Pinisi sebagai kebanggaan maritim Indonesia di mata dunia.
             </p>
             <div class="flex flex-wrap gap-2">
-                <span class="text-xs font-medium px-2 py-0.5 rounded bg-secondary text-background">UNESCO
-                    ICH 2021</span>
-                <span class="text-xs px-2 py-0.5 rounded bg-secondary text-background">Art of
-                    Boatbuilding</span>
-                <span class="text-xs px-2 py-0.5 rounded bg-secondary text-background">Warisan
-                    Budaya Tak Benda</span>
+                <span class="text-xs font-medium px-2 py-0.5 rounded bg-secondary text-background">UNESCO ICH
+                    2021</span>
+                <span class="text-xs px-2 py-0.5 rounded bg-secondary text-background">Art of Boatbuilding</span>
+                <span class="text-xs px-2 py-0.5 rounded bg-secondary text-background">Warisan Budaya Tak Benda</span>
             </div>
         </div>
-        <div class="hidden lg:flex w-px bg-accentthird items-center justify-center relative">
+        <div class="hidden lg:flex w-px bg-accentthird items-center justify-center relative" aria-hidden="true">
             <div
                 class="absolute w-8 h-8 rounded-full bg-background border border-accentthird flex items-center justify-center z-10">
-                <i class="ti ti-anchor text-secondary"></i>
+                <i class="ti ti-anchor text-secondary" aria-hidden="true"></i>
             </div>
         </div>
-
-        <div target="_blank" rel="noopener noreferrer"
-            class="group relative w-full lg:w-1/2 min-h-[220px] md:min-h-[280px] overflow-hidden block">
-            <img src="{{ url('img/Bina Pusaka/Prana/679c9730b8ad5230db05317b.webp') }}" loading="lazy"
-                alt="Kapal Pinisi"
+        <div class="group relative w-full lg:w-1/2 min-h-[220px] md:min-h-[280px] overflow-hidden block">
+            <img src="{{ url('img/Bina Pusaka/Prana/679c9730b8ad5230db05317b.webp') }}"
+                alt="Kapal Pinisi Prana — warisan budaya maritim Indonesia" width="512" height="280" loading="lazy"
+                decoding="async"
                 class="w-full h-full object-cover object-center absolute inset-0 transition duration-500 group-hover:scale-105">
             <div
-                class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparen group-hover:backdrop-blur-xs transition duration-300 flex flex-col items-center justify-end gap-3 p-6 md:p-8">
+                class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent group-hover:backdrop-blur-xs transition duration-300 flex flex-col items-center justify-end gap-3 p-6 md:p-8">
                 <div
                     class="flex items-center gap-2 bg-black/30 border border-accentthird rounded px-3 py-1 text-xs text-background font-medium tracking-wide">
-                    <i class="ti ti-world text-background text-lg"></i>
+                    <i class="ti ti-world text-background text-lg" aria-hidden="true"></i>
                     ich.unesco.org
                 </div>
                 <p class="text-background font-medium text-center text-base leading-snug">
                     Perahu Pinisi<br>dalam Catatan UNESCO
                 </p>
                 <a href="https://ich.unesco.org/en/RL/pinisi-art-of-boatbuilding-in-south-sulawesi-01197"
+                    target="_blank" rel="noopener noreferrer"
+                    aria-label="Kunjungi halaman UNESCO tentang Pinisi (membuka tab baru)"
                     class="bg-secondary relative group/item overflow-hidden text-background border px-4 py-2 flex items-center rounded-lg shadow-md transition ease-in-out duration-500">
                     <span
-                        class="absolute bg-primary rounded-lg inset-y-0 left-0 w-0 group-hover/item:w-full transition-all duration-300"></span>
+                        class="absolute bg-primary rounded-lg inset-y-0 left-0 w-0 group-hover/item:w-full transition-all duration-300"
+                        aria-hidden="true"></span>
                     <span class="relative text-xs font-medium flex items-center">
-                        <i class="ti ti-external-link text-lg pr-2"></i>Kunjungi Situs
-                        UNESCO</span>
+                        <i class="ti ti-external-link text-lg pr-2" aria-hidden="true"></i>Kunjungi Situs UNESCO
+                    </span>
                 </a>
             </div>
         </div>
@@ -655,95 +660,70 @@ Sulawesi, dedicated to preserving the art of traditional Indonesian boatbuilding
 
     {{-- Quote Card --}}
     <div data-aos="custom-zoom-in-up"
-        class="relative h-80 md:h-[420px] lg:h-140 rounded-xl overflow-hidden bg-background">
-        <img src="{{ url('img/Bina Pusaka/Aset/IMG_0668_2.webp') }}" loading="lazy" alt="Background"
+        class="relative h-80 md:h-[420px] lg:h-140 rounded-xl overflow-hidden bg-background border border-secondary">
+        <img src="{{ url('img/Bina Pusaka/Aset/IMG_0668_2.webp') }}" alt="Suasana kapal Pinisi BP Marine Co"
+            width="1200" height="560" loading="lazy" decoding="async"
             class="absolute inset-0 w-full h-full object-cover object-top">
-        <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/20"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/20" aria-hidden="true"></div>
 
         <div data-aos="custom-zoom-in-up"
             class="hidden lg:block absolute bottom-8 right-8 w-80 h-80 rounded-xl border-2 border-secondary overflow-hidden z-10">
-            <img src="{{ url('img/Bina Pusaka/Aset/IMG_0669.webp') }}" loading="lazy" alt="Surya Paloh"
-                class="w-full h-full object-cover object-top scale-120">
+            <img src="{{ url('img/Bina Pusaka/Aset/IMG_0669.webp') }}"
+                alt="Surya Paloh — Tokoh Nasional &amp; Pendiri Media Group" width="320" height="320" loading="lazy"
+                decoding="async" class="w-full h-full object-cover object-top scale-120">
         </div>
-
         <div data-aos="custom-zoom-in-up"
             class="hidden md:block lg:hidden absolute bottom-4 right-4 w-40 h-48 rounded-xl border-2 border-secondary overflow-hidden z-10">
-            <img src="{{ url('img/Bina Pusaka/Aset/IMG_0669.webp') }}" loading="lazy" alt="Surya Paloh"
-                class="w-full h-full object-cover object-top">
+            <img src="{{ url('img/Bina Pusaka/Aset/IMG_0669.webp') }}"
+                alt="Surya Paloh — Tokoh Nasional &amp; Pendiri Media Group" width="160" height="192" loading="lazy"
+                decoding="async" class="w-full h-full object-cover object-top">
         </div>
 
-
-        <div
+        <figure
             class="relative z-10 flex flex-col justify-end gap-3 md:gap-5 p-6 md:p-8 h-full w-full md:w-[75%] lg:w-[70%]">
-            <span data-aos="custom-blur-up" class="text-xs md:text-sm tracking-widest uppercase text-secondary">(Success
-                Project)</span>
-            <span data-aos="custom-blur-up" class="text-5xl md:text-7xl text-secondary font-serif leading-none">"</span>
-            <p data-aos="custom-blur-up"
+            <span class="text-xs md:text-sm tracking-widest uppercase text-secondary">(Success Project)</span>
+            <span class="text-5xl md:text-7xl text-secondary font-serif leading-none" aria-hidden="true">"</span>
+            <blockquote
                 class="text-base md:text-xl lg:text-3xl text-background font-light italic leading-relaxed line-clamp-4 md:line-clamp-none">
                 Pinisi adalah bukti nyata bahwa Indonesia adalah bangsa pelaut yang besar. Kita harus
                 bangga dan terus melestarikan warisan maritim ini untuk generasi mendatang.
-            </p>
-            <div class="flex items-center gap-3 pt-3 md:pt-4 border-t border-secondary/40">
-                <div data-aos="custom-blur-up" class="w-6 md:w-8 h-px bg-secondary flex-shrink-0"></div>
+            </blockquote>
+            <figcaption class="flex items-center gap-3 pt-3 md:pt-4 border-t border-secondary/40">
+                <div class="w-6 md:w-8 h-px bg-secondary flex-shrink-0" aria-hidden="true"></div>
                 <div class="flex flex-col">
-                    <span data-aos="custom-blur-up" class="text-base md:text-lg font-medium text-background">Surya
-                        Paloh</span>
-                    <span data-aos="custom-blur-up"
-                        class="text-xs md:text-md text-secondary uppercase tracking-widest mt-1">
-                        Tokoh Nasional & Pendiri Media Group
+                    <span class="text-base md:text-lg font-medium text-background">Surya Paloh</span>
+                    <span class="text-xs md:text-md text-secondary uppercase tracking-widest mt-1">
+                        Tokoh Nasional &amp; Pendiri Media Group
                     </span>
                 </div>
-            </div>
-        </div>
+            </figcaption>
+        </figure>
     </div>
 </section>
 
-{{-- TESTIMONIAL SECTION --}}
+{{-- ============================================================ --}}
+{{-- TESTIMONIAL SECTION                                           --}}
+{{-- ============================================================ --}}
 @php
 $countryNames = [
-'ID' => 'Indonesia',
-'AU' => 'Australia',
-'JP' => 'Japan',
-'FR' => 'France',
-'MX' => 'Mexico',
-'IE' => 'Ireland',
-'SE' => 'Sweden',
-'US' => 'United States',
-'GB' => 'United Kingdom',
-'DE' => 'Germany',
-'NL' => 'Netherlands',
-'IT' => 'Italy',
-'ES' => 'Spain',
-'SG' => 'Singapore',
-'MY' => 'Malaysia',
-'CN' => 'China',
-'KR' => 'South Korea',
-'IN' => 'India',
-'BR' => 'Brazil',
-'ZA' => 'South Africa',
-'NZ' => 'New Zealand',
-'CA' => 'Canada',
-'RU' => 'Russia',
-'AE' => 'United Arab Emirates',
-'SA' => 'Saudi Arabia',
-'TH' => 'Thailand',
-'PH' => 'Philippines',
-'VN' => 'Vietnam',
-'PT' => 'Portugal',
-'CH' => 'Switzerland',
+'ID' => 'Indonesia', 'AU' => 'Australia', 'JP' => 'Japan',
+'FR' => 'France', 'MX' => 'Mexico', 'IE' => 'Ireland',
+'SE' => 'Sweden', 'US' => 'United States', 'GB' => 'United Kingdom',
+'DE' => 'Germany', 'NL' => 'Netherlands', 'IT' => 'Italy',
+'ES' => 'Spain', 'SG' => 'Singapore', 'MY' => 'Malaysia',
+'CN' => 'China', 'KR' => 'South Korea', 'IN' => 'India',
+'BR' => 'Brazil', 'ZA' => 'South Africa', 'NZ' => 'New Zealand',
+'CA' => 'Canada', 'RU' => 'Russia', 'AE' => 'United Arab Emirates',
+'SA' => 'Saudi Arabia', 'TH' => 'Thailand', 'PH' => 'Philippines',
+'VN' => 'Vietnam', 'PT' => 'Portugal', 'CH' => 'Switzerland',
 ];
 @endphp
 
-<style>
-#testimonial-scroll::-webkit-scrollbar {
-    display: none;
-}
-</style>
-
-<section class="px-8 md:px-13 lg:px-23 py-16 md:py-24 lg:py-32 flex flex-col gap-16 md:gap-24 lg:gap-40">
+<section class="px-8 md:px-13 lg:px-23 py-16 md:py-24 lg:py-32 flex flex-col gap-16 md:gap-24 lg:gap-40"
+    aria-label="Testimonial dari klien BP Marine Co">
     <div class="flex justify-between items-end mb-10 md:mb-14">
         <div class="w-max h-max object-cover overflow-hidden">
-            <h1 data-aos="fade-up" class="text-xl text-accent">/Testimonial</h1>
+            <p data-aos="fade-up" class="text-xl text-accent">/Testimonial</p>
         </div>
         <div class="text-right">
             <h2 data-aos="custom-blur-up"
@@ -758,28 +738,25 @@ $countryNames = [
 
     @if ($testimonials->count() > 0)
     <div data-aos="custom-zoom-in-up" class="flex flex-col md:flex-row items-stretch gap-0">
-        <div class="hidden md:block sticky top-8 flex-shrink-0 w-56 lg:w-72">
+        <div class="hidden md:block sticky top-8 flex-shrink-0 w-56 lg:w-72" aria-hidden="true">
             <div class="w-full h-[64vh] lg:h-[65vh] rounded-2xl overflow-hidden bg-primary relative">
                 @foreach ($testimonials as $index => $item)
                 <img src="{{ $item->photo ? Storage::url($item->photo) : asset('img/default-avatar.webp') }}"
-                    loading="lazy" alt="{{ $item->name }}" data-photo="{{ $index }}"
+                    alt="{{ $item->name }}" width="288" height="520" loading="lazy" decoding="async"
+                    data-photo="{{ $index }}"
                     class="absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-700 {{ $index === 0 ? 'opacity-100' : 'opacity-0' }}">
                 @endforeach
-
-                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"
+                    aria-hidden="true"></div>
                 <div class="absolute bottom-0 left-0 right-0 p-4 md:p-5">
                     @foreach ($testimonials as $index => $item)
                     <div data-info="{{ $index }}"
                         class="transition-opacity flex flex-col gap-1 duration-500 {{ $index === 0 ? 'opacity-100' : 'opacity-0 absolute' }}">
-                        <p class="text-sm font-medium text-background leading-snug">
-                            {{ Str::limit($item->quote, 80) }}
+                        <p class="text-sm font-medium text-background leading-snug">{{ Str::limit($item->quote, 80) }}
                         </p>
                         <p class="text-xs md:text-sm text-accentsecond">— {{ $item->name }}</p>
                         @if ($item->country)
-                        <p class="text-xs text-accentthird">
-                            {{ $countryNames[$item->country] ?? $item->country }}
-                        </p>
+                        <p class="text-xs text-accentthird">{{ $countryNames[$item->country] ?? $item->country }}</p>
                         @endif
                     </div>
                     @endforeach
@@ -787,53 +764,52 @@ $countryNames = [
             </div>
         </div>
 
-        {{-- Scroll area --}}
         <div class="flex-1 min-w-0">
             <div id="testimonial-scroll"
                 class="overflow-x-auto rounded-2xl md:ml-6 pr-2 md:pr-8 cursor-grab active:cursor-grabbing select-none"
-                style="-ms-overflow-style: none; scrollbar-width: none;">
+                style="-ms-overflow-style: none; scrollbar-width: none;" role="list"
+                aria-label="Daftar testimonial klien">
                 <div class="flex gap-3 md:gap-4 w-max items-stretch">
                     @foreach ($testimonials as $index => $item)
-                    <div data-card="{{ $index }}"
-                        class="w-64 md:w-72 bg-background border border-border border-accentthird rounded-2xl p-5 md:p-6 flex flex-col justify-between min-h-[340px] md:min-h-[420px] flex-shrink-0 transition-all duration-500 group hover:bg-primary hover:border-primary cursor-pointer">
+                    <article data-card="{{ $index }}" role="listitem"
+                        class="w-64 md:w-72 bg-background border border-accentsecond rounded-2xl p-5 md:p-6 flex flex-col justify-between min-h-[340px] md:min-h-[420px] flex-shrink-0 transition-all duration-500 group hover:bg-primary hover:border-primary cursor-pointer">
                         <div>
-                            <p
-                                class="text-3xl text-secondary font-serif leading-none mb-4 md:mb-5 group-hover:text-secondary duration-500">
-                                "</p>
-                            <p
+                            <p class="text-3xl text-secondary font-serif leading-none mb-4 md:mb-5" aria-hidden="true">"
+                            </p>
+                            <blockquote
                                 class="text-sm text-accent italic leading-relaxed group-hover:text-background duration-500">
                                 {{ $item->quote }}
-                            </p>
+                            </blockquote>
                         </div>
-                        <div
+                        <footer
                             class="flex flex-col gap-3 md:gap-4 pt-4 md:pt-5 mt-4 border-t border-secondary border-border">
                             <div
-                                class="w-12 h-12 md:w-16 md:h-16 rounded-xl overflow-hidden border border-secondary border-border flex-shrink-0">
+                                class="w-12 h-12 md:w-16 md:h-16 rounded-xl overflow-hidden border border-secondary flex-shrink-0">
                                 <img src="{{ $item->photo ? Storage::url($item->photo) : asset('img/default-avatar.png') }}"
-                                    loading="lazy" alt="{{ $item->name }}"
+                                    alt="Foto {{ $item->name }}" width="64" height="64" loading="lazy" decoding="async"
                                     class="w-full h-full object-cover object-top">
                             </div>
                             <div class="flex flex-col gap-1">
                                 <p class="text-sm font-medium text-primary group-hover:text-background duration-500">
-                                    {{ $item->name }}
-                                </p>
+                                    {{ $item->name }}</p>
                                 <p class="text-xs text-accent group-hover:text-accentthird duration-500">
-                                    {{ $item->position }}
-                                </p>
+                                    {{ $item->position }}</p>
                                 @if ($item->country)
                                 <p class="text-xs text-accentsecond group-hover:text-secondary duration-500">
                                     {{ $countryNames[$item->country] ?? $item->country }}
                                 </p>
                                 @endif
                             </div>
-                        </div>
-                    </div>
+                        </footer>
+                    </article>
                     @endforeach
                 </div>
             </div>
-            <div id="testimonial-dots" class="flex items-center gap-2 pl-2 md:pl-8 mt-4">
+            <div id="testimonial-dots" class="flex items-center gap-2 pl-2 md:pl-8 mt-4" role="tablist"
+                aria-label="Navigasi testimonial">
                 @foreach ($testimonials as $index => $item)
-                <div data-dot="{{ $index }}"
+                <div data-dot="{{ $index }}" role="tab" aria-label="Testimonial {{ $index + 1 }} dari {{ $item->name }}"
+                    aria-selected="{{ $index === 0 ? 'true' : 'false' }}"
                     class="h-1 rounded-full transition-all duration-500 {{ $index === 0 ? 'w-6 bg-secondary' : 'w-2 bg-accentthird' }}">
                 </div>
                 @endforeach
@@ -841,36 +817,37 @@ $countryNames = [
         </div>
     </div>
     @else
-    {{-- Empty state --}}
     <div data-aos="custom-zoom-in-up"
         class="flex flex-col items-center justify-center gap-6 py-16 md:py-24 border-2 bg-background border-accentthird rounded-2xl">
         <div class="flex items-center justify-center w-20 h-20 rounded-full border-2 border-accentsecond">
-            <i class="ti ti-message-circle text-4xl text-accentsecond"></i>
+            <i class="ti ti-message-circle text-4xl text-accentsecond" aria-hidden="true"></i>
         </div>
         <div class="flex flex-col items-center gap-2 text-center">
-            <h1 class="text-xl md:text-2xl text-primary font-medium">Testimonials Coming Soon</h1>
+            <p class="text-xl md:text-2xl text-primary font-medium">Testimonials Coming Soon</p>
             <p class="text-sm text-accent max-w-sm">We are gathering stories from our clients. Be the first to share
                 your experience with us.</p>
         </div>
-        <a href="/contact"
+        <a href="/contact" aria-label="Contact us — Get in touch with BP Marine Co"
             class="bg-secondary relative group overflow-hidden text-background px-6 py-3 flex items-center rounded-full shadow-md transition ease-in-out duration-500">
             <span
-                class="absolute bg-primary rounded-full inset-y-0 left-0 w-0 group-hover:w-full transition-all duration-300"></span>
+                class="absolute bg-primary rounded-full inset-y-0 left-0 w-0 group-hover:w-full transition-all duration-300"
+                aria-hidden="true"></span>
             <span class="relative text-sm font-medium">Get In Touch</span>
         </a>
     </div>
     @endif
 </section>
 
-{{-- FAQ SECTION --}}
-<section class="w-full px-8 md:px-13 lg:px-23 py-16 md:py-24 lg:py-32">
-    {{-- Header --}}
+{{-- ============================================================ --}}
+{{-- FAQ SECTION                                                   --}}
+{{-- ============================================================ --}}
+<section class="w-full px-8 md:px-13 lg:px-23 py-16 md:py-24 lg:py-32" aria-labelledby="faq-about-heading">
     <div class="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-4 mb-10 md:mb-14">
         <div class="w-max h-max overflow-hidden">
-            <h1 data-aos="fade-up" class="text-xl text-accent">/Frequently Asked Questions</h1>
+            <p data-aos="fade-up" class="text-xl text-accent">/Frequently Asked Questions</p>
         </div>
         <div class="sm:text-right">
-            <h2 data-aos="custom-blur-up"
+            <h2 id="faq-about-heading" data-aos="custom-blur-up"
                 class="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold leading-none text-primary"
                 style="font-family: 'Poppins', sans-serif;">
                 COMMON<span
@@ -882,26 +859,21 @@ $countryNames = [
     @php
     $faqs = [
     ['q' => 'How long does it take to build a Pinisi vessel?',
-    'a' => 'Build time varies depending on the size and complexity of the vessel. On average, a standard Pinisi
-    takes
-    between 12 to 24 months to complete. Larger luxury vessels with custom specifications may take up to 36 months.
-    We
+    'a' => 'Build time varies depending on the size and complexity of the vessel. On average, a standard Pinisi takes
+    between 12 to 24 months to complete. Larger luxury vessels with custom specifications may take up to 36 months. We
     provide a detailed timeline during the consultation phase.'],
     ['q' => 'Can I customize the design and specifications of my vessel?',
-    'a' => 'Absolutely. Every vessel we build is tailor-made. From hull dimensions and deck layout to interior
-    finish
+    'a' => 'Absolutely. Every vessel we build is tailor-made. From hull dimensions and deck layout to interior finish
     and onboard systems — all specifications can be customized to your requirements and preferences.'],
     ['q' => 'What type of wood is used in the construction?',
-    'a' => 'We primarily use ironwood (ulin) and teak — both renowned for durability and resistance to saltwater.
-    All
+    'a' => 'We primarily use ironwood (ulin) and teak — both renowned for durability and resistance to saltwater. All
     timber is sourced from certified, sustainable suppliers to ensure quality and environmental responsibility.'],
     ['q' => 'Do you assist with international shipping and documentation?',
     'a' => 'Yes. We handle all necessary paperwork including vessel registration, export permits, and flag state
     certification. Our team coordinates with international agents to ensure a smooth delivery process to your
     destination port.'],
     ['q' => 'What is the price range for a Pinisi vessel?',
-    'a' => 'Pricing varies widely based on size, materials, and level of customization. We offer a transparent
-    quotation
+    'a' => 'Pricing varies widely based on size, materials, and level of customization. We offer a transparent quotation
     process — contact us with your requirements and we will provide a detailed breakdown with no hidden costs.'],
     ['q' => 'Is it possible to visit the shipyard during construction?',
     'a' => 'We welcome client visits at our shipyard in Sulawesi at any stage of the build. We believe in full
@@ -911,74 +883,66 @@ $countryNames = [
     @endphp
 
     <div class="flex flex-col gap-1.5" x-data="{ active: null }">
-
         @foreach($faqs as $index => $faq)
         <div data-aos="custom-blur-up"
             class="group relative border rounded-lg overflow-hidden cursor-pointer transition-all duration-500"
-            :class="active === {{ $index }} ? 'bg-primary border-background' : 'bg-background border-accentthird'"
-            @click="active === {{ $index }} ? active = null : active = {{ $index }}">
+            :class="active === {{ $index }} ? 'bg-primary border-background' : 'bg-background border-accentsecond'"
+            @click="active === {{ $index }} ? active = null : active = {{ $index }}" role="button"
+            :aria-expanded="active === {{ $index }} ? 'true' : 'false'" :aria-label="'{{ addslashes($faq['q']) }}'">
 
             <div class="absolute left-0 top-0 bottom-0 w-1 bg-secondary rounded-l-lg transition-all duration-500"
-                :class="active === {{ $index }} ? 'opacity-100 w-1' : 'opacity-0 w-0 group-hover:opacity-100 group-hover:w-1'">
-            </div>
+                :class="active === {{ $index }} ? 'opacity-100 w-1' : 'opacity-0 w-0 group-hover:opacity-100 group-hover:w-1'"
+                aria-hidden="true"></div>
 
-            {{-- Trigger --}}
             <div class="flex items-center gap-3 md:gap-4 px-3 md:px-4 py-3 md:py-4 select-none">
-
                 <span
                     class="font-bold text-xl sm:text-2xl md:text-3xl leading-none flex-shrink-0 w-7 sm:w-9 md:w-11 transition-colors duration-500"
                     :class="active === {{ $index }} ? 'text-background' : 'text-primary'"
-                    style="font-family: 'Poppins', sans-serif; letter-spacing: 0.02em;">
+                    style="font-family: 'Poppins', sans-serif; letter-spacing: 0.02em;" aria-hidden="true">
                     {{ str_pad($index + 1, 2, '0', STR_PAD_LEFT) }}
                 </span>
-
                 <span
                     class="flex-1 text-sm sm:text-base md:text-lg font-medium leading-snug transition-colors duration-500"
                     :class="active === {{ $index }} ? 'text-background' : 'text-accent'">
                     {{ $faq['q'] }}
                 </span>
-
                 <div class="p-2 sm:p-3 md:p-4 rounded-full border flex items-center justify-center flex-shrink-0 transition-all duration-500"
-                    :class="active === {{ $index }} ? 'bg-secondary border-background' : 'bg-transparent border-primary'">
+                    :class="active === {{ $index }} ? 'bg-secondary border-background' : 'bg-transparent border-accentsecond'">
                     <i class="ti ti-chevron-down text-lg transition-transform duration-500"
-                        :class="active === {{ $index }} ? 'rotate-180 text-accentthird' : 'rotate-0 text-[#777]'"></i>
+                        :class="active === {{ $index }} ? 'rotate-180 text-background' : 'rotate-0 text-accentsecond'"
+                        aria-hidden="true"></i>
                 </div>
-
             </div>
 
-            {{-- Jawaban: x-show + x-collapse untuk smooth height animation --}}
             <div x-show="active === {{ $index }}" x-collapse
                 x-transition:enter="transition-opacity ease-out duration-300" x-transition:enter-start="opacity-0"
                 x-transition:enter-end="opacity-100" x-transition:leave="transition-opacity ease-in duration-200"
                 x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
                 <div
-                    class="px-10 md:px-12 pb-5 ml-3 md:ml-7 text-sm sm:text-base md:text-lg text-accentsecond leading-relaxed font-light">
+                    class="px-10 md:px-12 pb-5 ml-3 md:ml-7 text-sm sm:text-base md:text-lg text-accentthird leading-relaxed font-light">
                     {{ $faq['a'] }}
                 </div>
             </div>
-
         </div>
         @endforeach
-
     </div>
 
-    {{-- Footer CTA --}}
     <div data-aos="custom-blur-up"
         class="mt-6 md:mt-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 sm:gap-0">
         <div class="flex items-center gap-2">
             <span class="text-lg text-accent tracking-wide">Still have questions?</span>
         </div>
-        <a href="/contact"
+        <a href="/contact" aria-label="Hubungi kami — masih punya pertanyaan tentang BP Marine Co"
             class="group relative overflow-hidden px-6 py-2 mr-3 bg-secondary rounded-full text-background w-max">
             <span
-                class="absolute rounded-full inset-y-0 left-0 w-0 bg-primary transition-all duration-500 group-hover:w-full"></span>
+                class="absolute rounded-full inset-y-0 left-0 w-0 bg-primary transition-all duration-500 group-hover:w-full"
+                aria-hidden="true"></span>
             <span
                 class="flex items-center gap-2 text-md text-background font-medium relative z-10 group-hover:text-white transition">
-                Contact Us <i class="ti ti-arrow-up-right"></i>
+                Contact Us <i class="ti ti-arrow-up-right" aria-hidden="true"></i>
             </span>
         </a>
     </div>
-
 </section>
 
 @endsection

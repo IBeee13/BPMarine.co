@@ -10,4 +10,33 @@ export default defineConfig({
         }),
         tailwindcss(),
     ],
+
+    build: {
+        minify: 'terser',
+        terserOptions: {
+            compress: {
+                drop_console: true,
+                drop_debugger: true,
+                passes: 2,
+            },
+            mangle: true,
+        },
+
+        cssMinify: true,
+
+        rollupOptions: {
+            output: {
+                manualChunks(id) {
+                    if (id.includes('node_modules/alpinejs')) {
+                        return 'alpine';
+                    }
+                    if (id.includes('node_modules/aos')) {
+                        return 'aos';
+                    }
+                },
+            },
+        },
+
+        chunkSizeWarningLimit: 500,
+    },
 });

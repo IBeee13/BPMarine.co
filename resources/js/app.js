@@ -5,11 +5,6 @@ import AOS from 'aos'
 import 'aos/dist/aos.css'
 import Lenis from 'lenis';
 
-AOS.init({
-    duration: 1200,
-    once: false,
-    mirror: true
-})
 
 const lenis = new Lenis();
 
@@ -17,9 +12,18 @@ function raf(time) {
     lenis.raf(time);
     requestAnimationFrame(raf);
 }
-
 requestAnimationFrame(raf);
 
+
+window.toggleSidebar = function () {
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('sidebar-overlay');
+    const btn = document.getElementById('burger-btn');
+    const isOpen = !sidebar.classList.contains('-translate-x-full');
+    sidebar.classList.toggle('-translate-x-full');
+    overlay.classList.toggle('hidden');
+    btn.setAttribute('aria-expanded', String(!isOpen));
+};
 
 
 // ─── Testimonial Drag Scroll + Auto Rotate ───────────────────────────────────
@@ -210,80 +214,6 @@ new MutationObserver((mutations) => {
         });
     });
 }).observe(document.body, { childList: true, subtree: true });
-// ─────────────────────────────────────────────────────────────────────────────
-
-// ─── Count Up Marquee Stats ───────────────────────────────────────────────────
-function countUpEl(el) {
-    const raw = el.dataset.countup;
-    const suffix = raw.replace(/[0-9]/g, '');
-    const target = parseInt(raw);
-    if (isNaN(target)) return;
-
-    const duration = 2500;
-    const startTime = performance.now();
-
-    function update(now) {
-        const elapsed = now - startTime;
-        const progress = Math.min(elapsed / duration, 1);
-        const eased = 1 - Math.pow(1 - progress, 3);
-        el.textContent = (progress >= 1 ? target : Math.floor(eased * target)) + suffix;
-        if (progress < 1) requestAnimationFrame(update);
-    }
-
-    requestAnimationFrame(update);
-}
-
-function initMarqueeCountUp() {
-    const marqueeSection = document.querySelector('[data-marquee-stats]');
-    if (!marqueeSection) return;
-
-    let playing = false;
-    let visible = false;
-    let lastScrollY = window.scrollY;
-
-    function runAll() {
-        if (playing) return;
-        playing = true;
-        marqueeSection.querySelectorAll('[data-countup]').forEach(el => {
-            const suffix = el.dataset.countup.replace(/[0-9]/g, '');
-            el.textContent = '0' + suffix;
-        });
-        marqueeSection.querySelectorAll('[data-countup]').forEach(el => countUpEl(el));
-        setTimeout(() => { playing = false; }, 1300);
-    }
-
-    function check() {
-        const r = marqueeSection.getBoundingClientRect();
-        const isVisible = r.top < window.innerHeight * 0.9 && r.bottom > 0;
-        const scrollingDown = window.scrollY > lastScrollY;
-        lastScrollY = window.scrollY;
-
-        if (isVisible && scrollingDown && !visible) {
-            visible = true;
-            runAll();
-        } else if (!isVisible) {
-            visible = false;
-        }
-    }
-
-    const rect = marqueeSection.getBoundingClientRect();
-    if (rect.top < window.innerHeight * 0.9 && rect.bottom > 0) {
-        visible = true;
-        runAll();
-    }
-
-    window.addEventListener('scroll', check, { passive: true });
-
-    if (typeof lenis !== 'undefined') {
-        lenis.on('scroll', check);
-    }
-}
-
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initMarqueeCountUp);
-} else {
-    initMarqueeCountUp();
-}
 // ─────────────────────────────────────────────────────────────────────────────
 
 

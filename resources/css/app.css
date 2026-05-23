@@ -4,10 +4,6 @@
 @source "../**/*.blade.php";
 @source "../**/*.js";
 
-* {
-    font-family: 'jost', sans-serif;
-}
-
 [x-cloak] { display: none !important; }
 
 @theme {
@@ -19,6 +15,10 @@
     --color-accentthird: #E4E5F2;
     --color-background: #FCFCFF;
     --color-secondbackground: #F9F9F9;
+}
+
+#testimonial-scroll::-webkit-scrollbar {
+    display: none;
 }
 
 @keyframes leftscroll {

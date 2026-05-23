@@ -1,8 +1,13 @@
 @extends('layouts.app')
 
+@section('title', $project->name . ' — BPMarine.Co Pinisi Shipyard')
+@section('og_title', $project->name . ' | Handcrafted Pinisi by BPMarine.Co')
+@section('meta_description', Str::limit($project->description, 155))
+@section('og_image', url('storage/' . $project->cover_image))
+
 @section('content')
 
-{{-- HEADER: Judul + Tahun --}}
+
 <section class="w-full px-6 md:px-23 pt-8 pb-6">
     <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
         <div data-aos="custom-blur-up">

@@ -7,6 +7,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
+        "fedeisas/laravel-mail-css-inliner": "^6.0",
         "filament/filament": "^5.5",
         "filament/widgets": "^5.5",
         "intervention/image": "^3.11",

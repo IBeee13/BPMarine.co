@@ -1,8 +1,9 @@
 @extends('layouts.app')
+@section('title', 'Contact BPMarine.Co — Inquire About a Custom Pinisi')
+@section('og_title', 'Get in Touch with BPMarine.Co — Pinisi Shipyard Inquiries')
+@section('meta_description', 'Reach out to BPMarine.Co for custom Pinisi builds, charter inquiries, or shipyard visits. Our team in Bulukumba, South Sulawesi is ready to bring your vessel vision to life.')
 
 @section('content')
-@section('meta_description', 'Ready to build your dream Pinisi vessel? Contact BP Marine Co in Bulukumba, South
-Sulawesi. Our master craftsmen are ready to bring your vision to life.')
 
 {{-- Hero Section --}}
 <section class="relative w-full overflow-hidden py-8">

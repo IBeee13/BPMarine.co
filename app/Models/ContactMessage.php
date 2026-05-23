@@ -28,12 +28,10 @@ class ContactMessage extends Model
         static::updated(function ($message) {
             if ($message->wasChanged('status')) {
 
-                // Tandai dibaca jika accepted ATAU rejected
                 if (in_array($message->status, ['accepted', 'rejected'])) {
                     $message->updateQuietly(['is_read' => true]);
                 }
 
-                // Buat client hanya jika accepted
                 if ($message->status === 'accepted') {
                     Client::firstOrCreate(
                         ['contact_message_id' => $message->id],
@@ -42,7 +40,7 @@ class ContactMessage extends Model
                             'email'   => $message->email,
                             'phone'   => $message->phone,
                             'company' => $message->company,
-                            'country' => $message->country,  // ← tambahkan
+                            'country' => $message->country,
                             'status'  => 'in_progress',
                         ]
                     );

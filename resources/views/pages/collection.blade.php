@@ -1,8 +1,9 @@
 @extends('layouts.app')
+@section('title', 'Our Pinisi Collection — BPMarine.Co')
+@section('og_title', 'Handcrafted Pinisi Vessels — BPMarine.Co Collection')
+@section('meta_description', 'Browse our collection of handcrafted Pinisi vessels — from traditional phinisi liveaboards to luxury charter yachts, each built to order at our shipyard in Bulukumba, South Sulawesi.')
 
 @section('content')
-@section('meta_description', 'Explore our collection of premium handcrafted Pinisi vessels — each built with precision,
-indigenous timber, and the timeless craftsmanship of South Sulawesi\'s master shipbuilders.')
 
 {{-- HERO SECTION --}}
 <section class="relative w-full min-h-[50vh] md:min-h-screen overflow-hidden px-6 md:px-10 lg:px-21 py-8">
