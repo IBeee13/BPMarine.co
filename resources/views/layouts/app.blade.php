@@ -17,7 +17,7 @@
     <meta property="og:url" content="{{ url()->current() }}">
 
     <title>@yield('title', 'BPMarine.co')</title>
-    <link rel="icon" href="{{ url('img/Bina Pusaka/Aset/LOGO BINA PUSAKA 21.webp') }}" type="image/webp">
+    <link rel="icon" href="{{ url('img/Bina Pusaka/Aset/Binapusaka.ico') }}" type="image/x-icon">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
