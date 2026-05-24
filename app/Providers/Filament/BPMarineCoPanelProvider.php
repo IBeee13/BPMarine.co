@@ -29,7 +29,7 @@ class BPMarineCoPanelProvider extends PanelProvider
             ->path('BPMarineCo')
             ->login()
             ->brandName('BP Marine Co')
-            ->brandLogo(asset('img/Bina Pusaka/aset/LOGO BINA PUSAKA 2.png'))
+            ->brandLogo(url('img/Bina Pusaka/Aset/LOGO BINA PUSAKA 2.webp'))
             ->brandLogoHeight('3rem')
             ->colors([
                 'primary' => \Filament\Support\Colors\Color::hex('#18254D'),
