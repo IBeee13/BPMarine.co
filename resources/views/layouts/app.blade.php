@@ -79,7 +79,7 @@
     {{-- Tombol burger — hanya mobile --}}
     <div class="relative z-20 md:hidden p-4 flex items-center justify-between">
         <div class="flex items-center gap-1">
-            <img src="{{ url('img/Bina Pusaka/aset/LOGO BINA PUSAKA 21.webp') }}" alt="Logo BP Marine Co" width="40"
+            <img src="{{ url('img/Bina Pusaka/Aset/LOGO BINA PUSAKA 21.webp') }}" alt="Logo BP Marine Co" width="40"
                 height="40" class="h-10 w-auto">
             <div class="flex flex-col leading-tight mt-1">
                 <span class="text-[2.8vw] font-light">BINA PUSAKA</span>
@@ -101,7 +101,7 @@
         aria-label="Menu navigasi mobile">
         <div class="flex items-center justify-between px-6 py-5 border-b border-accentthird">
             <div class="flex items-center gap-1">
-                <img src="{{ url('img/Bina Pusaka/aset/LOGO BINA PUSAKA 21.webp') }}" alt="Logo BP Marine Co" width="40"
+                <img src="{{ url('img/Bina Pusaka/Aset/LOGO BINA PUSAKA 21.webp') }}" alt="Logo BP Marine Co" width="40"
                     height="40" class="h-10 w-auto">
                 <div class="flex flex-col leading-tight mt-1">
                     <span class="text-[2.8vw] font-light">BINA PUSAKA</span>

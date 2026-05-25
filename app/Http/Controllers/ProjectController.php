@@ -9,7 +9,7 @@ class ProjectController extends Controller
 {
     public function index()
     {
-        $projects = Project::orderBy('created_at', 'desc')->get();
+        $projects = Project::orderBy('sort_order')->get();
 
         $projectsData = $projects->map(fn($p) => [
             'id'          => $p->id,

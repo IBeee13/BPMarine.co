@@ -22,7 +22,8 @@ class Project extends Model
         'max_speed',
         'description',
         'cover_image',
-        'gallery_images'
+        'gallery_images',
+        'sort_order'
     ];
 
     protected $casts = [
