@@ -1,0 +1,34 @@
+{
+  "_aos-BEAEiDF0.js": {
+    "file": "assets/aos-BEAEiDF0.js",
+    "name": "aos",
+    "css": [
+      "assets/aos-DvB2Xm2x.css"
+    ]
+  },
+  "_aos-DvB2Xm2x.css": {
+    "file": "assets/aos-DvB2Xm2x.css",
+    "src": "_aos-DvB2Xm2x.css"
+  },
+  "resources/css/app.css": {
+    "file": "assets/app-Bkg8qNrT.css",
+    "src": "resources/css/app.css",
+    "isEntry": true,
+    "name": "app",
+    "names": [
+      "app.css"
+    ]
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-Dv_31khG.js",
+    "name": "app",
+    "src": "resources/js/app.js",
+    "isEntry": true,
+    "imports": [
+      "_aos-BEAEiDF0.js"
+    ],
+    "css": [
+      "assets/app-Bkg8qNrT.css"
+    ]
+  }
+}
