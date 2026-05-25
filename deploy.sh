@@ -1,4 +1,5 @@
 #!/bin/bash
+echo "Running from: $(pwd)" >> /tmp/deploy.log
 cd /home/u722632723/domains/binapusakapinisi.com/public_html
 
 # Backup .env
@@ -31,6 +32,6 @@ cp -r public/js ./
 cp -r public/css ./
 cp -r public/fonts ./ 2>/dev/null || true
 cp -r public/img ./ 2>/dev/null || true
-
-# Sync storage ke public
 cp -r storage/app/public/* storage/ 2>/dev/null || true
+
+echo "Deploy done!" >> /tmp/deploy.log
