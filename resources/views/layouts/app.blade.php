@@ -77,10 +77,10 @@
     </div>
 
     {{-- Tombol burger — hanya mobile --}}
-    <div class="relative z-20 md:hidden p-4 flex items-center justify-between">
+    <div class="relative z-20 md:hidden py-4 px-5 flex items-center justify-between">
         <div class="flex items-center gap-1">
             <img src="{{ url('img/Bina Pusaka/Aset/LOGO BINA PUSAKA 21.webp') }}" alt="Logo BP Marine Co" width="40"
-                height="40" class="h-10 w-auto">
+                height="40" class="h-10 -ml-2 w-auto">
             <div class="flex flex-col leading-tight mt-1">
                 <span class="text-[2.8vw] font-light">BINA PUSAKA</span>
                 <span class="text-[clamp(9px,1.3vw,13px)] font-light text-accentsecond tracking-wide">Design and Pinisi

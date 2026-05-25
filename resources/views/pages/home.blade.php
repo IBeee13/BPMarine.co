@@ -15,7 +15,7 @@ heritage with modern shipbuilding excellence. Discover our fleet and legacy.')
 {{-- ============================================================ --}}
 {{-- HERO SECTION                                                  --}}
 {{-- ============================================================ --}}
-<section class="relative w-full min-h-screen overflow-hidden px-8 md:px-13 lg:px-23 py-16"
+<section class="relative w-full min-h-screen overflow-hidden px-6 md:px-13 lg:px-23 py-16"
     aria-label="Hero — BP Marine Co Pinisi Shipyard">
 
     <div class="md:absolute -mx-6 -my-16 md:-mx-0 md:-my-0 inset-0 z-0 pointer-events-none overflow-hidden flex md:top-72"
@@ -135,7 +135,7 @@ heritage with modern shipbuilding excellence. Discover our fleet and legacy.')
 {{-- ============================================================ --}}
 {{-- OUR LEGACY SECTION                                            --}}
 {{-- ============================================================ --}}
-<section class="flex flex-col md:flex-row gap-6 md:gap-8 lg:gap-13 w-full px-8 md:px-13 lg:px-23 py-12 md:py-16"
+<section class="flex flex-col md:flex-row gap-6 md:gap-8 lg:gap-13 w-full px-6 md:px-13 lg:px-23 py-12 md:py-16"
     aria-labelledby="legacy-heading">
     <div data-aos="custom-zoom-in-up"
         class="w-full md:w-[240px] lg:w-[280px] h-[240px] md:h-[320px] lg:h-[380px] rounded-2xl overflow-hidden flex-shrink-0">
@@ -174,29 +174,32 @@ heritage with modern shipbuilding excellence. Discover our fleet and legacy.')
     <div class="flex w-max gap-2 animate-leftscroll" aria-hidden="true">
         @foreach([
         ['img' => 'img/Bina Pusaka/Prana/AGY_Indonesia_Prana-01.webp', 'num' => '25+', 'title' => 'Years of Excellence',
-        'desc' => 'Since 1998, BP Marine Co has been preserving the art of Pinisi shipbuilding, delivering vessels that
-        embody heritage, strength, and global standards.'],
+        'desc' => 'Preserving Pinisi shipbuilding since 1998, delivering vessels of heritage and global standards.'],
         ['img' => 'img/Bina Pusaka/Prana/Prana-by-Atzaro-Onboard.webp', 'num' => '20+', 'title' => 'Ships Built with
-        Precision', 'desc' => 'Each vessel reflects our commitment to craftsmanship, combining traditional Pinisi
-        heritage with modern shipbuilding standards.'],
+        Precision',
+        'desc' => 'Each vessel reflects our commitment to craftsmanship and modern shipbuilding standards.'],
         ['img' => 'img/Bina Pusaka/The Maj Oceanic/vessel-6.webp', 'num' => '25+', 'title' => 'Years of Excellence',
-        'desc' => 'Since 1998, BP Marine Co has been preserving the art of Pinisi shipbuilding, delivering vessels that
-        embody heritage, strength, and global standards.'],
+        'desc' => 'Preserving Pinisi shipbuilding since 1998, delivering vessels of heritage and global standards.'],
         ['img' => 'img/Bina Pusaka/The Maj Oceanic/vessel-1.webp', 'num' => '20+', 'title' => 'Ships Built with
-        Precision', 'desc' => 'Each vessel reflects our commitment to craftsmanship, combining traditional Pinisi
-        heritage with modern shipbuilding standards.'],
+        Precision',
+        'desc' => 'Each vessel reflects our commitment to craftsmanship and modern shipbuilding standards.'],
         ] as $item)
-        <div class="overflow-hidden flex-shrink-0">
+        <div class="overflow-hidden flex-shrink-0 h-40 sm:h-44 md:h-56 w-56 sm:w-64 md:w-104">
             <img src="{{ url($item['img']) }}" alt="Kapal Pinisi BP Marine Co" width="416" height="224" loading="lazy"
-                decoding="async" sizes="(max-width: 768px) 288px, 416px"
-                class="h-44 md:h-56 w-72 md:w-104 object-cover">
+                decoding="async" class="h-full w-full object-cover">
         </div>
-        <div
-            class="border-2 border-accentthird bg-background h-44 md:h-56 w-72 md:w-104 gap-3 md:gap-4 px-4 flex shrink-0 items-center justify-center">
-            <p class="text-5xl md:text-7xl text-primary font-medium">{{ $item['num'] }}</p>
-            <div class="flex flex-col gap-2 md:gap-4">
-                <p class="text-primary text-base md:text-lg font-medium">{{ $item['title'] }}</p>
-                <p class="text-justify text-xs md:text-sm text-accent">{{ $item['desc'] }}</p>
+        <div class="border-2 border-accentthird bg-background flex-shrink-0
+                    h-40 sm:h-44 md:h-56
+                    w-56 sm:w-64 md:w-104
+                    px-3 sm:px-3 md:px-4
+                    gap-2 sm:gap-3 md:gap-4
+                    flex items-center justify-center overflow-hidden">
+            <p class="text-3xl sm:text-5xl md:text-7xl text-primary font-medium leading-none flex-shrink-0">
+                {{ $item['num'] }}</p>
+            <div class="flex flex-col gap-1 sm:gap-2 md:gap-4 min-w-0">
+                <p class="text-primary text-xs sm:text-base md:text-lg font-medium leading-tight">{{ $item['title'] }}
+                </p>
+                <p class="text-xs md:text-sm text-accent leading-snug">{{ $item['desc'] }}</p>
             </div>
         </div>
         @endforeach
@@ -204,30 +207,34 @@ heritage with modern shipbuilding excellence. Discover our fleet and legacy.')
 
     <div class="flex w-max gap-2 animate-rightscroll" aria-hidden="true">
         @foreach([
-        ['img' => 'img/Bina Pusaka/Sanctuary/vessel-2.webp', 'num' => '1983', 'title' => 'From Indonesia
-        to the World', 'desc' => 'Our legacy expanded globally when the Pinisi was introduced at Expo Vancouver 1983 in
-        Canada.'],
+        ['img' => 'img/Bina Pusaka/Sanctuary/vessel-2.webp', 'num' => '1983', 'title' => 'From Indonesia to the World',
+        'desc' => 'Pinisi was introduced at Expo Vancouver 1983 in Canada, marking our global legacy.'],
         ['img' => 'img/Bina Pusaka/Tiger Blue/tiger-blue-phinisi.webp', 'num' => '1998', 'title' => 'Continuing a
-        600-Year Legacy', 'desc' => 'BP Marine Co carries forward the legacy of Pinisi craftsmanship, combining
-        generations of heritage with modern shipbuilding expertise.'],
+        600-Year Legacy',
+        'desc' => 'Carrying forward Pinisi craftsmanship combining heritage with modern shipbuilding expertise.'],
         ['img' => 'img/Bina Pusaka/Tiger Blue/vessel-1__1_.webp', 'num' => '1983', 'title' => 'From Indonesia to the
-        World', 'desc' => 'Our legacy expanded globally when the Pinisi was introduced at Expo Vancouver 1983 in
-        Canada.'],
+        World',
+        'desc' => 'Pinisi was introduced at Expo Vancouver 1983 in Canada, marking our global legacy.'],
         ['img' => 'img/Bina Pusaka/Sanctuary/vessel-10.webp', 'num' => '1998', 'title' => 'Continuing a 600-Year
-        Legacy', 'desc' => 'BP Marine Co carries forward the legacy of Pinisi craftsmanship, combining generations of
-        heritage with modern shipbuilding expertise.'],
+        Legacy',
+        'desc' => 'Carrying forward Pinisi craftsmanship combining heritage with modern shipbuilding expertise.'],
         ] as $item)
-        <div class="overflow-hidden flex-shrink-0">
+        <div class="overflow-hidden flex-shrink-0 h-40 sm:h-44 md:h-56 w-56 sm:w-64 md:w-104">
             <img src="{{ url($item['img']) }}" alt="Kapal Pinisi BP Marine Co" width="416" height="224" loading="lazy"
-                decoding="async" sizes="(max-width: 768px) 288px, 416px"
-                class="h-44 md:h-56 w-72 md:w-104 object-cover">
+                decoding="async" class="h-full w-full object-cover">
         </div>
-        <div
-            class="border-2 border-accentthird bg-background h-44 md:h-56 w-72 md:w-104 gap-3 md:gap-4 px-4 flex shrink-0 items-center justify-center">
-            <p class="text-5xl md:text-6xl text-primary font-medium">{{ $item['num'] }}</p>
-            <div class="flex flex-col gap-2 md:gap-4">
-                <p class="text-primary text-base md:text-lg font-medium">{{ $item['title'] }}</p>
-                <p class="text-justify text-xs md:text-sm text-accent">{{ $item['desc'] }}</p>
+        <div class="border-2 border-accentthird bg-background flex-shrink-0
+                    h-40 sm:h-44 md:h-56
+                    w-56 sm:w-64 md:w-104
+                    px-3 sm:px-3 md:px-4
+                    gap-2 sm:gap-3 md:gap-4
+                    flex items-center justify-center overflow-hidden">
+            <p class="text-3xl sm:text-5xl md:text-6xl text-primary font-medium leading-none flex-shrink-0">
+                {{ $item['num'] }}</p>
+            <div class="flex flex-col gap-1 sm:gap-2 md:gap-4 min-w-0">
+                <p class="text-primary text-xs sm:text-base md:text-lg font-medium leading-tight">{{ $item['title'] }}
+                </p>
+                <p class="text-xs md:text-sm text-accent leading-snug">{{ $item['desc'] }}</p>
             </div>
         </div>
         @endforeach
@@ -237,7 +244,7 @@ heritage with modern shipbuilding excellence. Discover our fleet and legacy.')
 {{-- ============================================================ --}}
 {{-- OUR FLEET SECTION                                             --}}
 {{-- ============================================================ --}}
-<section class="px-8 md:px-13 lg:px-23 py-16 md:py-24 lg:py-32" aria-labelledby="fleet-heading">
+<section class="px-6 md:px-13 lg:px-23 py-16 md:py-24 lg:py-32" aria-labelledby="fleet-heading">
     <div class="flex flex-col md:flex-row gap-6 md:gap-8 lg:gap-59 mb-10 md:mb-16">
         <div class="overflow-hidden">
             <p data-aos="fade-up" class="text-xl text-accent">/Our Fleet</p>
@@ -306,7 +313,7 @@ heritage with modern shipbuilding excellence. Discover our fleet and legacy.')
 {{-- VOICES SECTION                                                --}}
 {{-- ============================================================ --}}
 <section
-    class="relative w-full px-8 md:px-13 lg:px-23 py-16 md:py-24 flex flex-col gap-12 md:gap-20 lg:gap-32 bg-primary overflow-hidden"
+    class="relative w-full px-6 md:px-13 lg:px-23 py-16 md:py-24 flex flex-col gap-12 md:gap-20 lg:gap-32 bg-primary overflow-hidden"
     aria-labelledby="voices-heading">
     <div class="absolute inset-0 pointer-events-none z-0" aria-hidden="true"
         style="display: grid; grid-template-columns: 6% 22% 22% 22% 22% 1fr;">
@@ -456,18 +463,17 @@ $countryNames = [
 ];
 @endphp
 
-<section class="px-8 md:px-13 lg:px-23 py-16 md:py-24 lg:py-32 flex flex-col gap-16 md:gap-24 lg:gap-40"
+<section class="px-6 md:px-13 lg:px-23 py-16 md:py-24 lg:py-32 flex flex-col gap-16 md:gap-24 lg:gap-40"
     aria-label="Testimonial dari klien BP Marine Co">
-    <div class="flex justify-between items-end mb-10 md:mb-14">
-        <div class="overflow-hidden">
+    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-4 mb-10 md:mb-14">
+        <div class="w-max h-max overflow-hidden">
             <p data-aos="fade-up" class="text-xl text-accent">/Testimonial</p>
         </div>
-        <div class="text-right">
-            {{-- FIX: h2 --}}
-            <h2 data-aos="custom-blur-up"
-                class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-none text-primary"
+        <div class="sm:text-right">
+            <h2 id="faq-about-heading" data-aos="custom-blur-up"
+                class="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold leading-none text-primary"
                 style="font-family: 'Poppins', sans-serif;">
-                WORLD <span
+                WORLD<span
                     style="color:transparent;-webkit-text-stroke:2px var(--color-accent); font-family: 'Poppins', sans-serif;"><br>OF
                     SUPPORT</span>
             </h2>
@@ -578,13 +584,12 @@ $countryNames = [
 {{-- ============================================================ --}}
 {{-- FAQ SECTION                                                   --}}
 {{-- ============================================================ --}}
-<section class="w-full px-8 md:px-13 lg:px-23 py-16 md:py-24 lg:py-32" aria-labelledby="faq-heading">
+<section class="w-full px-6 md:px-13 lg:px-23 py-16 md:py-24 lg:py-32" aria-labelledby="faq-heading">
     <div class="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-4 mb-10 md:mb-14">
         <div class="overflow-hidden">
             <p data-aos="fade-up" class="text-xl text-accent">/Frequently Asked Questions</p>
         </div>
         <div class="sm:text-right">
-            {{-- FIX: h2 --}}
             <h2 id="faq-heading" data-aos="custom-blur-up"
                 class="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold leading-none text-primary"
                 style="font-family: 'Poppins', sans-serif;">

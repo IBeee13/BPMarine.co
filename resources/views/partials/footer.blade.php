@@ -1,5 +1,5 @@
 <footer class="pb-0 relative z-10">
-    <section class="px-7 md:px-13 lg:px-23 mt-8 mb-16">
+    <section class="px-6 md:px-13 lg:px-23 mt-8 mb-16">
         <div class="relative flex w-full items-center justify-center bg-primary min-h-[200px] md:h-78 px-6 md:px-20 py-12 md:py-0 overflow-hidden rounded-[40px]
         shadow-2xl shadow-primary/70
         hover:shadow-[0_25px_60px_rgba(24,37,77,0.5)]
@@ -26,7 +26,7 @@
         </div>
     </section>
 
-    <section class="mt-8 px-7 md:px-13 lg:px-19 rounded-t-[80px] pb-0">
+    <section class="mt-8 px-6 md:px-13 lg:px-19 rounded-t-[80px] pb-0">
         <div class="flex flex-col md:flex-row gap-28 py-10">
             <div class="flex flex-col gap-8 overflow-hidden">
                 <div data-aos="fade-up" class="flex items-center gap-2">

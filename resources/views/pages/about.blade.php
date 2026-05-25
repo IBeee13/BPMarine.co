@@ -16,10 +16,10 @@ Sulawesi, dedicated to preserving the art of traditional Indonesian boatbuilding
 {{-- ============================================================ --}}
 {{-- HERO SECTION                                                  --}}
 {{-- ============================================================ --}}
-<section class="relative flex w-full min-h-screen overflow-hidden px-8 md:px-13 lg:px-23 py-8"
+<section class="relative flex w-full min-h-screen overflow-hidden px-6 md:px-13 lg:px-23 py-8"
     aria-label="Hero — About BP Marine Co">
 
-    <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden flex top-72 md:top-72" aria-hidden="true">
+    <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden flex top-104 md:top-72" aria-hidden="true">
         <div class="whitespace-nowrap animate-leftscroll text-[30vw] md:text-[20vw] font-medium">
             <p
                 style="color:transparent;-webkit-text-stroke:2px var(--color-accentthird); font-family: 'Poppins', sans-serif;">
@@ -74,7 +74,7 @@ Sulawesi, dedicated to preserving the art of traditional Indonesian boatbuilding
                     aria-hidden="true"></i>
             </a>
         </div>
-        <div data-aos="custom-zoom-in-up" class="rounded-2xl overflow-hidden h-56 sm:h-64 w-full mt-16">
+        <div data-aos="custom-zoom-in-up" class="rounded-2xl overflow-hidden h-56 sm:h-64 w-full mt-24">
             <img src="{{ url('img/Bina Pusaka/Tiger Blue/tiger-blue-phinisi.webp') }}"
                 alt="Kapal Pinisi Tiger Blue — buatan BP Marine Co Bulukumba" width="600" height="256" loading="eager"
                 fetchpriority="high" decoding="sync"
@@ -416,15 +416,13 @@ Sulawesi, dedicated to preserving the art of traditional Indonesian boatbuilding
 {{-- ============================================================ --}}
 {{-- CHARTING THE FUTURE SECTION                                   --}}
 {{-- ============================================================ --}}
-<section class="w-full -mt-112 md:-mt-72 lg:-mt-88 px-8 md:px-13 lg:px-23 pb-16 md:pb-32 overflow-hidden"
+<section class="w-full -mt-80 sm:-mt-112 md:-mt-72 lg:-mt-88 px-6 md:px-13 lg:px-23 pb-16 md:pb-32 overflow-hidden"
     aria-labelledby="future-heading">
     <div class="flex items-center h-full w-max overflow-hidden">
-        {{-- FIX: p bukan h1 untuk label section --}}
         <p data-aos="fade-up" class="text-xl text-background">/Charting The Future</p>
     </div>
     <div data-aos="custom-blur-up" class="flex flex-col md:flex-row gap-6 md:gap-8 lg:gap-14 py-10 md:py-14">
         <div class="w-full md:w-[40vw]">
-            {{-- FIX: h2 untuk section heading --}}
             <h2 id="future-heading"
                 class="text-4xl md:text-[4vw] lg:text-[6vw] text-background font-extrabold leading-none"
                 style="font-family: 'Poppins', sans-serif;">The Future</h2>
@@ -479,7 +477,7 @@ Sulawesi, dedicated to preserving the art of traditional Indonesian boatbuilding
 {{-- ============================================================ --}}
 {{-- MASTER BUILDERS SECTION                                       --}}
 {{-- ============================================================ --}}
-<section class="flex flex-col gap-6 md:gap-8 w-full px-8 md:px-13 lg:px-22 py-12 md:py-32"
+<section class="flex flex-col gap-6 md:gap-8 w-full px-6 md:px-13 lg:px-22 py-12 md:py-32"
     aria-labelledby="builders-heading">
     <div class="flex justify-between items-end mb-10 md:mb-14">
         <div class="w-max h-max object-cover overflow-hidden">
@@ -570,7 +568,7 @@ Sulawesi, dedicated to preserving the art of traditional Indonesian boatbuilding
 {{-- VOICES SECTION                                                --}}
 {{-- ============================================================ --}}
 <section
-    class="relative w-full px-8 md:px-13 lg:px-23 py-16 md:py-24 flex flex-col gap-12 md:gap-20 lg:gap-32 bg-primary overflow-hidden"
+    class="relative w-full px-6 md:px-13 lg:px-23 py-16 md:py-24 flex flex-col gap-12 md:gap-20 lg:gap-32 bg-primary overflow-hidden"
     aria-labelledby="voices-about-heading">
     <div class="absolute inset-0 pointer-events-none z-0" aria-hidden="true"
         style="display: grid; grid-template-columns: 6% 22% 22% 22% 22% 1fr;">
@@ -719,15 +717,16 @@ $countryNames = [
 ];
 @endphp
 
-<section class="px-8 md:px-13 lg:px-23 py-16 md:py-24 lg:py-32 flex flex-col gap-16 md:gap-24 lg:gap-40"
+<section class="px-6 md:px-13 lg:px-23 py-16 md:py-24 lg:py-32 flex flex-col gap-16 md:gap-24 lg:gap-40"
     aria-label="Testimonial dari klien BP Marine Co">
-    <div class="flex justify-between items-end mb-10 md:mb-14">
-        <div class="w-max h-max object-cover overflow-hidden">
+
+    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-4 mb-10 md:mb-14">
+        <div class="w-max h-max overflow-hidden">
             <p data-aos="fade-up" class="text-xl text-accent">/Testimonial</p>
         </div>
-        <div class="text-right">
-            <h2 data-aos="custom-blur-up"
-                class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-none text-primary"
+        <div class="sm:text-right">
+            <h2 id="faq-about-heading" data-aos="custom-blur-up"
+                class="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold leading-none text-primary"
                 style="font-family: 'Poppins', sans-serif;">
                 WORLD<span
                     style="color:transparent;-webkit-text-stroke:2px var(--color-accent); font-family: 'Poppins', sans-serif;"><br>OF
@@ -739,7 +738,7 @@ $countryNames = [
     @if ($testimonials->count() > 0)
     <div data-aos="custom-zoom-in-up" class="flex flex-col md:flex-row items-stretch gap-0">
         <div class="hidden md:block sticky top-8 flex-shrink-0 w-56 lg:w-72" aria-hidden="true">
-            <div class="w-full h-[64vh] lg:h-[65vh] rounded-2xl overflow-hidden bg-primary relative">
+            <div class="w-full md:h-[48vh] lg:h-[65vh] rounded-2xl overflow-hidden bg-primary relative">
                 @foreach ($testimonials as $index => $item)
                 <img src="{{ $item->photo ? Storage::url($item->photo) : asset('img/default-avatar.webp') }}"
                     alt="{{ $item->name }}" width="288" height="520" loading="lazy" decoding="async"
@@ -841,7 +840,7 @@ $countryNames = [
 {{-- ============================================================ --}}
 {{-- FAQ SECTION                                                   --}}
 {{-- ============================================================ --}}
-<section class="w-full px-8 md:px-13 lg:px-23 py-16 md:py-24 lg:py-32" aria-labelledby="faq-about-heading">
+<section class="w-full px-6 md:px-13 lg:px-23 py-16 md:py-24 lg:py-32" aria-labelledby="faq-about-heading">
     <div class="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-4 mb-10 md:mb-14">
         <div class="w-max h-max overflow-hidden">
             <p data-aos="fade-up" class="text-xl text-accent">/Frequently Asked Questions</p>

@@ -18,7 +18,7 @@
     </div>
 
     {{-- Mobile --}}
-    <div data-aos="custom-blur-up" class="relative z-10 flex flex-col md:hidden gap-2 pt-16 pb-12">
+    <div data-aos="custom-blur-up" class="relative z-10 flex flex-col md:hidden gap-2 pb-12">
         <h1 class="text-7xl text-primary font-extrabold leading-none" style="font-family: 'Poppins', sans-serif;">Our</h1>
         <h1 class="text-7xl font-extrabold leading-none" style="color:transparent;-webkit-text-stroke:2px var(--color-accent); font-family: 'Poppins', sans-serif;">Fleet</h1>
     </div>
@@ -38,7 +38,7 @@ window._years = @json($yearsData);
 </script>
 
 {{-- COLLECTION GRID --}}
-<section class="px-8 md:pb-13 lg:px-23 pb-24 -mt-8 w-full" x-data="{
+<section class="px-6 md:pb-13 lg:px-23 pb-24 -mt-8 w-full" x-data="{
         search: '',
         year: '',
         initial: '',
