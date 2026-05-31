@@ -7,6 +7,9 @@ if [ -f .env ]; then
     cp .env /tmp/bpmarine.env.backup
 fi
 
+php artisan db:seed  # atau
+mysqldump -u username -p database_name > backup.sql
+
 composer install --no-dev --optimize-autoloader
 php artisan migrate --force
 php artisan optimize:clear

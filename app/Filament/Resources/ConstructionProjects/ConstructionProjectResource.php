@@ -41,7 +41,7 @@ class ConstructionProjectResource extends Resource
             Section::make('Informasi Dasar')
                 ->description('Nama dan tipe kapal yang sedang dibangun')
                 ->schema([
-                    TextInput::make('name')->label('Nama Kapal')->required()->columnSpanFull(),
+                    TextInput::make('name')->label('Nama Pemilik')->required()->columnSpanFull(),
                     TextInput::make('year')->label('Tahun Mulai Konstruksi')->numeric()->required(),
                     TextInput::make('type')->label('Tipe Kapal')->placeholder('Luxury Pinisi Yacht'),
                 ])->columns(2),
