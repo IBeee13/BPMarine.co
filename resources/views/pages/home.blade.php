@@ -15,12 +15,12 @@ heritage with modern shipbuilding excellence. Discover our fleet and legacy.')
 {{-- ============================================================ --}}
 {{-- HERO SECTION                                                  --}}
 {{-- ============================================================ --}}
-<section class="relative w-full min-h-screen overflow-hidden px-6 md:px-13 lg:px-23 py-16"
+<section class="relative w-full overflow-hidden px-6 md:px-12 lg:px-16 xl:px-23 py-16 pb-20 md:pb-16 xl:min-h-screen"
     aria-label="Hero — BP Marine Co Pinisi Shipyard">
 
     <div class="md:absolute -mx-6 -my-16 md:-mx-0 md:-my-0 inset-0 z-0 pointer-events-none overflow-hidden flex md:top-72"
         aria-hidden="true">
-        <div class="whitespace-nowrap animate-leftscroll text-[30vw] md:text-[20vw] font-medium">
+        <div class="whitespace-nowrap animate-leftscroll text-[30vw] xl:text-[20vw] font-medium">
             <p
                 style="color:transparent;-webkit-text-stroke:2px var(--color-accentthird); font-family: 'Poppins', sans-serif;">
                 We Carry a 14th-Century Maritime Legacy into the Future of Indonesia &nbsp;
@@ -29,28 +29,30 @@ heritage with modern shipbuilding excellence. Discover our fleet and legacy.')
         </div>
     </div>
 
-    {{-- ── Mobile: stack vertikal ─────────────────────────────────────────── --}}
+    {{-- ── Mobile: < 768px ────────────────────────────────────────────────── --}}
     <div class="relative z-10 flex flex-col md:hidden gap-6 pt-4 -mt-24">
-        <div data-aos="custom-zoom-in-up" class="w-full h-[260px] sm:h-[320px] rounded-2xl overflow-hidden">
+        <div data-aos="custom-zoom-in-up" data-aos-duration="800"
+            class="w-full h-[260px] sm:h-[320px] rounded-2xl overflow-hidden">
             <img src="{{ url('img/Bina Pusaka/Vela/vela-exterior-11.webp') }}"
                 alt="Kapal Pinisi Vela — BP Marine Co, galangan kapal tradisional Sulawesi" width="600" height="320"
                 loading="eager" fetchpriority="high" decoding="sync"
                 class="h-full w-full hover:scale-110 transition duration-500 object-cover">
         </div>
-        <div data-aos="custom-blur-up">
+        <div data-aos="custom-blur-up" data-aos-delay="100">
             <h1 class="text-3xl sm:text-4xl font-medium leading-tight text-primary">
                 Traditional Phinisi, Built for Global Luxury
             </h1>
             <p class="text-accentsecond text-base mt-2">Proudly Crafted in Indonesia</p>
         </div>
-        <a href="/collection" data-aos="custom-zoom-in-up" aria-label="View Our Collection of Pinisi vessels"
+        <a href="/collection" data-aos="custom-zoom-in-up" data-aos-delay="200"
+            aria-label="View Our Collection of Pinisi vessels"
             class="bg-secondary relative group overflow-hidden text-background px-7 py-3 inline-flex items-center rounded-full shadow-md w-max transition ease-in-out duration-500">
             <span
                 class="absolute bg-primary rounded-full inset-y-0 left-0 w-0 group-hover:w-full transition-all duration-300"
                 aria-hidden="true"></span>
             <span class="relative group-hover:text-background text-md font-base">View Our Collection</span>
         </a>
-        <div data-aos="custom-zoom-in-up" class="flex gap-3 h-[220px] sm:h-[280px]">
+        <div data-aos="custom-zoom-in-up" data-aos-delay="250" class="flex gap-3 h-[220px] sm:h-[280px]">
             <div class="flex-1 rounded-2xl overflow-hidden">
                 <img src="{{ url('img/Bina Pusaka/Ilike/vessel_Ilike_liveaboard_06-640x600.webp') }}"
                     alt="Interior liveaboard kapal Pinisi Ilike — BP Marine Co" width="300" height="280" loading="lazy"
@@ -64,27 +66,88 @@ heritage with modern shipbuilding excellence. Discover our fleet and legacy.')
         </div>
     </div>
 
-    {{-- ── Tablet & Desktop ─────────────────────────────────────────────────── --}}
-    <div class="relative z-10 hidden md:flex items-start gap-3 lg:gap-4 h-auto md:h-[80vh] lg:h-[85vh]">
+    {{-- ── Tablet: 768px – 1279px ──────────────────────────────────────────── --}}
+    <div class="relative z-10 hidden md:flex xl:hidden flex-col gap-6 pt-4">
+        {{-- Judul --}}
+        <div class="flex flex-row justify-between">
+            <div data-aos="custom-blur-up" data-aos-delay="100">
+                <h1 class="text-[5.5vw] font-bold leading-none text-primary"
+                    style="font-family: 'Poppins', sans-serif;">
+                    Traditional
+                </h1>
+                <p class="text-[5.5vw] font-bold leading-none text-primary" style="font-family: 'Poppins', sans-serif;">
+                    Phinisi,<span
+                        style="color:transparent;-webkit-text-stroke:2px var(--color-accent); font-family: 'Poppins', sans-serif;">
+                        Built for</span>
+                </p>
+                <p class="text-[5.5vw] font-bold leading-none"
+                    style="color:transparent;-webkit-text-stroke:2px var(--color-accent); font-family: 'Poppins', sans-serif;">
+                    Global Luxury
+                </p>
+                <p class="text-accentsecond text-sm mt-2">Proudly Crafted in Indonesia</p>
+            </div>
+            <div class="flex items-end w-[45%] ">
+                <a href="/collection" data-aos="custom-zoom-in-up" data-aos-delay="150"
+                    aria-label="View Our Collection of Pinisi vessels"
+                    class="bg-secondary w-full relative group overflow-hidden text-background px-6 py-3 inline-flex items-center justify-center rounded-full shadow-md transition ease-in-out duration-500">
+                    <span
+                        class="absolute bg-primary rounded-full inset-y-0 left-0 w-0 group-hover:w-full transition-all duration-300"
+                        aria-hidden="true"></span>
+                    <span class="relative group-hover:text-background text-base font-base">View Our Collection</span>
+                </a>
+            </div>
 
-        <div data-aos="custom-zoom-in-up"
-            class="flex-shrink-0 w-[22%] lg:w-[21%] h-[55%] md:h-[60%] lg:h-[70%] rounded-2xl overflow-hidden self-start mt-4">
+        </div>
+        {{-- 2 Kolom Gambar + CTA --}}
+        <div class="flex gap-4 h-[380px] md:h-[360px] lg:h-[420px]">
+            {{-- Gambar kiri besar --}}
+            <div data-aos="custom-zoom-in-up" data-aos-duration="900" class="w-[50%] rounded-2xl overflow-hidden">
+                <img src="{{ url('img/Bina Pusaka/Vela/vela-exterior-11.webp') }}"
+                    alt="Kapal Pinisi Vela — BP Marine Co" width="420" height="560" loading="eager" fetchpriority="high"
+                    decoding="sync" class="h-full w-full object-cover hover:scale-110 transition duration-500">
+            </div>
+
+            {{-- Kanan: CTA + 2 gambar --}}
+            <div class="flex-1 flex flex-col gap-4">
+                <div class="flex gap-4 flex-1">
+                    <div data-aos="custom-zoom-in-up" data-aos-delay="200" class="flex-1 rounded-2xl overflow-hidden">
+                        <img src="{{ url('img/Bina Pusaka/Ilike/vessel_Ilike_liveaboard_06-640x600.webp') }}"
+                            alt="Interior liveaboard kapal Pinisi Ilike — BP Marine Co" width="640" height="600"
+                            loading="lazy" decoding="async"
+                            class="h-full w-full object-cover hover:scale-110 transition duration-500">
+                    </div>
+                    <div data-aos="custom-zoom-in-up" data-aos-delay="250" class="flex-1 rounded-2xl overflow-hidden">
+                        <img src="{{ url('img/Bina Pusaka/The Maj Oceanic/TMO-Areal-view-scaled-e1664971034548__2_.webp') }}"
+                            alt="Aerial view kapal Pinisi The Maj Oceanic — buatan BP Marine Co" width="480"
+                            height="320" loading="lazy" decoding="async"
+                            class="h-full w-full object-cover hover:scale-110 transition duration-500">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{-- ── Desktop: >= 1280px ───────────────────────────────────────────────── --}}
+    <div class="relative z-10 hidden xl:flex items-start gap-3 xl:gap-4 h-auto xl:h-[85vh]">
+
+        <div data-aos="custom-zoom-in-up" data-aos-duration="900"
+            class="flex-shrink-0 w-[21%] h-[70%] rounded-2xl overflow-hidden self-start mt-4">
             <img src="{{ url('img/Bina Pusaka/Vela/vela-exterior-11.webp') }}"
                 alt="Kapal Pinisi Vela — BP Marine Co, galangan kapal tradisional Sulawesi" width="420" height="560"
                 loading="eager" fetchpriority="high" decoding="sync"
                 class="h-full w-full object-cover hover:scale-110 transition duration-500">
         </div>
 
-        <div class="flex-1 flex flex-col h-full gap-4 ml-4 lg:ml-9">
+        <div class="flex-1 flex flex-col h-full gap-4 xl:ml-9">
             <div class="flex">
-                <div data-aos="custom-blur-up">
+                <div data-aos="custom-blur-up" data-aos-delay="100">
                     <h1 class="text-[6vw] flex items-center gap-3 font-bold leading-none text-primary"
                         style="font-family: 'Poppins', sans-serif;">
                         Traditional
                         <span class="flex flex-col">
-                            <span class="text-accentsecond text-xs md:text-sm font-light"
+                            <span class="text-accentsecond text-sm font-light"
                                 style="font-family: 'Poppins', sans-serif;">Proudly Crafted in</span>
-                            <span class="text-accentsecond text-xs md:text-sm font-light"
+                            <span class="text-accentsecond text-sm font-light"
                                 style="font-family: 'Poppins', sans-serif;">Indonesia</span>
                         </span>
                     </h1>
@@ -100,8 +163,8 @@ heritage with modern shipbuilding excellence. Discover our fleet and legacy.')
                     </p>
                 </div>
             </div>
-            <div class="flex gap-4 flex-1 md:ml-40 lg:ml-88">
-                <div data-aos="custom-zoom-in-up" class="flex-1 rounded-2xl overflow-hidden">
+            <div class="flex gap-4 flex-1 xl:ml-88">
+                <div data-aos="custom-zoom-in-up" data-aos-delay="200" class="flex-1 rounded-2xl overflow-hidden">
                     <img src="{{ url('img/Bina Pusaka/Ilike/vessel_Ilike_liveaboard_06-640x600.webp') }}"
                         alt="Interior liveaboard kapal Pinisi Ilike — BP Marine Co" width="640" height="600"
                         loading="lazy" decoding="async"
@@ -110,19 +173,17 @@ heritage with modern shipbuilding excellence. Discover our fleet and legacy.')
             </div>
         </div>
 
-        <div
-            class="flex-shrink-0 w-[22%] lg:w-[24%] pt-16 md:pt-20 lg:pt-24 gap-4 flex flex-col justify-between h-[100%]">
-            <div data-aos="custom-zoom-in-up" class="md:ml-8 lg:ml-24">
+        <div class="flex-shrink-0 w-[24%] pt-24 gap-4 flex flex-col justify-between h-[100%]">
+            <div data-aos="custom-zoom-in-up" data-aos-delay="150" class="lg:ml-24">
                 <a href="/collection" aria-label="View Our Collection of Pinisi vessels"
-                    class="bg-secondary relative group overflow-hidden text-background px-4 md:px-6 py-3 flex justify-center items-center rounded-full shadow-md transition ease-in-out duration-500">
+                    class="bg-secondary relative group overflow-hidden text-background px-6 py-3 flex justify-center items-center rounded-full shadow-md transition ease-in-out duration-500">
                     <span
                         class="absolute bg-primary rounded-full inset-y-0 left-0 w-0 group-hover:w-full transition-all duration-300"
                         aria-hidden="true"></span>
-                    <span class="relative group-hover:text-background text-sm md:text-lg font-base">View Our
-                        Collection</span>
+                    <span class="relative group-hover:text-background text-lg font-base">View Our Collection</span>
                 </a>
             </div>
-            <div data-aos="custom-zoom-in-up" class="flex-1 rounded-2xl overflow-hidden">
+            <div data-aos="custom-zoom-in-up" data-aos-delay="250" class="flex-1 rounded-2xl overflow-hidden">
                 <img src="{{ url('img/Bina Pusaka/The Maj Oceanic/TMO-Areal-view-scaled-e1664971034548__2_.webp') }}"
                     alt="Aerial view kapal Pinisi The Maj Oceanic — buatan BP Marine Co" width="480" height="320"
                     loading="lazy" decoding="async"
@@ -135,25 +196,27 @@ heritage with modern shipbuilding excellence. Discover our fleet and legacy.')
 {{-- ============================================================ --}}
 {{-- OUR LEGACY SECTION                                            --}}
 {{-- ============================================================ --}}
-<section class="flex flex-col md:flex-row gap-6 md:gap-8 lg:gap-13 w-full px-6 md:px-13 lg:px-23 py-12 md:py-16"
+<section
+    class="flex flex-col md:flex-row gap-6 md:gap-8 lg:gap-13 w-full px-6 md:px-12 lg:px-16 xl:px-23 py-12 md:py-16"
     aria-labelledby="legacy-heading">
-    <div data-aos="custom-zoom-in-up"
-        class="w-full md:w-[240px] lg:w-[280px] h-[240px] md:h-[320px] lg:h-[380px] rounded-2xl overflow-hidden flex-shrink-0">
+    <div data-aos="custom-zoom-in-up" data-aos-duration="700"
+        class="w-full md:w-[180px] lg:w-[280px] h-[240px] md:h-[260px] lg:h-[380px] rounded-2xl overflow-hidden flex-shrink-0">
         <img src="{{ url('img/Bina Pusaka/The Maj Oceanic/The-Maj-Oceanic-Ambience-01-scaled.webp') }}"
             alt="Suasana dek kapal Pinisi The Maj Oceanic — BP Marine Co" width="280" height="380" loading="lazy"
             decoding="async" class="h-full w-full object-cover hover:scale-110 transition duration-500">
     </div>
-    <div class="flex flex-col gap-4 md:gap-6 lg:gap-8">
-        <div class="overflow-hidden">
-            <p data-aos="fade-up" class="text-xl text-accent">/Our Legacy</p>
+    <div class="flex flex-col gap-4 md:gap-5 lg:gap-8">
+        <div class="overflow-hidden flex items-center gap-4">
+            <div data-aos="fade-right" data-aos-duration="500" class="w-8 h-0.5 rounded-full bg-accent shrink-0"></div>
+            <p data-aos="fade-up" data-aos-duration="500" class="text-xl font-medium text-accent">/Our Legacy</p>
         </div>
-        <div data-aos="custom-blur-up">
-            <h2 id="legacy-heading" class="text-2xl sm:text-3xl md:text-4xl lg:text-6xl text-primary">
+        <div data-aos="custom-blur-up" data-aos-duration="700" data-aos-delay="100">
+            <h2 id="legacy-heading" class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-primary">
                 BP Marine Co Is A Traditional Shipyard Dedicated To Preserving The Legacy Of Authentic Pinisi
                 Craftsmanship.
             </h2>
         </div>
-        <div data-aos="custom-zoom-in-up" class="w-max">
+        <div data-aos="custom-zoom-in-up" data-aos-delay="200" class="w-max">
             <a href="/about" aria-label="Discover Our Story — About BP Marine Co"
                 class="bg-secondary relative group overflow-hidden text-background px-7 py-3 flex items-center rounded-full shadow-md transition ease-in-out duration-500">
                 <span
@@ -168,7 +231,7 @@ heritage with modern shipbuilding excellence. Discover our fleet and legacy.')
 {{-- ============================================================ --}}
 {{-- MARQUEE STATS SECTION                                         --}}
 {{-- ============================================================ --}}
-<section data-aos="custom-zoom-in-up" class="relative w-full overflow-hidden flex flex-col gap-2 py-8"
+<section data-aos="fade-up" data-aos-duration="700" class="relative w-full overflow-hidden flex flex-col gap-2 py-8"
     aria-label="Statistik dan pencapaian BP Marine Co">
 
     <div class="flex w-max gap-2 animate-leftscroll" aria-hidden="true">
@@ -244,23 +307,24 @@ heritage with modern shipbuilding excellence. Discover our fleet and legacy.')
 {{-- ============================================================ --}}
 {{-- OUR FLEET SECTION                                             --}}
 {{-- ============================================================ --}}
-<section class="px-6 md:px-13 lg:px-23 py-16 md:py-24 lg:py-32" aria-labelledby="fleet-heading">
-    <div class="flex flex-col md:flex-row gap-6 md:gap-8 lg:gap-59 mb-10 md:mb-16">
-        <div class="overflow-hidden">
-            <p data-aos="fade-up" class="text-xl text-accent">/Our Fleet</p>
+<section class="px-6 md:px-12 lg:px-16 xl:px-23 py-16 md:py-20 lg:py-32" aria-labelledby="fleet-heading">
+    <div class="flex flex-col xl:flex-row gap-6 md:gap-6 xl:gap-59 mb-10 md:mb-14 xl:items-end">
+        <div class="overflow-hidden flex items-center gap-4 h-max">
+            <div data-aos="fade-right" data-aos-duration="500" class="w-8 h-0.5 rounded-full bg-accent shrink-0"></div>
+            <p data-aos="fade-up" data-aos-duration="500" class="text-xl font-medium text-accent">/Our Fleet</p>
         </div>
-        <div data-aos="custom-blur-up" class="flex-1">
-            {{-- FIX: h2 bukan h1 --}}
-            <h2 id="fleet-heading" class="text-4xl md:text-5xl lg:text-7xl text-primary">STORIES AT</h2>
-            <div class="flex flex-col sm:flex-row gap-2 sm:gap-4 text-4xl md:text-5xl lg:text-7xl text-primary">
+        <div data-aos="custom-blur-up" data-aos-duration="700" class="flex-1">
+            <h2 id="fleet-heading" class="text-3xl md:text-4xl lg:text-7xl font-bold text-primary">STORIES AT</h2>
+            <div
+                class="flex flex-col sm:flex-row gap-2 sm:gap-4 text-3xl md:text-4xl lg:text-7xl font-bold text-primary">
                 <span>SEA</span>
-                <p class="text-justify text-sm md:text-base lg:text-lg text-accentsecond max-w-md self-end">
+                <p class="text-justify text-sm md:text-sm lg:text-lg font-normal text-accentsecond max-w-md self-end">
                     Each project tells a story — of heritage, dedication, and the pursuit of excellence in every vessel
                     we create.
                 </p>
             </div>
         </div>
-        <div data-aos="custom-zoom-in-up" class="w-max self-start md:self-center">
+        <div data-aos="custom-zoom-in-up" data-aos-delay="150" class="w-max self-start xl:self-end">
             <a href="/collection" aria-label="Discover Our Fleet of Pinisi vessels"
                 class="group bg-secondary relative overflow-hidden text-background px-7 py-3 flex items-center rounded-full shadow-md transition ease-in-out duration-500">
                 <span
@@ -273,8 +337,10 @@ heritage with modern shipbuilding excellence. Discover our fleet and legacy.')
 
     {{-- Fleet Grid --}}
     <div class="w-full columns-1 sm:columns-2 gap-4">
-        @foreach($featuredProjects as $project)
-        <div data-aos="custom-zoom-in-up" class="group cursor-pointer break-inside-avoid mb-4 md:mb-6">
+        @foreach($featuredProjects as $index => $project)
+        @php $delay = $index * 80; @endphp
+        <div data-aos="custom-zoom-in-up" data-aos-duration="600" data-aos-delay="{{ $delay }}"
+            class="group cursor-pointer break-inside-avoid mb-4 md:mb-6">
             <a href="{{ route('collection.show', $project->id) }}" aria-label="Lihat detail kapal {{ $project->name }}">
                 <div class="mag-area relative overflow-hidden rounded-xl">
                     <img src="{{ url('storage/' . $project->cover_image) }}"
@@ -313,7 +379,7 @@ heritage with modern shipbuilding excellence. Discover our fleet and legacy.')
 {{-- VOICES SECTION                                                --}}
 {{-- ============================================================ --}}
 <section
-    class="relative w-full px-6 md:px-13 lg:px-23 py-16 md:py-24 flex flex-col gap-12 md:gap-20 lg:gap-32 bg-primary overflow-hidden"
+    class="relative w-full px-6 md:px-12 lg:px-16 xl:px-23 py-16 md:py-20 lg:py-24 flex flex-col gap-12 md:gap-16 lg:gap-32 bg-primary overflow-hidden"
     aria-labelledby="voices-heading">
     <div class="absolute inset-0 pointer-events-none z-0" aria-hidden="true"
         style="display: grid; grid-template-columns: 6% 22% 22% 22% 22% 1fr;">
@@ -323,23 +389,27 @@ heritage with modern shipbuilding excellence. Discover our fleet and legacy.')
         <div class="border-r border-accent opacity-30"></div>
         <div class="border-r border-accent opacity-30"></div>
     </div>
-    <div class="flex justify-between items-end mb-10 md:mb-14">
-        <div class="overflow-hidden">
-            <p data-aos="fade-up" class="text-xl text-accentthird">/Voice Of Heritage</p>
+
+    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-4 mb-6 md:mb-10">
+        <div class="w-max h-max overflow-hidden flex items-center gap-4">
+            <div data-aos="fade-right" data-aos-duration="500" class="w-8 h-0.5 rounded-full bg-background shrink-0">
+            </div>
+            <p data-aos="fade-up" data-aos-duration="500" class="text-xl font-medium text-background">/Voice Of
+                Heritage</p>
         </div>
-        <div class="text-right">
-            {{-- FIX: h2, bukan h1 --}}
-            <h2 id="voices-heading" data-aos="custom-blur-up"
-                class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-none text-accentthird"
+        <div class="sm:text-right">
+            <h2 id="voices-heading" data-aos="custom-blur-up" data-aos-duration="700"
+                class="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold leading-none text-background"
                 style="font-family: 'Poppins', sans-serif;">
-                VOICES <span
+                VOICES<span
                     style="color:transparent;-webkit-text-stroke:2px var(--color-secondary); font-family: 'Poppins', sans-serif;"><br>OF
                     THE SEA</span>
             </h2>
         </div>
     </div>
 
-    <div data-aos="custom-zoom-in-up"
+    {{-- UNESCO Card --}}
+    <div data-aos="custom-zoom-in-up" data-aos-duration="700"
         class="flex flex-col lg:flex-row border border-secondary rounded-xl overflow-hidden">
         <div class="w-full lg:w-1/2 flex flex-col gap-4 p-6 md:p-8 bg-background">
             <div class="flex items-center gap-3">
@@ -371,7 +441,7 @@ heritage with modern shipbuilding excellence. Discover our fleet and legacy.')
                 <i class="ti ti-anchor text-secondary" aria-hidden="true"></i>
             </div>
         </div>
-        <div class="group relative w-full lg:w-1/2 min-h-[220px] md:min-h-[280px] overflow-hidden block">
+        <div class="group relative w-full lg:w-1/2 min-h-[220px] md:min-h-[260px] overflow-hidden block">
             <img src="{{ url('img/Bina Pusaka/Prana/679c9730b8ad5230db05317b.webp') }}"
                 alt="Kapal Pinisi Prana — warisan budaya maritim Indonesia" width="512" height="280" loading="lazy"
                 decoding="async"
@@ -403,32 +473,34 @@ heritage with modern shipbuilding excellence. Discover our fleet and legacy.')
     </div>
 
     {{-- Quote Card --}}
-    <div data-aos="custom-zoom-in-up"
-        class="relative h-80 md:h-[420px] lg:h-140 rounded-xl border border-secondary overflow-hidden bg-background">
+    <div data-aos="custom-zoom-in-up" data-aos-duration="800"
+        class="relative h-80 md:h-[380px] lg:h-140 rounded-xl border border-secondary overflow-hidden bg-background">
         <img src="{{ url('img/Bina Pusaka/Aset/IMG_0668_2.webp') }}" alt="Suasana kapal Pinisi BP Marine Co"
             width="1200" height="560" loading="lazy" decoding="async"
             class="absolute inset-0 w-full h-full object-cover object-top">
         <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/20" aria-hidden="true"></div>
 
-        <div data-aos="custom-zoom-in-up"
-            class="hidden lg:block absolute bottom-8 right-8 w-80 h-80 rounded-xl border-2 border-secondary overflow-hidden z-10">
+        <div data-aos="fade-left" data-aos-duration="700" data-aos-delay="200"
+            class="hidden lg:block absolute bottom-8 right-8 w-64 h-80 rounded-xl border-2 border-secondary overflow-hidden z-10">
             <img src="{{ url('img/Bina Pusaka/Aset/IMG_0669.webp') }}"
                 alt="Surya Paloh — Tokoh Nasional &amp; Pendiri Media Group" width="320" height="320" loading="lazy"
                 decoding="async" class="w-full h-full object-cover object-top scale-120">
         </div>
-        <div data-aos="custom-zoom-in-up"
+        {{-- Foto kecil tablet --}}
+        <div data-aos="fade-left" data-aos-duration="700" data-aos-delay="200"
             class="hidden md:block lg:hidden absolute bottom-4 right-4 w-40 h-48 rounded-xl border-2 border-secondary overflow-hidden z-10">
             <img src="{{ url('img/Bina Pusaka/Aset/IMG_0669.webp') }}"
-                alt="Surya Paloh — Tokoh Nasional &amp; Pendiri Media Group" width="160" height="192" loading="lazy"
+                alt="Surya Paloh — Tokoh Nasional &amp; Pendiri Media Group" width="128" height="160" loading="lazy"
                 decoding="async" class="w-full h-full object-cover object-top">
         </div>
 
-        <figure
-            class="relative z-10 flex flex-col justify-end gap-3 md:gap-5 p-6 md:p-8 h-full w-full md:w-[75%] lg:w-[70%]">
+        <figure data-aos="fade-right" data-aos-duration="700" data-aos-delay="150"
+            class="relative z-10 flex flex-col justify-end gap-3 md:gap-4 p-6 md:p-8 h-full w-full md:w-[68%] lg:w-[70%]">
             <span class="text-xs md:text-sm tracking-widest uppercase text-secondary">(Success Project)</span>
-            <span class="text-5xl md:text-7xl text-secondary font-serif leading-none" aria-hidden="true">"</span>
+            <span class="text-5xl md:text-6xl lg:text-7xl text-secondary font-serif leading-none"
+                aria-hidden="true">"</span>
             <blockquote
-                class="text-base md:text-xl lg:text-3xl text-background font-light italic leading-relaxed line-clamp-4 md:line-clamp-none">
+                class="text-base md:text-lg lg:text-3xl text-background font-light italic leading-relaxed line-clamp-4 md:line-clamp-none">
                 Pinisi adalah bukti nyata bahwa Indonesia adalah bangsa pelaut yang besar. Kita harus
                 bangga dan terus melestarikan warisan maritim ini untuk generasi mendatang.
             </blockquote>
@@ -436,7 +508,7 @@ heritage with modern shipbuilding excellence. Discover our fleet and legacy.')
                 <div class="w-6 md:w-8 h-px bg-secondary flex-shrink-0" aria-hidden="true"></div>
                 <div class="flex flex-col">
                     <span class="text-base md:text-lg font-medium text-background">Surya Paloh</span>
-                    <span class="text-xs md:text-md text-secondary uppercase tracking-widest mt-1">
+                    <span class="text-xs md:text-sm text-secondary uppercase tracking-widest mt-1">
                         Tokoh Nasional &amp; Pendiri Media Group
                     </span>
                 </div>
@@ -463,14 +535,15 @@ $countryNames = [
 ];
 @endphp
 
-<section class="px-6 md:px-13 lg:px-23 py-16 md:py-24 lg:py-32 flex flex-col gap-16 md:gap-24 lg:gap-40"
+<section class="px-6 md:px-12 lg:px-16 xl:px-23 py-16 md:py-20 lg:py-32 flex flex-col gap-12 md:gap-16 lg:gap-40"
     aria-label="Testimonial dari klien BP Marine Co">
-    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-4 mb-10 md:mb-14">
-        <div class="w-max h-max overflow-hidden">
-            <p data-aos="fade-up" class="text-xl text-accent">/Testimonial</p>
+    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-4 mb-6 md:mb-10">
+        <div class="w-max h-max overflow-hidden flex items-center gap-4">
+            <div data-aos="fade-right" data-aos-duration="500" class="w-8 h-0.5 rounded-full bg-accent shrink-0"></div>
+            <p data-aos="fade-up" data-aos-duration="500" class="text-xl font-medium text-accent">/Testimonial</p>
         </div>
         <div class="sm:text-right">
-            <h2 id="faq-about-heading" data-aos="custom-blur-up"
+            <h2 data-aos="custom-blur-up" data-aos-duration="700"
                 class="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold leading-none text-primary"
                 style="font-family: 'Poppins', sans-serif;">
                 WORLD<span
@@ -481,9 +554,10 @@ $countryNames = [
     </div>
 
     @if ($testimonials->count() > 0)
-    <div data-aos="custom-zoom-in-up" class="flex flex-col md:flex-row items-stretch gap-0">
-        <div class="hidden md:block sticky top-8 flex-shrink-0 w-56 lg:w-72" aria-hidden="true">
-            <div class="w-full h-[64vh] lg:h-[65vh] rounded-2xl overflow-hidden bg-primary relative">
+    <div data-aos="custom-zoom-in-up" data-aos-duration="700" class="flex flex-col md:flex-row items-stretch gap-0">
+        {{-- Foto sticky — tablet pakai ukuran lebih kecil --}}
+        <div class="hidden md:block sticky top-8 flex-shrink-0 w-44 lg:w-72" aria-hidden="true">
+            <div class="w-full h-[55vh] lg:h-[65vh] rounded-2xl overflow-hidden bg-primary relative">
                 @foreach ($testimonials as $index => $item)
                 <img src="{{ $item->photo ? Storage::url($item->photo) : asset('img/default-avatar.png') }}"
                     alt="{{ $item->name }}" width="288" height="520" loading="lazy" decoding="async"
@@ -492,13 +566,13 @@ $countryNames = [
                 @endforeach
                 <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"
                     aria-hidden="true"></div>
-                <div class="absolute bottom-0 left-0 right-0 p-4 md:p-5">
+                <div class="absolute bottom-0 left-0 right-0 p-3 md:p-5">
                     @foreach ($testimonials as $index => $item)
                     <div data-info="{{ $index }}"
                         class="transition-opacity flex flex-col gap-1 duration-500 {{ $index === 0 ? 'opacity-100' : 'opacity-0 absolute' }}">
-                        <p class="text-sm font-medium text-background leading-snug">{{ Str::limit($item->quote, 80) }}
-                        </p>
-                        <p class="text-xs md:text-sm text-accentsecond">— {{ $item->name }}</p>
+                        <p class="text-xs md:text-sm font-medium text-background leading-snug">
+                            {{ Str::limit($item->quote, 80) }}</p>
+                        <p class="text-xs text-accentsecond">— {{ $item->name }}</p>
                         @if ($item->country)
                         <p class="text-xs text-accentthird">{{ $countryNames[$item->country] ?? $item->country }}</p>
                         @endif
@@ -510,24 +584,23 @@ $countryNames = [
 
         <div class="flex-1 min-w-0">
             <div id="testimonial-scroll"
-                class="overflow-x-auto rounded-2xl md:ml-6 pr-2 md:pr-8 cursor-grab active:cursor-grabbing select-none"
+                class="overflow-x-auto rounded-2xl md:ml-4 lg:ml-6 pr-2 md:pr-6 lg:pr-8 cursor-grab active:cursor-grabbing select-none"
                 style="-ms-overflow-style: none; scrollbar-width: none;" role="list"
                 aria-label="Daftar testimonial klien">
-                <div class="flex gap-3 md:gap-4 w-max items-stretch">
+                <div class="flex gap-3 md:gap-3 lg:gap-4 w-max items-stretch">
                     @foreach ($testimonials as $index => $item)
                     <article data-card="{{ $index }}" role="listitem"
-                        class="w-64 md:w-72 bg-background border border-accentsecond rounded-2xl p-5 md:p-6 flex flex-col justify-between min-h-[340px] md:min-h-[420px] flex-shrink-0 transition-all duration-500 group hover:bg-primary hover:border-primary cursor-pointer">
+                        class="w-60 md:w-64 lg:w-72 bg-background border border-accentsecond rounded-2xl p-4 md:p-5 lg:p-6 flex flex-col justify-between min-h-[320px] md:min-h-[380px] lg:min-h-[420px] flex-shrink-0 transition-all duration-500 group hover:bg-primary hover:border-primary cursor-pointer">
                         <div>
-                            <p class="text-3xl text-secondary font-serif leading-none mb-4 md:mb-5" aria-hidden="true">"
-                            </p>
+                            <p class="text-3xl text-secondary font-serif leading-none mb-4" aria-hidden="true">"</p>
                             <blockquote
                                 class="text-sm text-accent italic leading-relaxed group-hover:text-background duration-500">
                                 {{ $item->quote }}
                             </blockquote>
                         </div>
-                        <footer class="flex flex-col gap-3 md:gap-4 pt-4 md:pt-5 mt-4 border-t border-secondary">
+                        <footer class="flex flex-col gap-3 pt-4 mt-4 border-t border-secondary">
                             <div
-                                class="w-12 h-12 md:w-16 md:h-16 rounded-xl overflow-hidden border border-secondary flex-shrink-0">
+                                class="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 rounded-xl overflow-hidden border border-secondary flex-shrink-0">
                                 <img src="{{ $item->photo ? Storage::url($item->photo) : asset('img/default-avatar.png') }}"
                                     alt="Foto {{ $item->name }}" width="64" height="64" loading="lazy" decoding="async"
                                     class="w-full h-full object-cover object-top">
@@ -548,7 +621,7 @@ $countryNames = [
                     @endforeach
                 </div>
             </div>
-            <div id="testimonial-dots" class="flex items-center gap-2 pl-2 md:pl-8 mt-4" role="tablist"
+            <div id="testimonial-dots" class="flex items-center gap-2 pl-2 md:pl-4 lg:pl-8 mt-4" role="tablist"
                 aria-label="Navigasi testimonial">
                 @foreach ($testimonials as $index => $item)
                 <div data-dot="{{ $index }}" role="tab" aria-label="Testimonial {{ $index + 1 }} dari {{ $item->name }}"
@@ -584,13 +657,15 @@ $countryNames = [
 {{-- ============================================================ --}}
 {{-- FAQ SECTION                                                   --}}
 {{-- ============================================================ --}}
-<section class="w-full px-6 md:px-13 lg:px-23 py-16 md:py-24 lg:py-32" aria-labelledby="faq-heading">
+<section class="w-full px-6 md:px-12 lg:px-16 xl:px-23 y-16 md:py-20 lg:py-32" aria-labelledby="faq-heading">
     <div class="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-4 mb-10 md:mb-14">
-        <div class="overflow-hidden">
-            <p data-aos="fade-up" class="text-xl text-accent">/Frequently Asked Questions</p>
+        <div class="overflow-hidden flex items-center gap-4">
+            <div data-aos="fade-right" data-aos-duration="500" class="w-8 h-0.5 rounded-full bg-accent shrink-0"></div>
+            <p data-aos="fade-up" data-aos-duration="500" class="text-xl font-medium text-accent">/Frequently Asked
+                Questions</p>
         </div>
         <div class="sm:text-right">
-            <h2 id="faq-heading" data-aos="custom-blur-up"
+            <h2 id="faq-heading" data-aos="custom-blur-up" data-aos-duration="700"
                 class="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold leading-none text-primary"
                 style="font-family: 'Poppins', sans-serif;">
                 COMMON <span
@@ -627,7 +702,8 @@ $countryNames = [
 
     <div class="flex flex-col gap-2" x-data="{ active: null }">
         @foreach($faqs as $index => $faq)
-        <div data-aos="custom-blur-up"
+        @php $faqDelay = $index * 60; @endphp
+        <div data-aos="fade-up" data-aos-duration="500" data-aos-delay="{{ $faqDelay }}"
             class="group relative border rounded-lg overflow-hidden cursor-pointer transition-all duration-500"
             :class="active === {{ $index }} ? 'bg-primary border-background' : 'bg-background border-accentsecond'"
             @click="active === {{ $index }} ? active = null : active = {{ $index }}" role="button"
@@ -643,11 +719,11 @@ $countryNames = [
                     {{ str_pad($index + 1, 2, '0', STR_PAD_LEFT) }}
                 </span>
                 <span
-                    class="flex-1 text-sm sm:text-base md:text-lg font-medium leading-snug transition-colors duration-500"
+                    class="flex-1 text-sm sm:text-base md:text-base lg:text-lg font-medium leading-snug transition-colors duration-500"
                     :class="active === {{ $index }} ? 'text-background' : 'text-accent'">
                     {{ $faq['q'] }}
                 </span>
-                <div class="p-2 sm:p-3 md:p-4 rounded-full border flex items-center justify-center flex-shrink-0 transition-all duration-500"
+                <div class="p-2 sm:p-3 md:p-3 lg:p-4 rounded-full border flex items-center justify-center flex-shrink-0 transition-all duration-500"
                     :class="active === {{ $index }} ? 'bg-secondary border-background' : 'bg-transparent border-accentsecond'">
                     <i class="ti ti-chevron-down text-lg transition-transform duration-500"
                         :class="active === {{ $index }} ? 'rotate-180 text-background' : 'rotate-0 text-accentsecond'"
@@ -659,7 +735,7 @@ $countryNames = [
                 x-transition:enter-end="opacity-100" x-transition:leave="transition-opacity ease-in duration-200"
                 x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
                 <div
-                    class="px-10 md:px-12 pb-5 ml-3 md:ml-7 text-sm sm:text-base md:text-lg text-accentthird leading-relaxed font-light">
+                    class="px-10 md:px-12 pb-5 ml-3 md:ml-7 text-sm sm:text-base md:text-base lg:text-lg text-accentthird leading-relaxed font-light">
                     {{ $faq['a'] }}
                 </div>
             </div>
@@ -667,7 +743,7 @@ $countryNames = [
         @endforeach
     </div>
 
-    <div data-aos="custom-blur-up"
+    <div data-aos="fade-up" data-aos-duration="500" data-aos-delay="100"
         class="mt-6 md:mt-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 sm:gap-0">
         <span class="text-lg text-accent tracking-wide">Still have questions?</span>
         <a href="/contact" aria-label="Contact us with your questions about BP Marine Co"

@@ -42,6 +42,10 @@ class BPMarineCoPanelProvider extends PanelProvider
             ->pages([
                 Dashboard::class,
             ])
+            ->resources([
+                \App\Filament\Resources\Projects\ProjectResource::class,
+                \App\Filament\Resources\ConstructionProjects\ConstructionProjectResource::class,
+            ])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\Filament\Widgets')
             ->widgets([
                 \Filament\Widgets\AccountWidget::class,

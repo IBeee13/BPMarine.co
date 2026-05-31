@@ -31,6 +31,9 @@ Route::get('/about', function () {
     ]);
 });
 
+Route::get('/collection/{project}/construction', [ProjectController::class, 'showConstruction'])
+    ->name('collection.construction');
+
 Route::get('/collection', [ProjectController::class, 'index'])->name('collection.index');
 Route::get('/collection/{project}', [ProjectController::class, 'show'])->name('collection.show');
 

@@ -201,18 +201,26 @@ function initMagBtn(area) {
     });
 }
 
-document.querySelectorAll('.mag-area').forEach(initMagBtn);
+function scanAndInit() {
+    document.querySelectorAll('.mag-area').forEach(initMagBtn);
+}
+
+scanAndInit();
 
 new MutationObserver((mutations) => {
+    let shouldScan = false;
     mutations.forEach(mutation => {
         mutation.addedNodes.forEach(node => {
             if (node.nodeType !== 1) return;
-            if (node.classList?.contains('mag-area')) {
-                initMagBtn(node);
+            if (node.classList?.contains('mag-area') || node.querySelector?.('.mag-area')) {
+                shouldScan = true;
             }
-            node.querySelectorAll?.('.mag-area').forEach(initMagBtn);
         });
+        if (mutation.type === 'childList' && mutation.target.querySelector?.('.mag-area')) {
+            shouldScan = true;
+        }
     });
+    if (shouldScan) scanAndInit();
 }).observe(document.body, { childList: true, subtree: true });
 // ─────────────────────────────────────────────────────────────────────────────
 

@@ -1,4 +1,4 @@
-<nav class="px-10 lg:px-20 py-4 flex justify-between items-center">
+<nav class="px-10 lg:px-14 xl:px-20 py-4 flex justify-between items-center">
 
     {{-- Logo --}}
     <div class="flex items-center gap-1 ">
@@ -7,8 +7,8 @@
                 class="h-12 w-auto">
         </picture>
         <div class="flex flex-col leading-tight">
-            <span class="text-[2.5vh] md:text-[2.7vh] text-primary">BINA PUSAKA</span>
-            <span class="text-[clamp(6px,0.8vw,9px)] font-light text-accentsecond tracking-wide">Design and Pinisi Construction</span>
+            <span class="lg:text-[2vh] xl:text-[2.8vh] text-primary">BINA PUSAKA</span>
+            <span class="lg:text-[0.9vh] xl:text-[1.3vh] font-light text-accentsecond tracking-wide">Design and Pinisi Construction</span>
         </div>
     </div>
 

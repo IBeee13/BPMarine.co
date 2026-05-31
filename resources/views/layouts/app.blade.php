@@ -58,32 +58,31 @@
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
 
-<body class="bg-background m-0 p-0 overflow-x-hidden" style="font-family: 'Jost', sans-serif;">
+<body class="bg-background relative min-h-screen m-0 p-0 overflow-x-hidden" style="font-family: 'Jost', sans-serif;">
 
     {{-- Garis background --}}
-    <div class="fixed inset-0 pointer-events-none z-0" aria-hidden="true"
+    <div class="absolute inset-0 pointer-events-none z-0" aria-hidden="true"
         style="display: grid; grid-template-columns: 6% 22% 22% 22% 22% 1fr;">
-        <div class="border-r border-accentthird"></div>
-        <div class="border-r border-accentthird"></div>
-        <div class="border-r border-accentthird"></div>
-        <div class="border-r border-accentthird"></div>
-        <div class="border-r border-accentthird"></div>
-        <div></div>
+        <div class="border-r border-accentthird "></div>
+        <div class="border-r border-accentthird "></div>
+        <div class="border-r border-accentthird "></div>
+        <div class="border-r border-accentthird "></div>
+        <div class="border-r border-accentthird "></div>
     </div>
 
-    {{-- Navbar — hanya desktop --}}
-    <div class="relative z-20 w-full hidden md:block">
+    {{-- Navbar — desktop only (lg+) --}}
+    <div class="relative z-20 w-full hidden lg:block">
         @include('partials.navbar')
     </div>
 
-    {{-- Tombol burger — hanya mobile --}}
-    <div class="relative z-20 md:hidden py-4 px-5 flex items-center justify-between">
+    {{-- Burger button — mobile & tablet (< lg) --}}
+    <div class="relative z-20 lg:hidden py-4 px-6 md:px-12 flex items-center justify-between">
         <div class="flex items-center gap-1">
             <img src="{{ url('img/Bina Pusaka/Aset/LOGO BINA PUSAKA 21.webp') }}" alt="Logo BP Marine Co" width="40"
                 height="40" class="h-10 -ml-2 w-auto">
             <div class="flex flex-col leading-tight mt-1">
-                <span class="text-[2.8vw] font-light">BINA PUSAKA</span>
-                <span class="text-[clamp(9px,1.3vw,13px)] font-light text-accentsecond tracking-wide">Design and Pinisi
+                <span class="text-[3.8vw] md:text-[2vh] xl:text-[2.7vh] font-light">BINA PUSAKA</span>
+                <span class="text-[1.7vw] md:text-[0.9vh] xl:text-[2.7vh] font-light text-accentsecond tracking-wide">Design and Pinisi
                     Construction</span>
             </div>
         </div>
@@ -92,19 +91,19 @@
         </button>
     </div>
 
-    {{-- Sidebar mobile — overlay --}}
-    <div id="sidebar-overlay" class="fixed inset-0 bg-black/50 z-30 hidden md:hidden" onclick="toggleSidebar()"
+    {{-- Sidebar overlay — mobile & tablet (< lg) --}}
+    <div id="sidebar-overlay" class="fixed inset-0 bg-black/50 z-30 hidden lg:hidden" onclick="toggleSidebar()"
         aria-hidden="true">
     </div>
     <aside id="sidebar"
-        class="fixed top-0 left-0 z-40 w-80 h-dvh bg-background transform -translate-x-full transition-transform duration-300 md:hidden overflow-hidden"
+        class="fixed top-0 left-0 z-40 w-80 h-dvh bg-background transform -translate-x-full transition-transform duration-300 lg:hidden overflow-hidden"
         aria-label="Menu navigasi mobile">
         <div class="flex items-center justify-between px-6 py-5 border-b border-accentthird">
             <div class="flex items-center gap-1">
                 <img src="{{ url('img/Bina Pusaka/Aset/LOGO BINA PUSAKA 21.webp') }}" alt="Logo BP Marine Co" width="40"
                     height="40" class="h-10 w-auto">
                 <div class="flex flex-col leading-tight mt-1">
-                    <span class="text-[2.8vw] font-light">BINA PUSAKA</span>
+                    <span class="text-[2.8vw] md:text-[1.8vw] font-light">BINA PUSAKA</span>
                     <span class="text-[clamp(9px,1.3vw,13px)] font-light text-accentsecond tracking-wide">Design and
                         Pinisi Construction</span>
                 </div>

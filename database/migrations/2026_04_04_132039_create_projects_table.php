@@ -6,9 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up()
     {
         Schema::create('projects', function (Blueprint $table) {
@@ -30,13 +27,19 @@ return new class extends Migration
             $table->string('cover_image')->nullable();
             $table->json('gallery_images')->nullable();
             $table->integer('sort_order')->default(0);
+
+            // Construction
+            $table->boolean('is_under_construction')->default(false);
+            $table->string('construction_stage')->nullable(); // design | keel | hull | fitout | finishing
+            $table->tinyInteger('progress_percentage')->nullable();
+            $table->date('estimated_launch_date')->nullable();
+            $table->string('construction_cover')->nullable();
+            $table->json('progress_photos')->nullable();
+
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('projects');
