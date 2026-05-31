@@ -343,7 +343,7 @@ heritage with modern shipbuilding excellence. Discover our fleet and legacy.')
             class="group cursor-pointer break-inside-avoid mb-4 md:mb-6">
             <a href="{{ route('collection.show', $project->id) }}" aria-label="Lihat detail kapal {{ $project->name }}">
                 <div class="mag-area relative overflow-hidden rounded-xl">
-                    <img src="{{ url('storage/' . $project->cover_image) }}"
+                    <img src="{{ url('storage_link/' . $project->cover_image) }}"
                         alt="{{ $project->name }} — Kapal Pinisi buatan BP Marine Co" width="600" height="400"
                         loading="lazy" decoding="async"
                         class="w-full h-auto object-cover hover:scale-110 transition duration-500">

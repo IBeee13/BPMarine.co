@@ -3,7 +3,7 @@
 @section('title', $project->name . ' — BPMarine.Co Pinisi Shipyard')
 @section('og_title', $project->name . ' | Handcrafted Pinisi by BPMarine.Co')
 @section('meta_description', Str::limit($project->description, 155))
-@section('og_image', url('storage/' . $project->cover_image))
+@section('og_image', url('storage_link/' . $project->cover_image))
 
 @section('content')
 
@@ -38,7 +38,7 @@
 {{-- COVER IMAGE --}}
 <section class="w-full h-max px-6 md:px-12 lg:px-16 xl:px-23 pb-16">
     <div data-aos="custom-zoom-in-up" data-aos-duration="800" class="w-full rounded-xl xl:rounded-2xl overflow-hidden h-max">
-        <img src="{{ url('storage/' . $project->cover_image) }}" alt="{{ $project->name }}" loading="lazy"
+        <img src="{{ url('storage_link/' . $project->cover_image) }}" alt="{{ $project->name }}" loading="lazy"
             class="w-full h-max object-cover hover:scale-105 transition duration-700">
     </div>
 </section>
@@ -141,7 +141,7 @@
                 @php $delay = $index * 80; @endphp
                 <div data-aos="custom-zoom-in-up" data-aos-duration="600" data-aos-delay="{{ $delay }}"
                     class="w-full rounded-xl overflow-hidden">
-                    <img src="{{ url('storage/' . $image) }}" alt="{{ $project->name }}" loading="lazy"
+                    <img src="{{ url('storage_link/' . $image) }}" alt="{{ $project->name }}" loading="lazy"
                         class="w-full h-auto object-cover hover:scale-105 transition duration-500">
                 </div>
                 @endforeach
@@ -190,7 +190,7 @@
         @php $delay = $index * 100; @endphp
         <div data-aos="custom-zoom-in-up" data-aos-duration="600" data-aos-delay="{{ $delay }}"
             class="group mag-area relative overflow-hidden rounded-xl cursor-pointer block">
-            <img src="{{ url('storage/' . $other->cover_image) }}" alt="{{ $other->name }}" loading="lazy"
+            <img src="{{ url('storage_link/' . $other->cover_image) }}" alt="{{ $other->name }}" loading="lazy"
                 class="w-full h-64 md:h-100 object-cover group-hover:scale-110 transition duration-500">
             <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/15 to-transparent flex flex-col justify-end p-6">
                 <div class="flex items-end justify-between">
