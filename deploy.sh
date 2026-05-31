@@ -80,6 +80,14 @@ fi
 cp -r public/img ./img
 cp -r storage/app/public/. storage_link/
 
+cp -r public/build ./build 2>/dev/null || true
+cp -r public/js ./js 2>/dev/null || true
+cp -r public/css ./css 2>/dev/null || true
+cp -r public/img ./img 2>/dev/null || true
+cp -r storage/app/public/. storage_link/
+php artisan optimize:clear
+php artisan optimize
+
 # Pastikan path di index.php mengarah ke root (bukan ../vendor)
 sed -i "s|__DIR__.'/../vendor|__DIR__.'/vendor|g" index.php
 sed -i "s|__DIR__.'/../bootstrap|__DIR__.'/bootstrap|g" index.php
