@@ -6,7 +6,7 @@
 @section('content')
 
     {{-- HERO SECTION --}}
-    <section class="relative w-full h-[50vh] md:h-[40vh] lg:h-[40vh] xl:h-screen overflow-hidden px-6 md:px-12 lg:px-15 xl:px-21 py-8">
+    <section class="relative w-full h-[50vh] md:h-[40vh] lg:h-[40vh] xl:h-[104vh] overflow-hidden px-6 md:px-12 lg:px-15 xl:px-21 py-8 z-0">
         <div class="absolute inset-0 z-0 h-[100%] pointer-events-none overflow-hidden flex items-end">
             <div class="whitespace-nowrap animate-leftscroll text-[30vw] md:text-[20vw] font-medium">
                 <h1
@@ -15,7 +15,7 @@
                     We Carry a 14th-Century Maritime Legacy into the Future of Indonesia &nbsp;
                 </h1>
                 <div
-                    class="h-104 w-full opacity-100 sm:opacity-100 md:opacity-100 lg:opacity-100 xl:opacity-100 absolute left-[-90px] -top-8 md:top-12 lg:top-16 xl:top-20 bg-gradient-to-t from-background/100 via-background/100 to-background/20 z-10">
+                    class="h-104 w-full opacity-100 sm:opacity-100 md:opacity-100 lg:opacity-100 xl:opacity-100 absolute left-[-90px] -top-8 md:top-12 lg:top-16 xl:top-48 bg-gradient-to-t from-background/100 via-background/100 to-background/20 z-10">
                 </div>
             </div>
         </div>
@@ -93,7 +93,7 @@
                 }">
 
         {{-- TAB BAR --}}
-        <div data-aos="custom-blur-up" data-aos-duration="600" data-aos-delay="150" class="w-full mb-10 sm:mt-3 md:mt-6 lg:mt-8 xl:mt-0 flex items-stretch border-b gap-1 border-accentsecond">
+        <div data-aos="custom-blur-up" data-aos-duration="600" data-aos-delay="150" class="w-full mb-10 sm:mt-3 md:-mt-12 lg:-mt-16 xl:-mt-24 flex items-stretch border-b gap-1 border-accentsecond z-10">
             {{-- Tab: Completed Fleet --}}
             <button @click="switchTab('fleet')"
                 class="relative flex-1 md:flex-none bg-background flex items-center justify-center md:justify-start gap-2 px-4 md:px-7 py-3 text-sm font-medium tracking-[0.06em] transition-all duration-200 cursor-pointer -mb-px border border-b-1 rounded-t-lg overflow-hidden
