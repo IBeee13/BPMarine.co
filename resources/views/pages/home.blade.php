@@ -557,7 +557,7 @@ $countryNames = [
     <div data-aos="custom-zoom-in-up" data-aos-duration="700" class="flex flex-col md:flex-row items-stretch gap-0">
         {{-- Foto sticky — tablet pakai ukuran lebih kecil --}}
         <div class="hidden md:block sticky top-8 flex-shrink-0 md:w-68 lg:w-72 xl:w-72" aria-hidden="true">
-            <div class="w-full md:h-[40vh] lg:h-[34vh] xl:h-[65vh] rounded-2xl overflow-hidden bg-primary relative">
+            <div class="w-full md:h-[35.5vh] lg:h-[34vh] xl:h-[65vh] rounded-2xl overflow-hidden bg-primary relative">
                 @foreach ($testimonials as $index => $item)
                 <img src="{{ $item->photo ? Storage::url($item->photo) : asset('img/default-avatar.png') }}"
                     alt="{{ $item->name }}" width="288" height="520" loading="lazy" decoding="async"
@@ -590,7 +590,7 @@ $countryNames = [
                 <div class="flex gap-3 md:gap-3 lg:gap-4 w-max items-stretch">
                     @foreach ($testimonials as $index => $item)
                     <article data-card="{{ $index }}" role="listitem"
-                        class="w-60 md:w-64 xl:w-72 bg-background border border-accentsecond rounded-2xl p-4 md:p-5 lg:p-6 flex flex-col justify-between min-h-[320px] md:min-h-[380px] xl:min-h-[420px] flex-shrink-0 transition-all duration-500 group hover:bg-primary hover:border-primary cursor-pointer">
+                        class="w-60 md:w-64 xl:w-72 bg-background border border-accentsecond rounded-2xl p-4 md:p-5 lg:p-6 flex flex-col justify-between min-h-[280px] lg:min-h-[420px] xl:min-h-[420px] flex-shrink-0 transition-all duration-500 group hover:bg-primary hover:border-primary cursor-pointer">
                         <div>
                             <p class="text-3xl text-secondary font-serif leading-none mb-4" aria-hidden="true">"</p>
                             <blockquote
