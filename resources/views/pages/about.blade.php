@@ -734,15 +734,15 @@ $countryNames = [
 ];
 @endphp
 
-<section class="px-6 md:px-12 lg:px-16 xl:px-23 py-16 md:py-24 lg:py-32 flex flex-col gap-16 md:gap-24 lg:gap-40"
+<section class="px-6 md:px-12 lg:px-16 xl:px-23 py-12 lg:py-16 xl:py-24 flex flex-col gap-12 md:gap-16 xl:gap-18"
     aria-label="Testimonial dari klien BP Marine Co">
-    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-4 mb-10 md:mb-14">
+    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-4 mb-6 md:mb-10">
         <div class="w-max h-max overflow-hidden flex items-center gap-4">
             <div data-aos="fade-right" data-aos-duration="500" class="w-8 h-0.5 rounded-full bg-accent shrink-0"></div>
             <p data-aos="fade-up" data-aos-duration="500" class="text-xl font-medium text-accent">/Testimonial</p>
         </div>
         <div class="sm:text-right">
-            <h2 id="faq-about-heading" data-aos="custom-blur-up" data-aos-duration="700"
+            <h2 data-aos="custom-blur-up" data-aos-duration="700"
                 class="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold leading-none text-primary"
                 style="font-family: 'Poppins', sans-serif;">
                 WORLD<span
@@ -754,8 +754,9 @@ $countryNames = [
 
     @if ($testimonials->count() > 0)
     <div data-aos="custom-zoom-in-up" data-aos-duration="700" class="flex flex-col md:flex-row items-stretch gap-0">
-        <div class="hidden md:block sticky top-8 flex-shrink-0 w-56 lg:w-72" aria-hidden="true">
-            <div class="w-full h-[64vh] lg:h-[65vh] rounded-2xl overflow-hidden bg-primary relative">
+        {{-- Foto sticky — tablet pakai ukuran lebih kecil --}}
+        <div class="hidden md:block sticky top-8 flex-shrink-0 md:w-68 lg:w-72 xl:w-72" aria-hidden="true">
+            <div class="w-full md:h-[40vh] lg:h-[34vh] xl:h-[65vh] rounded-2xl overflow-hidden bg-primary relative">
                 @foreach ($testimonials as $index => $item)
                 <img src="{{ $item->photo ? Storage::url($item->photo) : asset('img/default-avatar.png') }}"
                     alt="{{ $item->name }}" width="288" height="520" loading="lazy" decoding="async"
@@ -764,13 +765,13 @@ $countryNames = [
                 @endforeach
                 <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"
                     aria-hidden="true"></div>
-                <div class="absolute bottom-0 left-0 right-0 p-4 md:p-5">
+                <div class="absolute bottom-0 left-0 right-0 p-3 md:p-5">
                     @foreach ($testimonials as $index => $item)
                     <div data-info="{{ $index }}"
                         class="transition-opacity flex flex-col gap-1 duration-500 {{ $index === 0 ? 'opacity-100' : 'opacity-0 absolute' }}">
-                        <p class="text-sm font-medium text-background leading-snug">{{ Str::limit($item->quote, 80) }}
-                        </p>
-                        <p class="text-xs md:text-sm text-accentsecond">— {{ $item->name }}</p>
+                        <p class="text-xs md:text-sm font-medium text-background leading-snug">
+                            {{ Str::limit($item->quote, 80) }}</p>
+                        <p class="text-xs text-accentsecond">— {{ $item->name }}</p>
                         @if ($item->country)
                         <p class="text-xs text-accentthird">{{ $countryNames[$item->country] ?? $item->country }}</p>
                         @endif
@@ -782,24 +783,23 @@ $countryNames = [
 
         <div class="flex-1 min-w-0">
             <div id="testimonial-scroll"
-                class="overflow-x-auto rounded-2xl md:ml-6 pr-2 md:pr-8 cursor-grab active:cursor-grabbing select-none"
+                class="overflow-x-auto rounded-2xl md:ml-4 lg:ml-6 pr-2 md:pr-6 lg:pr-8 cursor-grab active:cursor-grabbing select-none"
                 style="-ms-overflow-style: none; scrollbar-width: none;" role="list"
                 aria-label="Daftar testimonial klien">
-                <div class="flex gap-3 md:gap-4 w-max items-stretch">
+                <div class="flex gap-3 md:gap-3 lg:gap-4 w-max items-stretch">
                     @foreach ($testimonials as $index => $item)
                     <article data-card="{{ $index }}" role="listitem"
-                        class="w-64 md:w-72 bg-background border border-accentsecond rounded-2xl p-5 md:p-6 flex flex-col justify-between min-h-[340px] md:min-h-[420px] flex-shrink-0 transition-all duration-500 group hover:bg-primary hover:border-primary cursor-pointer">
+                        class="w-60 md:w-64 xl:w-72 bg-background border border-accentsecond rounded-2xl p-4 md:p-5 lg:p-6 flex flex-col justify-between min-h-[320px] md:min-h-[380px] xl:min-h-[420px] flex-shrink-0 transition-all duration-500 group hover:bg-primary hover:border-primary cursor-pointer">
                         <div>
-                            <p class="text-3xl text-secondary font-serif leading-none mb-4 md:mb-5" aria-hidden="true">"
-                            </p>
+                            <p class="text-3xl text-secondary font-serif leading-none mb-4" aria-hidden="true">"</p>
                             <blockquote
-                                class="text-sm text-accent italic leading-relaxed group-hover:text-background duration-500">
+                                class="text-sm text-accent italic leading-relaxed line-clamp-7 group-hover:text-background duration-500">
                                 {{ $item->quote }}
                             </blockquote>
                         </div>
-                        <footer class="flex flex-col gap-3 md:gap-4 pt-4 md:pt-5 mt-4 border-t border-secondary">
+                        <footer class="flex flex-col gap-3 pt-4 mt-4 border-t border-secondary">
                             <div
-                                class="w-12 h-12 md:w-16 md:h-16 rounded-xl overflow-hidden border border-secondary flex-shrink-0">
+                                class="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 rounded-xl overflow-hidden border border-secondary flex-shrink-0">
                                 <img src="{{ $item->photo ? Storage::url($item->photo) : asset('img/default-avatar.png') }}"
                                     alt="Foto {{ $item->name }}" width="64" height="64" loading="lazy" decoding="async"
                                     class="w-full h-full object-cover object-top">
@@ -820,7 +820,7 @@ $countryNames = [
                     @endforeach
                 </div>
             </div>
-            <div id="testimonial-dots" class="flex items-center gap-2 pl-2 md:pl-8 mt-4" role="tablist"
+            <div id="testimonial-dots" class="flex items-center gap-2 pl-2 md:pl-4 lg:pl-8 mt-4" role="tablist"
                 aria-label="Navigasi testimonial">
                 @foreach ($testimonials as $index => $item)
                 <div data-dot="{{ $index }}" role="tab" aria-label="Testimonial {{ $index + 1 }} dari {{ $item->name }}"
@@ -852,6 +852,7 @@ $countryNames = [
     </div>
     @endif
 </section>
+
 
 {{-- ============================================================ --}}
 {{-- FAQ SECTION                                                   --}}
