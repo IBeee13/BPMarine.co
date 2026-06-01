@@ -1,0 +1,11 @@
+u722632723_BPMarineco
+u722632723_BPMarine_admin
+
+cat /home/u722632723/domains/binapusakapinisi.com/public_html/app/Providers/Filament/BPMarineCoServiceProvider.php | grep -i logo
+
+https://claude.ai/share/6a0e8e23-bbdd-4388-94a2-957a878cad30
+
+git pull origin main
+rm -rf storage/framework/views/*
+php artisan view:clear
+php artisan optimize
