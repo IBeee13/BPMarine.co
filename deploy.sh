@@ -42,6 +42,10 @@ fi
 composer install --no-dev --optimize-autoloader --no-interaction
 echo "[OK] Composer install done" | tee -a "$LOG_FILE"
 
+# Pastikan artisan executable
+chmod +x "$APP_DIR/artisan"
+echo "[OK] Artisan permission set" | tee -a "$LOG_FILE"
+
 # ------------------------------------------------------------
 # 5. BUAT SEMUA FOLDER STORAGE
 # ------------------------------------------------------------
