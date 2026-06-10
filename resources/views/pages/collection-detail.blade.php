@@ -36,8 +36,8 @@
 </div>
 
 {{-- COVER IMAGE --}}
-<section class="w-max h-64 xl:h-max px-6 md:px-12 lg:px-16 xl:px-23 pb-16">
-    <div data-aos="custom-zoom-in-up" data-aos-duration="800" class="w-full rounded-xl xl:rounded-2xl overflow-hidden h-64 xl:h-max">
+<section class="w-full h-64 xl:h-max px-6 md:px-12 lg:px-16 xl:px-23 pb-16">
+    <div data-aos="custom-zoom-in-up" data-aos-duration="800" class="w-max rounded-xl xl:rounded-2xl overflow-hidden h-64 xl:h-max">
         <img src="{{ asset('storage/' . $project->cover_image) }}" alt="{{ $project->name }}" loading="lazy"
             class="w-max h-64 xl:h-max object-cover hover:scale-105 transition duration-700">
     </div>
