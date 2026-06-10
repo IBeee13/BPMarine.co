@@ -119,7 +119,7 @@
     </aside>
 
     {{-- Konten --}}
-    <main class="relative z-10">
+    <main class="relative z-10 overflow-x-hidden">
         @yield('content')
     </main>
 

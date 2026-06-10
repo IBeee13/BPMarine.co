@@ -25,7 +25,7 @@
 </section>
 
 {{-- MARQUEE BACKGROUND TEXT --}}
-<div class="inset-0 z-0 h-[95%] -mx-6 md:-mx-23 pointer-events-none overflow-hidden flex items-end leading-none">
+<div class="relative z-0 h-[95%] pointer-events-none flex items-end leading-none" style="overflow: hidden; clip-path: inset(0);">
     <div class="whitespace-nowrap animate-leftscroll text-[30vw] md:text-[20vw] font-medium">
         <h1 style="color:transparent;-webkit-text-stroke:2px var(--color-accentthird); font-family: 'Poppins', sans-serif;">
             We Carry a 14th-Century Maritime Legacy into the Future of Indonesia &nbsp;
@@ -36,10 +36,10 @@
 </div>
 
 {{-- COVER IMAGE --}}
-<section class="w-full h-64 xl:h-max px-6 md:px-12 lg:px-16 xl:px-23 pb-16 overflow-x-hidden">
-    <div data-aos="custom-zoom-in-up" data-aos-duration="800" class="w-full rounded-xl xl:rounded-2xl overflow-hidden h-64 xl:h-max">
+<section class="w-full h-auto px-6 md:px-12 lg:px-16 xl:px-23 pb-16 overflow-x-hidden">
+    <div data-aos="custom-zoom-in-up" data-aos-duration="800" class="w-full rounded-xl xl:rounded-2xl overflow-hidden h-auto">
         <img src="{{ asset('storage/' . $project->cover_image) }}" alt="{{ $project->name }}" loading="lazy"
-            class="w-max h-64 xl:h-max object-cover hover:scale-105 transition duration-700">
+            class="w-full h-auto object-cover hover:scale-105 transition duration-700">
     </div>
 </section>
 
@@ -142,7 +142,7 @@
                 <div data-aos="custom-zoom-in-up" data-aos-duration="600" data-aos-delay="{{ $delay }}"
                     class="w-full rounded-xl overflow-hidden">
                     <img src="{{ asset('storage/' . $image) }}" alt="{{ $project->name }}" loading="lazy"
-                        class="w-max h-auto object-cover hover:scale-105 transition duration-500">
+                        class="w-full h-auto object-cover hover:scale-105 transition duration-500">
                 </div>
                 @endforeach
             @endif
@@ -191,7 +191,7 @@
         <div data-aos="custom-zoom-in-up" data-aos-duration="600" data-aos-delay="{{ $delay }}"
             class="group mag-area relative overflow-hidden rounded-xl cursor-pointer block">
             <img src="{{ asset('storage/' . $other->cover_image) }}" alt="{{ $other->name }}" loading="lazy"
-                class="w-max h-64 md:h-100 object-cover group-hover:scale-110 transition duration-500">
+                class="w-full h-64 md:h-100 object-cover group-hover:scale-110 transition duration-500">
             <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/15 to-transparent flex flex-col justify-end p-6">
                 <div class="flex items-end justify-between">
                     <h1 class="text-xl text-background font-base">{{ $other->name }}</h1>
