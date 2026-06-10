@@ -222,7 +222,7 @@
 
                             <div class="mag-area relative overflow-hidden rounded-xl
                                 shadow-md hover:shadow-xl transition-shadow duration-500">
-                                <img :src="'/storage_link/' + project.cover_image" :alt="project.name" loading="lazy"
+                                <img :src="'/storage/' + project.cover_image" :alt="project.name" loading="lazy"
                                     class="w-full h-auto object-cover group-hover:scale-110 transition-transform ease-in-out duration-500">
 
                                 <div
@@ -296,15 +296,15 @@
                             {{-- Image --}}
                             <div class="mag-area relative overflow-hidden h-max">
                                 <template x-if="vessel.construction_cover">
-                                    <img :src="'/storage_link/' + vessel.construction_cover" :alt="vessel.name" loading="lazy"
+                                    <img :src="'/storage/' + vessel.construction_cover" :alt="vessel.name" loading="lazy"
                                         class="w-full h-full object-cover group-hover:scale-105 transition-transform ease-in-out duration-500">
                                 </template>
                                 <template x-if="!vessel.construction_cover && vessel.progress_photos && vessel.progress_photos.length > 0">
-                                    <img :src="'/storage_link/' + vessel.progress_photos[0]" :alt="vessel.name" loading="lazy"
+                                    <img :src="'/storage/' + vessel.progress_photos[0]" :alt="vessel.name" loading="lazy"
                                         class="w-full h-full object-cover group-hover:scale-105 transition-transform ease-in-out duration-500">
                                 </template>
                                 <template x-if="!vessel.construction_cover && (!vessel.progress_photos || vessel.progress_photos.length === 0) && vessel.cover_image">
-                                    <img :src="'/storage_link/' + vessel.cover_image" :alt="vessel.name" loading="lazy"
+                                    <img :src="'/storage/' + vessel.cover_image" :alt="vessel.name" loading="lazy"
                                         class="w-full h-full object-cover group-hover:scale-105 transition-transform ease-in-out duration-500">
                                 </template>
                                 <template x-if="!vessel.construction_cover && (!vessel.progress_photos || vessel.progress_photos.length === 0) && !vessel.cover_image">

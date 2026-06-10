@@ -11,7 +11,6 @@ class ProjectController extends Controller
     {
         $projects = Project::orderBy('sort_order')->get();
 
-        // Kapal selesai — data untuk Alpine.js filter (tetap seperti semula)
         $completedProjects = $projects->where('is_under_construction', false)->values();
 
         $projectsData = $completedProjects->map(fn($p) => [
@@ -24,7 +23,6 @@ class ProjectController extends Controller
 
         $yearsData = $completedProjects->pluck('year')->filter()->unique()->sort()->values();
 
-        // Kapal konstruksi — data untuk tab "Under Construction"
         $constructionProjects = $projects->where('is_under_construction', true)->values();
 
         $constructionData = $constructionProjects->map(fn($p) => [
@@ -41,7 +39,7 @@ class ProjectController extends Controller
             'estimated_launch_date' => $p->estimated_launch_date
                 ? $p->estimated_launch_date->format('M Y')
                 : null,
-            'url'                   => route('collection.construction', $p->id), // tambah ini
+            'url'                   => route('collection.construction', $p->id),
         ]);
 
         return view('pages.collection', compact(
