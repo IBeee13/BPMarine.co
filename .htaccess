@@ -5,6 +5,10 @@
 
     RewriteEngine On
 
+    # Storage Rewrite — arahkan /storage/ ke /storage_link/
+    RewriteCond %{REQUEST_URI} ^/storage/(.*)$
+    RewriteRule ^storage/(.*)$ storage_link/$1 [L]
+
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
