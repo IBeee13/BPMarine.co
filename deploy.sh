@@ -46,14 +46,14 @@ chmod +x "$APP_DIR/artisan"
 echo "[OK] Artisan permission set" | tee -a "$LOG_FILE"
 
 # ------------------------------------------------------------
-# 5. BUAT SEMUA FOLDER STORAGE
+# 5. BUAT SEMUA FOLDER STORAGE DI public/storage
 # ------------------------------------------------------------
-mkdir -p storage/app/public/projects/covers
-mkdir -p storage/app/public/projects/gallery
-mkdir -p storage/app/public/projects/construction
-mkdir -p storage/app/public/projects/construction-covers
-mkdir -p storage/app/public/testimonials
-mkdir -p storage/app/public/clients
+mkdir -p public/storage/projects/covers
+mkdir -p public/storage/projects/gallery
+mkdir -p public/storage/projects/construction
+mkdir -p public/storage/projects/construction-covers
+mkdir -p public/storage/testimonials
+mkdir -p public/storage/clients
 mkdir -p storage/logs
 mkdir -p storage/framework/cache/data
 mkdir -p storage/framework/sessions
@@ -72,14 +72,13 @@ cp -r public/fonts ./fonts 2>/dev/null || true
 echo "[OK] Assets copied to root" | tee -a "$LOG_FILE"
 
 # ------------------------------------------------------------
-# 7. SETUP STORAGE — SYMLINK public/storage -> storage/app/public
-#
-# Menggunakan symlink langsung agar gambar yang diupload
-# lewat admin panel langsung muncul tanpa perlu deploy ulang.
+# 7. HAPUS SYMLINK LAMA JIKA ADA
 # ------------------------------------------------------------
-rm -rf public/storage
-ln -s "$APP_DIR/storage/app/public" "$APP_DIR/public/storage"
-echo "[OK] Symlink public/storage dibuat" | tee -a "$LOG_FILE"
+if [ -L public/storage ]; then
+    rm public/storage
+    mkdir -p public/storage
+    echo "[OK] Symlink lama dihapus, diganti folder" | tee -a "$LOG_FILE"
+fi
 
 # ------------------------------------------------------------
 # 8. PASTIKAN index.php ADA DI ROOT DAN PATH-NYA BENAR
@@ -125,7 +124,7 @@ echo "[OK] Cache rebuilt" | tee -a "$LOG_FILE"
 # ------------------------------------------------------------
 # 12. PERMISSION
 # ------------------------------------------------------------
-chmod -R 755 storage bootstrap/cache
+chmod -R 755 storage bootstrap/cache public/storage
 echo "[OK] Permissions set" | tee -a "$LOG_FILE"
 
 # ------------------------------------------------------------
@@ -143,8 +142,8 @@ echo -n ".htaccess di root: " | tee -a "$LOG_FILE"
 echo -n ".env di root: " | tee -a "$LOG_FILE"
 [ -f .env ] && echo "ADA ✓" | tee -a "$LOG_FILE" || echo "TIDAK ADA ✗" | tee -a "$LOG_FILE"
 
-echo -n "public/storage symlink: " | tee -a "$LOG_FILE"
-[ -L public/storage ] && echo "ADA ✓" | tee -a "$LOG_FILE" || echo "TIDAK ADA ✗" | tee -a "$LOG_FILE"
+echo -n "public/storage folder: " | tee -a "$LOG_FILE"
+[ -d public/storage ] && echo "ADA ✓" | tee -a "$LOG_FILE" || echo "TIDAK ADA ✗" | tee -a "$LOG_FILE"
 
 echo -n "build assets: " | tee -a "$LOG_FILE"
 [ -d build ] && echo "ADA ✓" | tee -a "$LOG_FILE" || echo "TIDAK ADA ✗" | tee -a "$LOG_FILE"
