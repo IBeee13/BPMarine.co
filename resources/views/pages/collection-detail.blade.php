@@ -142,7 +142,7 @@
                 <div data-aos="custom-zoom-in-up" data-aos-duration="600" data-aos-delay="{{ $delay }}"
                     class="w-full rounded-xl overflow-hidden">
                     <img src="{{ asset('storage/' . $image) }}" alt="{{ $project->name }}" loading="lazy"
-                        class="w-full h-auto object-cover hover:scale-105 transition duration-500">
+                        class="w-max h-auto object-cover hover:scale-105 transition duration-500">
                 </div>
                 @endforeach
             @endif
@@ -191,7 +191,7 @@
         <div data-aos="custom-zoom-in-up" data-aos-duration="600" data-aos-delay="{{ $delay }}"
             class="group mag-area relative overflow-hidden rounded-xl cursor-pointer block">
             <img src="{{ asset('storage/' . $other->cover_image) }}" alt="{{ $other->name }}" loading="lazy"
-                class="w-full h-64 md:h-100 object-cover group-hover:scale-110 transition duration-500">
+                class="w-max h-64 md:h-100 object-cover group-hover:scale-110 transition duration-500">
             <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/15 to-transparent flex flex-col justify-end p-6">
                 <div class="flex items-end justify-between">
                     <h1 class="text-xl text-background font-base">{{ $other->name }}</h1>
