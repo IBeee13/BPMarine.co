@@ -8,7 +8,7 @@
 @section('content')
 
 
-<section class="w-full px-6 md:px-12 lg:px-16 xl:px-23 pt-8 pb-6">
+<section class="w-full px-6 md:px-12 lg:px-16 xl:px-23 pt-8 pb-6 overflow-x-hidden">
     <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
         <div data-aos="custom-blur-up">
             @php
@@ -36,7 +36,7 @@
 </div>
 
 {{-- COVER IMAGE --}}
-<section class="w-full h-64 xl:h-max px-6 md:px-12 lg:px-16 xl:px-23 pb-16">
+<section class="w-full h-64 xl:h-max px-6 md:px-12 lg:px-16 xl:px-23 pb-16 overflow-x-hidden">
     <div data-aos="custom-zoom-in-up" data-aos-duration="800" class="w-full rounded-xl xl:rounded-2xl overflow-hidden h-64 xl:h-max">
         <img src="{{ asset('storage/' . $project->cover_image) }}" alt="{{ $project->name }}" loading="lazy"
             class="w-max h-64 xl:h-max object-cover hover:scale-105 transition duration-700">
@@ -44,14 +44,14 @@
 </section>
 
 {{-- OVERVIEW + GALLERY --}}
-<section class="w-full px-6 md:px-12 lg:px-16 xl:px-23 py-8">
+<section class="w-full px-6 md:px-12 lg:px-16 xl:px-23 py-8 overflow-x-hidden">
     <div class="flex flex-col md:flex-row gap-6 md:gap-8 lg:gap-14">
 
         {{-- KIRI: Overview --}}
         <div data-aos="fade-up" data-aos-duration="700" class="w-full md:w-[47.8%] flex flex-col gap-6 md:sticky md:top-6 md:self-start">
 
             {{-- Section label --}}
-            <div class="overflow-hidden flex items-center gap-4">
+            <div class="overflow-hidden flex items-center gap-4 ">
                 <div data-aos="fade-right" data-aos-duration="500" class="w-8 h-0.5 rounded-full bg-accent shrink-0"></div>
                 <p data-aos="fade-up" data-aos-duration="500" class="text-xl font-medium text-accent">/Overview</p>
             </div>
@@ -153,7 +153,7 @@
 
 {{-- ACCENT BAND --}}
 <div data-aos="fade-up" data-aos-duration="700"
-    class="w-full bg-primary px-6 md:px-12 lg:px-16 xl:px-23 py-10 flex flex-col md:flex-row items-center gap-6 md:gap-8 lg:gap-10 mt-16">
+    class="w-full bg-primary px-6 md:px-12 lg:px-16 xl:px-23 py-10 flex flex-col md:flex-row items-center gap-6 md:gap-8 lg:gap-10 mt-16 overflow-x-hidden">
     <p class="text-base md:text-lg lg:text-2xl font-light leading-relaxed text-accentthird/80 italic flex-1">
         "Every Pinisi we bring to life carries the breath of
         <span class="text-secondary font-semibold not-italic">14 centuries of maritime tradition</span>
@@ -168,7 +168,7 @@
 
 {{-- OTHER COLLECTION --}}
 @if($otherProjects->count() > 0)
-<section class="flex flex-col w-full px-6 md:px-12 lg:px-16 xl:px-23 py-16 md:py-20 lg:py-32">
+<section class="flex flex-col w-full px-6 md:px-12 lg:px-16 xl:px-23 py-16 md:py-20 lg:py-32 overflow-x-hidden">
     <div class="overflow-hidden flex items-center gap-4 mb-2">
         <div data-aos="fade-right" data-aos-duration="500" class="w-8 h-0.5 rounded-full bg-accent shrink-0"></div>
         <p data-aos="fade-up" data-aos-duration="500" class="text-2xl font-medium text-accent">/Other Collection</p>
