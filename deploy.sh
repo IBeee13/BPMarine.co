@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # ============================================================
-# deploy.sh — BPMarine Co (Hostinger hPanel)
+# deploy.sh — BPMarine Co (Hostinger Shared Hosting)
 # Jalankan: bash deploy.sh
 # ============================================================
 
@@ -37,12 +37,11 @@ if [ ! -f .env ] && [ -f /tmp/bpmarine.env.backup ]; then
 fi
 
 # ------------------------------------------------------------
-# 4. INSTALL PHP DEPENDENCIES + FILAMENT UPGRADE
+# 4. INSTALL PHP DEPENDENCIES
 # ------------------------------------------------------------
 composer install --no-dev --optimize-autoloader --no-interaction
 echo "[OK] Composer install done" | tee -a "$LOG_FILE"
 
-# Pastikan artisan executable
 chmod +x "$APP_DIR/artisan"
 echo "[OK] Artisan permission set" | tee -a "$LOG_FILE"
 
@@ -64,8 +63,6 @@ echo "[OK] Storage directories created" | tee -a "$LOG_FILE"
 
 # ------------------------------------------------------------
 # 6. COPY ASSETS KE ROOT
-# Hostinger document root = public_html, bukan public_html/public
-# Semua asset harus ada di root agar bisa diakses via URL
 # ------------------------------------------------------------
 cp -r public/js ./js 2>/dev/null || true
 cp -r public/css ./css 2>/dev/null || true
@@ -75,16 +72,50 @@ cp -r public/fonts ./fonts 2>/dev/null || true
 echo "[OK] Assets copied to root" | tee -a "$LOG_FILE"
 
 # ------------------------------------------------------------
-# 7. COPY STORAGE FILES KE storage_link
-# Hostinger tidak support symlink — pakai folder fisik
-# URL akses: https://binapusakapinisi.com/storage_link/...
+# 7. SETUP STORAGE — SYNC KE FOLDER storage_link
+#
+# Kenapa masih storage_link?
+# Di Hostinger shared hosting, folder 'storage/' di root sudah
+# dipakai Laravel (storage/app, storage/logs, dll).
+# php artisan storage:link akan GAGAL karena konflik nama.
+#
+# Solusi: tetap pakai folder 'storage_link' sebagai folder publik,
+# tapi sync isinya dari storage/app/public setiap deploy.
+# Blade sudah menggunakan asset('storage/...') — kita handle
+# via .htaccess rewrite di bawah.
 # ------------------------------------------------------------
 mkdir -p storage_link
-cp -r storage/app/public/. storage_link/
-echo "[OK] Files copied to storage_link" | tee -a "$LOG_FILE"
+rsync -a --delete storage/app/public/. storage_link/ 2>/dev/null || cp -r storage/app/public/. storage_link/
+echo "[OK] storage/app/public synced ke storage_link/" | tee -a "$LOG_FILE"
 
 # ------------------------------------------------------------
-# 8. PASTIKAN index.php ADA DI ROOT DAN PATH-NYA BENAR
+# 8. UPDATE .htaccess — REWRITE /storage/ KE /storage_link/
+#
+# Ini kuncinya: blade pakai asset('storage/...') tapi
+# di server diarahkan ke storage_link/ via RewriteRule.
+# Tidak perlu ubah blade sama sekali!
+# ------------------------------------------------------------
+HTACCESS_STORAGE_RULE='
+# --- Storage Rewrite (BPMarine) ---
+RewriteCond %{REQUEST_URI} ^/storage/(.*)$
+RewriteRule ^storage/(.*)$ storage_link/$1 [L]
+# --- End Storage Rewrite ---'
+
+if ! grep -q "Storage Rewrite (BPMarine)" .htaccess 2>/dev/null; then
+    # Sisipkan rule SEBELUM baris "RewriteEngine On" yang pertama
+    sed -i "/RewriteEngine On/a\\
+\\
+# --- Storage Rewrite (BPMarine) ---\\
+RewriteCond %{REQUEST_URI} ^\/storage\/(.*)$\\
+RewriteRule ^storage\/(.*)$ storage_link\/\$1 [L]\\
+# --- End Storage Rewrite ---" .htaccess
+    echo "[OK] Storage rewrite rule ditambahkan ke .htaccess" | tee -a "$LOG_FILE"
+else
+    echo "[OK] Storage rewrite rule sudah ada di .htaccess" | tee -a "$LOG_FILE"
+fi
+
+# ------------------------------------------------------------
+# 9. PASTIKAN index.php ADA DI ROOT DAN PATH-NYA BENAR
 # ------------------------------------------------------------
 if [ ! -f index.php ]; then
     cp public/index.php ./index.php
@@ -95,7 +126,7 @@ sed -i "s|__DIR__.'/../bootstrap|__DIR__.'/bootstrap|g" index.php
 echo "[OK] index.php paths verified" | tee -a "$LOG_FILE"
 
 # ------------------------------------------------------------
-# 9. PASTIKAN .htaccess ADA DI ROOT
+# 10. PASTIKAN .htaccess ADA DI ROOT
 # ------------------------------------------------------------
 if [ ! -f .htaccess ]; then
     cp public/.htaccess ./.htaccess 2>/dev/null || true
@@ -103,13 +134,13 @@ if [ ! -f .htaccess ]; then
 fi
 
 # ------------------------------------------------------------
-# 10. MIGRATION
+# 11. MIGRATION
 # ------------------------------------------------------------
 php artisan migrate --force
 echo "[OK] Migration done" | tee -a "$LOG_FILE"
 
 # ------------------------------------------------------------
-# 11. CLEAR & REBUILD CACHE
+# 12. CLEAR & REBUILD CACHE
 # ------------------------------------------------------------
 php artisan config:clear
 php artisan cache:clear
@@ -125,13 +156,13 @@ php artisan optimize
 echo "[OK] Cache rebuilt" | tee -a "$LOG_FILE"
 
 # ------------------------------------------------------------
-# 12. PERMISSION
+# 13. PERMISSION
 # ------------------------------------------------------------
 chmod -R 755 storage bootstrap/cache storage_link
 echo "[OK] Permissions set" | tee -a "$LOG_FILE"
 
 # ------------------------------------------------------------
-# 13. VERIFIKASI AKHIR
+# 14. VERIFIKASI AKHIR
 # ------------------------------------------------------------
 echo "" | tee -a "$LOG_FILE"
 echo "=== VERIFIKASI ===" | tee -a "$LOG_FILE"
@@ -148,8 +179,8 @@ echo -n ".env di root: " | tee -a "$LOG_FILE"
 echo -n "storage_link folder: " | tee -a "$LOG_FILE"
 [ -d storage_link ] && echo "ADA ✓" | tee -a "$LOG_FILE" || echo "TIDAK ADA ✗" | tee -a "$LOG_FILE"
 
-echo -n "js/filament assets: " | tee -a "$LOG_FILE"
-[ -f js/filament/forms/components/select.js ] && echo "ADA ✓" | tee -a "$LOG_FILE" || echo "TIDAK ADA ✗" | tee -a "$LOG_FILE"
+echo -n "Storage rewrite di .htaccess: " | tee -a "$LOG_FILE"
+grep -q "Storage Rewrite (BPMarine)" .htaccess && echo "ADA ✓" | tee -a "$LOG_FILE" || echo "TIDAK ADA ✗" | tee -a "$LOG_FILE"
 
 echo -n "build assets: " | tee -a "$LOG_FILE"
 [ -d build ] && echo "ADA ✓" | tee -a "$LOG_FILE" || echo "TIDAK ADA ✗" | tee -a "$LOG_FILE"
@@ -162,9 +193,6 @@ grep -q "APP_KEY=base64:" .env && echo "ADA ✓" | tee -a "$LOG_FILE" || echo "K
 
 echo -n "APP_DEBUG di .env: " | tee -a "$LOG_FILE"
 grep -q "APP_DEBUG=false" .env && echo "false ✓" | tee -a "$LOG_FILE" || echo "PERIKSA! Pastikan APP_DEBUG=false" | tee -a "$LOG_FILE"
-
-echo -n "storage_link URL di config: " | tee -a "$LOG_FILE"
-grep -q "storage_link" config/filesystems.php && echo "OK ✓" | tee -a "$LOG_FILE" || echo "BELUM DIUPDATE ✗" | tee -a "$LOG_FILE"
 
 echo ""
 echo "=============================" >> "$LOG_FILE"
