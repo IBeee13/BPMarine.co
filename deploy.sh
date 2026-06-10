@@ -72,50 +72,17 @@ cp -r public/fonts ./fonts 2>/dev/null || true
 echo "[OK] Assets copied to root" | tee -a "$LOG_FILE"
 
 # ------------------------------------------------------------
-# 7. SETUP STORAGE — SYNC KE FOLDER storage_link
+# 7. SETUP STORAGE — SYMLINK public/storage -> storage/app/public
 #
-# Kenapa masih storage_link?
-# Di Hostinger shared hosting, folder 'storage/' di root sudah
-# dipakai Laravel (storage/app, storage/logs, dll).
-# php artisan storage:link akan GAGAL karena konflik nama.
-#
-# Solusi: tetap pakai folder 'storage_link' sebagai folder publik,
-# tapi sync isinya dari storage/app/public setiap deploy.
-# Blade sudah menggunakan asset('storage/...') — kita handle
-# via .htaccess rewrite di bawah.
+# Menggunakan symlink langsung agar gambar yang diupload
+# lewat admin panel langsung muncul tanpa perlu deploy ulang.
 # ------------------------------------------------------------
-mkdir -p storage_link
-rsync -a --delete storage/app/public/. storage_link/ 2>/dev/null || cp -r storage/app/public/. storage_link/
-echo "[OK] storage/app/public synced ke storage_link/" | tee -a "$LOG_FILE"
+rm -rf public/storage
+ln -s "$APP_DIR/storage/app/public" "$APP_DIR/public/storage"
+echo "[OK] Symlink public/storage dibuat" | tee -a "$LOG_FILE"
 
 # ------------------------------------------------------------
-# 8. UPDATE .htaccess — REWRITE /storage/ KE /storage_link/
-#
-# Ini kuncinya: blade pakai asset('storage/...') tapi
-# di server diarahkan ke storage_link/ via RewriteRule.
-# Tidak perlu ubah blade sama sekali!
-# ------------------------------------------------------------
-HTACCESS_STORAGE_RULE='
-# --- Storage Rewrite (BPMarine) ---
-RewriteCond %{REQUEST_URI} ^/storage/(.*)$
-RewriteRule ^storage/(.*)$ storage_link/$1 [L]
-# --- End Storage Rewrite ---'
-
-if ! grep -q "Storage Rewrite (BPMarine)" .htaccess 2>/dev/null; then
-    # Sisipkan rule SEBELUM baris "RewriteEngine On" yang pertama
-    sed -i "/RewriteEngine On/a\\
-\\
-# --- Storage Rewrite (BPMarine) ---\\
-RewriteCond %{REQUEST_URI} ^\/storage\/(.*)$\\
-RewriteRule ^storage\/(.*)$ storage_link\/\$1 [L]\\
-# --- End Storage Rewrite ---" .htaccess
-    echo "[OK] Storage rewrite rule ditambahkan ke .htaccess" | tee -a "$LOG_FILE"
-else
-    echo "[OK] Storage rewrite rule sudah ada di .htaccess" | tee -a "$LOG_FILE"
-fi
-
-# ------------------------------------------------------------
-# 9. PASTIKAN index.php ADA DI ROOT DAN PATH-NYA BENAR
+# 8. PASTIKAN index.php ADA DI ROOT DAN PATH-NYA BENAR
 # ------------------------------------------------------------
 if [ ! -f index.php ]; then
     cp public/index.php ./index.php
@@ -126,7 +93,7 @@ sed -i "s|__DIR__.'/../bootstrap|__DIR__.'/bootstrap|g" index.php
 echo "[OK] index.php paths verified" | tee -a "$LOG_FILE"
 
 # ------------------------------------------------------------
-# 10. PASTIKAN .htaccess ADA DI ROOT
+# 9. PASTIKAN .htaccess ADA DI ROOT
 # ------------------------------------------------------------
 if [ ! -f .htaccess ]; then
     cp public/.htaccess ./.htaccess 2>/dev/null || true
@@ -134,13 +101,13 @@ if [ ! -f .htaccess ]; then
 fi
 
 # ------------------------------------------------------------
-# 11. MIGRATION
+# 10. MIGRATION
 # ------------------------------------------------------------
 php artisan migrate --force
 echo "[OK] Migration done" | tee -a "$LOG_FILE"
 
 # ------------------------------------------------------------
-# 12. CLEAR & REBUILD CACHE
+# 11. CLEAR & REBUILD CACHE
 # ------------------------------------------------------------
 php artisan config:clear
 php artisan cache:clear
@@ -156,13 +123,13 @@ php artisan optimize
 echo "[OK] Cache rebuilt" | tee -a "$LOG_FILE"
 
 # ------------------------------------------------------------
-# 13. PERMISSION
+# 12. PERMISSION
 # ------------------------------------------------------------
-chmod -R 755 storage bootstrap/cache storage_link
+chmod -R 755 storage bootstrap/cache
 echo "[OK] Permissions set" | tee -a "$LOG_FILE"
 
 # ------------------------------------------------------------
-# 14. VERIFIKASI AKHIR
+# 13. VERIFIKASI AKHIR
 # ------------------------------------------------------------
 echo "" | tee -a "$LOG_FILE"
 echo "=== VERIFIKASI ===" | tee -a "$LOG_FILE"
@@ -176,11 +143,8 @@ echo -n ".htaccess di root: " | tee -a "$LOG_FILE"
 echo -n ".env di root: " | tee -a "$LOG_FILE"
 [ -f .env ] && echo "ADA ✓" | tee -a "$LOG_FILE" || echo "TIDAK ADA ✗" | tee -a "$LOG_FILE"
 
-echo -n "storage_link folder: " | tee -a "$LOG_FILE"
-[ -d storage_link ] && echo "ADA ✓" | tee -a "$LOG_FILE" || echo "TIDAK ADA ✗" | tee -a "$LOG_FILE"
-
-echo -n "Storage rewrite di .htaccess: " | tee -a "$LOG_FILE"
-grep -q "Storage Rewrite (BPMarine)" .htaccess && echo "ADA ✓" | tee -a "$LOG_FILE" || echo "TIDAK ADA ✗" | tee -a "$LOG_FILE"
+echo -n "public/storage symlink: " | tee -a "$LOG_FILE"
+[ -L public/storage ] && echo "ADA ✓" | tee -a "$LOG_FILE" || echo "TIDAK ADA ✗" | tee -a "$LOG_FILE"
 
 echo -n "build assets: " | tee -a "$LOG_FILE"
 [ -d build ] && echo "ADA ✓" | tee -a "$LOG_FILE" || echo "TIDAK ADA ✗" | tee -a "$LOG_FILE"
