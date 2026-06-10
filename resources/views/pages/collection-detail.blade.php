@@ -36,10 +36,10 @@
 </div>
 
 {{-- COVER IMAGE --}}
-<section class="w-full h-64 xl:h-max px-6 md:px-12 lg:px-16 xl:px-23 pb-16">
+<section class="w-max h-64 xl:h-max px-6 md:px-12 lg:px-16 xl:px-23 pb-16">
     <div data-aos="custom-zoom-in-up" data-aos-duration="800" class="w-full rounded-xl xl:rounded-2xl overflow-hidden h-64 xl:h-max">
         <img src="{{ asset('storage/' . $project->cover_image) }}" alt="{{ $project->name }}" loading="lazy"
-            class="w-full h-64 xl:h-max object-cover hover:scale-105 transition duration-700">
+            class="w-max h-64 xl:h-max object-cover hover:scale-105 transition duration-700">
     </div>
 </section>
 
@@ -155,9 +155,9 @@
 <div data-aos="fade-up" data-aos-duration="700"
     class="w-full bg-primary px-6 md:px-12 lg:px-16 xl:px-23 py-10 flex flex-col md:flex-row items-center gap-6 md:gap-8 lg:gap-10 mt-16">
     <p class="text-base md:text-lg lg:text-2xl font-light leading-relaxed text-accentthird/80 italic flex-1">
-        "Setiap Pinisi yang kami lahirkan membawa napas
-        <span class="text-secondary font-semibold not-italic">14 abad tradisi bahari</span>
-        — bukan hanya kapal, melainkan warisan yang berlayar."
+        "Every Pinisi we bring to life carries the breath of
+        <span class="text-secondary font-semibold not-italic">14 centuries of maritime tradition</span>
+        — not merely a vessel, but a heritage that sails."
     </p>
     <div class="hidden md:block w-px h-14 bg-secondary/30 shrink-0"></div>
     <div class="flex flex-col gap-1 shrink-0">
