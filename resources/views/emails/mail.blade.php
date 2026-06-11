@@ -36,7 +36,7 @@
                                         <table cellpadding="0" cellspacing="0" style="margin-bottom:20px;">
                                             <tr>
                                                 <td>
-                                                    <img src="{{ url('apple-touch-icon.png') }}"
+                                                    <img src="{{ url('img/Aset/apple-touch-icon.png') }}"
                                                         alt="BP Marine Co" width="120" height="auto"
                                                         style="display:block; width:120px; height:auto;">
                                                 </td>

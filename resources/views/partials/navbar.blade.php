@@ -3,7 +3,7 @@
     {{-- Logo --}}
     <div class="flex items-center gap-1 ">
         <picture>
-            <img src="{{ url('apple-touch-icon.png') }}" alt="BP Marine Logo"
+            <img src="{{ url('img/Aset/apple-touch-icon.png') }}" alt="BP Marine Logo"
                 class="h-12 w-auto">
         </picture>
         <div class="flex flex-col leading-tight">

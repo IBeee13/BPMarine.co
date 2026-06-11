@@ -32,7 +32,7 @@
                 {{-- Logo --}}
                 <div data-aos="fade-up" class="flex items-center gap-2 -ml-4">
                     <picture>
-                        <img src="{{ url('apple-touch-icon.png') }}"
+                        <img src="{{ url('img/Aset/apple-touch-icon.png') }}"
                             alt="Logo Bina Pusaka Marine" class="h-14 w-auto">
                     </picture>
                     <div class="flex flex-col leading-tight">
@@ -94,7 +94,7 @@
             <div class="flex flex-col gap-8 overflow-hidden">
                 <div data-aos="fade-up" class="flex items-center gap-2">
                     <picture>
-                        <img src="{{ url('apple-touch-icon.png') }}"
+                        <img src="{{ url('img/Aset/apple-touch-icon.png') }}"
                             alt="Logo Bina Pusaka Marine" class="h-14 w-auto -ml-[2vw]">
                     </picture>
                     <div class="flex flex-col leading-tight">
@@ -152,7 +152,7 @@
             <div class="flex flex-col gap-8 overflow-hidden">
                 <div data-aos="fade-up" class="flex items-center gap-2 w-80">
                     <picture>
-                        <img src="{{ url('apple-touch-icon.png') }}"
+                        <img src="{{ url('img/Aset/apple-touch-icon.png') }}"
                             alt="Logo Bina Pusaka Marine" class="h-14 w-max lg:ml-[0.2vw]">
                     </picture>
                     <div class="flex flex-col leading-tight lg:w-[16vw]">
