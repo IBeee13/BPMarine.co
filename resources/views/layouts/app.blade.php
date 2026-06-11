@@ -36,8 +36,8 @@
         content="@yield('meta_description', 'Traditional Phinisi, built for global luxury. Handcrafted in Indonesia by Bina Pusaka, preserving authentic Pinisi craftsmanship since 1998.')">
     <meta name="twitter:image" content="@yield('og_image', url('img/Aset/BINA PUSAKA.jpg'))">
 
-    <link rel="icon" href="{{ url('img/Bina Pusaka/Aset/favicon.ico') }}" type="image/x-icon">
-    <link rel="shortcut icon" href="{{ url('img/Bina Pusaka/Aset/favicon.ico') }}" type="image/x-icon">
+    <link rel="icon" href="{{ url('img/Aset/favicon.ico') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ url('img/Aset/favicon.ico') }}" type="image/x-icon">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ url('img/Aset/favicon-16x16.png') }}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ url('img/Aset/favicon-32x32.png') }}">
     <link rel="apple-touch-icon" sizes="180x180" href="{{ url('img/Aset/apple-touch-icon.png') }}">
