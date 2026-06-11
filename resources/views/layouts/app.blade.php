@@ -28,7 +28,7 @@
     <meta name="twitter:image" content="@yield('og_image', url('img/Bina Pusaka/Aset/BINA PUSAKA.png'))">
 
     <link rel="icon" href="{{ url('img/Bina Pusaka/Aset/Binapusaka.ico') }}" type="image/x-icon">
-    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ url('img/Bina Pusaka/Aset/Binapusaka.ico') }}" type="image/x-icon">
     <link rel="apple-touch-icon" sizes="180x180" href="{{ url('img/Bina Pusaka/Aset/Binapusaka.ico') }}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ url('img/Bina Pusaka/Aset/Binapusaka.ico') }}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ url('img/Bina Pusaka/Aset/Binapusaka.ico') }}">
