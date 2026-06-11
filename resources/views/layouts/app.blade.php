@@ -37,7 +37,7 @@
     <meta name="twitter:image" content="@yield('og_image', url('img/Bina Pusaka/Aset/BINA PUSAKA.jpg'))">
 
     <link rel="icon" href="{{ url('img/Bina Pusaka/Aset/favicon.ico') }}" type="image/x-icon">
-    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ url('img/Bina Pusaka/Aset/favicon.ico') }}" type="image/x-icon">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ url('img/Bina Pusaka/Aset/favicon-16x16.png') }}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ url('img/Bina Pusaka/Aset/favicon-32x32.png') }}">
     <link rel="apple-touch-icon" sizes="180x180" href="{{ url('img/Bina Pusaka/Aset/apple-touch-icon.png') }}">
@@ -104,7 +104,7 @@
     {{-- Burger button — mobile & tablet (< lg) --}} <div
         class="relative z-20 lg:hidden py-4 px-6 md:px-12 flex items-center justify-between">
         <div class="flex items-center gap-1">
-            <img src="{{ url('img/Bina Pusaka/Aset/favicon.ico') }}" alt="Logo BP Marine Co" width="40"
+            <img src="{{ url('img/Bina Pusaka/Aset/apple-touch-icon.png') }}" alt="Logo BP Marine Co" width="40"
                 height="40" class="h-10 -ml-2 w-auto">
             <div class="flex flex-col leading-tight mt-1">
                 <span class="text-[3.8vw] md:text-[2vh] xl:text-[2.7vh] font-light">BINA PUSAKA</span>
@@ -127,7 +127,7 @@
                 aria-label="Menu navigasi mobile">
                 <div class="flex items-center justify-between px-6 py-5 border-b border-accentthird">
                     <div class="flex items-center gap-1">
-                        <img src="{{ url('img/Bina Pusaka/Aset/LOGO BINA PUSAKA 21.webp') }}" alt="Logo BP Marine Co"
+                        <img src="{{ url('img/Bina Pusaka/Aset/apple-touch-icon.png') }}" alt="Logo BP Marine Co"
                             width="40" height="40" class="h-10 w-auto">
                         <div class="flex flex-col leading-tight mt-1">
                             <span class="text-[2.8vw] md:text-[1.8vw] font-light">BINA PUSAKA</span>

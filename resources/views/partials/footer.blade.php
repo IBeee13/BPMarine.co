@@ -32,7 +32,7 @@
                 {{-- Logo --}}
                 <div data-aos="fade-up" class="flex items-center gap-2 -ml-4">
                     <picture>
-                        <img src="{{ url('img/Bina Pusaka/Aset/favicon.ico') }}"
+                        <img src="{{ url('img/Bina Pusaka/Aset/apple-touch-icon.png') }}"
                             alt="Logo Bina Pusaka Marine" class="h-14 w-auto">
                     </picture>
                     <div class="flex flex-col leading-tight">
