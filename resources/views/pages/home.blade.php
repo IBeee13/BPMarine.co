@@ -7,11 +7,11 @@
 @section('meta_description', 'BPMarineCo builds handcrafted Pinisi vessels that blend 600 years of Indonesian maritime
 heritage with modern shipbuilding excellence. Discover our fleet and legacy.')
 
-@section('og_image', url('img/Bina Pusaka/Aset/BINA PUSAKA.jpg'))
+@section('og_image', url('img/Aset/BINA PUSAKA.jpg'))
 
 @push('preload')
-<link rel="preload" as="image" href="{{ url('img/Bina Pusaka/Vela/vela-exterior-11.webp') }}" fetchpriority="high"
-    imagesrcset="{{ url('img/Bina Pusaka/Vela/vela-exterior-11.webp') }}" type="image/webp">
+<link rel="preload" as="image" href="{{ url('im/Vela/vela-exterior-11.webp') }}" fetchpriority="high"
+    imagesrcset="{{ url('img/Vela/vela-exterior-11.webp') }}" type="image/webp">
 @endpush
 
 @section('content')
@@ -37,7 +37,7 @@ heritage with modern shipbuilding excellence. Discover our fleet and legacy.')
     <div class="relative z-10 flex flex-col md:hidden gap-6 pt-4 -mt-24">
         <div data-aos="custom-zoom-in-up" data-aos-duration="800"
             class="w-full h-[260px] sm:h-[320px] rounded-2xl overflow-hidden">
-            <img src="{{ url('img/Bina Pusaka/Vela/vela-exterior-11.webp') }}"
+            <img src="{{ url('img/Vela/vela-exterior-11.webp') }}"
                 alt="Kapal Pinisi Vela — BP Marine Co, galangan kapal tradisional Sulawesi" width="600" height="320"
                 loading="eager" fetchpriority="high" decoding="sync"
                 class="h-full w-full hover:scale-110 transition duration-500 object-cover">
@@ -58,12 +58,12 @@ heritage with modern shipbuilding excellence. Discover our fleet and legacy.')
         </a>
         <div data-aos="custom-zoom-in-up" data-aos-delay="250" class="flex gap-3 h-[220px] sm:h-[280px]">
             <div class="flex-1 rounded-2xl overflow-hidden">
-                <img src="{{ url('img/Bina Pusaka/Ilike/vessel_Ilike_liveaboard_06-640x600.webp') }}"
+                <img src="{{ url('img/Ilike/vessel_Ilike_liveaboard_06-640x600.webp') }}"
                     alt="Interior liveaboard kapal Pinisi Ilike — BP Marine Co" width="300" height="280" loading="lazy"
                     decoding="async" class="h-full w-full object-cover hover:scale-110 transition duration-500">
             </div>
             <div class="flex-1 rounded-2xl overflow-hidden">
-                <img src="{{ url('img/Bina Pusaka/Prana/Prana-by-Atzaro-Yacht-1.webp') }}"
+                <img src="{{ url('img/Prana/Prana-by-Atzaro-Yacht-1.webp') }}"
                     alt="Kapal Pinisi Prana — mewah buatan BP Marine Co" width="300" height="280" loading="lazy"
                     decoding="async" class="h-full w-full object-cover hover:scale-110 transition duration-500">
             </div>
@@ -106,22 +106,22 @@ heritage with modern shipbuilding excellence. Discover our fleet and legacy.')
         <div class="flex gap-4 h-[380px] md:h-[360px] lg:h-[420px]">
             {{-- Gambar kiri besar --}}
             <div data-aos="custom-zoom-in-up" data-aos-duration="900" class="w-[50%] rounded-2xl overflow-hidden">
-                <img src="{{ url('img/Bina Pusaka/Vela/vela-exterior-11.webp') }}"
-                    alt="Kapal Pinisi Vela — BP Marine Co" width="420" height="560" loading="eager" fetchpriority="high"
-                    decoding="sync" class="h-full w-full object-cover hover:scale-110 transition duration-500">
+                <img src="{{ url('img/Vela/vela-exterior-11.webp') }}" alt="Kapal Pinisi Vela — BP Marine Co"
+                    width="420" height="560" loading="eager" fetchpriority="high" decoding="sync"
+                    class="h-full w-full object-cover hover:scale-110 transition duration-500">
             </div>
 
             {{-- Kanan: CTA + 2 gambar --}}
             <div class="flex-1 flex flex-col gap-4">
                 <div class="flex gap-4 flex-1">
                     <div data-aos="custom-zoom-in-up" data-aos-delay="200" class="flex-1 rounded-2xl overflow-hidden">
-                        <img src="{{ url('img/Bina Pusaka/Ilike/vessel_Ilike_liveaboard_06-640x600.webp') }}"
+                        <img src="{{ url('img/Ilike/vessel_Ilike_liveaboard_06-640x600.webp') }}"
                             alt="Interior liveaboard kapal Pinisi Ilike — BP Marine Co" width="640" height="600"
                             loading="lazy" decoding="async"
                             class="h-full w-full object-cover hover:scale-110 transition duration-500">
                     </div>
                     <div data-aos="custom-zoom-in-up" data-aos-delay="250" class="flex-1 rounded-2xl overflow-hidden">
-                        <img src="{{ url('img/Bina Pusaka/The Maj Oceanic/TMO-Areal-view-scaled-e1664971034548__2_.webp') }}"
+                        <img src="{{ url('img/The_Maj_Oceanic/TMO-Areal-view-scaled-e1664971034548__2_.webp') }}"
                             alt="Aerial view kapal Pinisi The Maj Oceanic — buatan BP Marine Co" width="480"
                             height="320" loading="lazy" decoding="async"
                             class="h-full w-full object-cover hover:scale-110 transition duration-500">
@@ -136,7 +136,7 @@ heritage with modern shipbuilding excellence. Discover our fleet and legacy.')
 
         <div data-aos="custom-zoom-in-up" data-aos-duration="900"
             class="flex-shrink-0 w-[21%] h-[70%] rounded-2xl overflow-hidden self-start mt-4">
-            <img src="{{ url('img/Bina Pusaka/Vela/vela-exterior-11.webp') }}"
+            <img src="{{ url('img/Vela/vela-exterior-11.webp') }}"
                 alt="Kapal Pinisi Vela — BP Marine Co, galangan kapal tradisional Sulawesi" width="420" height="560"
                 loading="eager" fetchpriority="high" decoding="sync"
                 class="h-full w-full object-cover hover:scale-110 transition duration-500">
@@ -169,7 +169,7 @@ heritage with modern shipbuilding excellence. Discover our fleet and legacy.')
             </div>
             <div class="flex gap-4 flex-1 xl:ml-88">
                 <div data-aos="custom-zoom-in-up" data-aos-delay="200" class="flex-1 rounded-2xl overflow-hidden">
-                    <img src="{{ url('img/Bina Pusaka/Ilike/vessel_Ilike_liveaboard_06-640x600.webp') }}"
+                    <img src="{{ url('img/Ilike/vessel_Ilike_liveaboard_06-640x600.webp') }}"
                         alt="Interior liveaboard kapal Pinisi Ilike — BP Marine Co" width="640" height="600"
                         loading="lazy" decoding="async"
                         class="h-full w-full object-cover hover:scale-110 transition duration-500">
@@ -188,7 +188,7 @@ heritage with modern shipbuilding excellence. Discover our fleet and legacy.')
                 </a>
             </div>
             <div data-aos="custom-zoom-in-up" data-aos-delay="250" class="flex-1 rounded-2xl overflow-hidden">
-                <img src="{{ url('img/Bina Pusaka/The Maj Oceanic/TMO-Areal-view-scaled-e1664971034548__2_.webp') }}"
+                <img src="{{ url('img/The_Maj_Oceanic/TMO-Areal-view-scaled-e1664971034548__2_.webp') }}"
                     alt="Aerial view kapal Pinisi The Maj Oceanic — buatan BP Marine Co" width="480" height="320"
                     loading="lazy" decoding="async"
                     class="h-full w-full object-cover hover:scale-110 transition duration-500">
@@ -205,7 +205,7 @@ heritage with modern shipbuilding excellence. Discover our fleet and legacy.')
     aria-labelledby="legacy-heading">
     <div data-aos="custom-zoom-in-up" data-aos-duration="700"
         class="w-full md:w-[180px] lg:w-[280px] h-[240px] md:h-[260px] lg:h-[380px] rounded-2xl overflow-hidden flex-shrink-0">
-        <img src="{{ url('img/Bina Pusaka/The Maj Oceanic/The-Maj-Oceanic-Ambience-01-scaled.webp') }}"
+        <img src="{{ url('img/The_Maj_Oceanic/The-Maj-Oceanic-Ambience-01-scaled.webp') }}"
             alt="Suasana dek kapal Pinisi The Maj Oceanic — BP Marine Co" width="280" height="380" loading="lazy"
             decoding="async" class="h-full w-full object-cover hover:scale-110 transition duration-500">
     </div>
@@ -240,14 +240,14 @@ heritage with modern shipbuilding excellence. Discover our fleet and legacy.')
 
     <div class="flex w-max gap-2 animate-leftscroll" aria-hidden="true">
         @foreach([
-        ['img' => 'img/Bina Pusaka/Prana/AGY_Indonesia_Prana-01.webp', 'num' => '25+', 'title' => 'Years of Excellence',
+        ['img' => 'img/Prana/AGY_Indonesia_Prana-01.webp', 'num' => '25+', 'title' => 'Years of Excellence',
         'desc' => 'Preserving Pinisi shipbuilding since 1998, delivering vessels of heritage and global standards.'],
-        ['img' => 'img/Bina Pusaka/Prana/Prana-by-Atzaro-Onboard.webp', 'num' => '20+', 'title' => 'Ships Built with
+        ['img' => 'img/Prana/Prana-by-Atzaro-Onboard.webp', 'num' => '20+', 'title' => 'Ships Built with
         Precision',
         'desc' => 'Each vessel reflects our commitment to craftsmanship and modern shipbuilding standards.'],
-        ['img' => 'img/Bina Pusaka/The Maj Oceanic/vessel-6.webp', 'num' => '25+', 'title' => 'Years of Excellence',
+        ['img' => 'img/The_Maj_Oceanic/vessel-6.webp', 'num' => '25+', 'title' => 'Years of Excellence',
         'desc' => 'Preserving Pinisi shipbuilding since 1998, delivering vessels of heritage and global standards.'],
-        ['img' => 'img/Bina Pusaka/The Maj Oceanic/vessel-1.webp', 'num' => '20+', 'title' => 'Ships Built with
+        ['img' => 'img/The_Maj_Oceanic/vessel-1.webp', 'num' => '20+', 'title' => 'Ships Built with
         Precision',
         'desc' => 'Each vessel reflects our commitment to craftsmanship and modern shipbuilding standards.'],
         ] as $item)
@@ -274,15 +274,15 @@ heritage with modern shipbuilding excellence. Discover our fleet and legacy.')
 
     <div class="flex w-max gap-2 animate-rightscroll" aria-hidden="true">
         @foreach([
-        ['img' => 'img/Bina Pusaka/Sanctuary/vessel-2.webp', 'num' => '1983', 'title' => 'From Indonesia to the World',
+        ['img' => 'img/Sanctuary/vessel-2.webp', 'num' => '1983', 'title' => 'From Indonesia to the World',
         'desc' => 'Pinisi was introduced at Expo Vancouver 1983 in Canada, marking our global legacy.'],
-        ['img' => 'img/Bina Pusaka/Tiger Blue/tiger-blue-phinisi.webp', 'num' => '1998', 'title' => 'Continuing a
+        ['img' => 'img/Tiger Blue/tiger-blue-phinisi.webp', 'num' => '1998', 'title' => 'Continuing a
         600-Year Legacy',
         'desc' => 'Carrying forward Pinisi craftsmanship combining heritage with modern shipbuilding expertise.'],
-        ['img' => 'img/Bina Pusaka/Tiger Blue/vessel-1__1_.webp', 'num' => '1983', 'title' => 'From Indonesia to the
+        ['img' => 'img/Tiger Blue/vessel-1__1_.webp', 'num' => '1983', 'title' => 'From Indonesia to the
         World',
         'desc' => 'Pinisi was introduced at Expo Vancouver 1983 in Canada, marking our global legacy.'],
-        ['img' => 'img/Bina Pusaka/Sanctuary/vessel-10.webp', 'num' => '1998', 'title' => 'Continuing a 600-Year
+        ['img' => 'img/Sanctuary/vessel-10.webp', 'num' => '1998', 'title' => 'Continuing a 600-Year
         Legacy',
         'desc' => 'Carrying forward Pinisi craftsmanship combining heritage with modern shipbuilding expertise.'],
         ] as $item)
@@ -446,7 +446,7 @@ heritage with modern shipbuilding excellence. Discover our fleet and legacy.')
             </div>
         </div>
         <div class="group relative w-full lg:w-1/2 min-h-[220px] md:min-h-[260px] overflow-hidden block">
-            <img src="{{ url('img/Bina Pusaka/Prana/679c9730b8ad5230db05317b.webp') }}"
+            <img src="{{ url('img/Prana/679c9730b8ad5230db05317b.webp') }}"
                 alt="Kapal Pinisi Prana — warisan budaya maritim Indonesia" width="512" height="280" loading="lazy"
                 decoding="async"
                 class="w-full h-full object-cover object-center absolute inset-0 group-hover:scale-110 transition duration-500">
@@ -479,23 +479,21 @@ heritage with modern shipbuilding excellence. Discover our fleet and legacy.')
     {{-- Quote Card --}}
     <div data-aos="custom-zoom-in-up" data-aos-duration="800"
         class="relative h-80 md:h-[380px] lg:h-140 rounded-xl border border-secondary overflow-hidden bg-background">
-        <img src="{{ url('img/Bina Pusaka/Aset/IMG_0668_2.webp') }}" alt="Suasana kapal Pinisi BP Marine Co"
-            width="1200" height="560" loading="lazy" decoding="async"
-            class="absolute inset-0 w-full h-full object-cover object-top">
+        <img src="{{ url('img/Aset/IMG_0668_2.webp') }}" alt="Suasana kapal Pinisi BP Marine Co" width="1200"
+            height="560" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover object-top">
         <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/20" aria-hidden="true"></div>
 
         <div data-aos="fade-left" data-aos-duration="700" data-aos-delay="200"
             class="hidden lg:block absolute bottom-8 right-8 w-64 h-80 rounded-xl border-2 border-secondary overflow-hidden z-10">
-            <img src="{{ url('img/Bina Pusaka/Aset/IMG_0669.webp') }}"
-                alt="Surya Paloh — Tokoh Nasional &amp; Pendiri Media Group" width="320" height="320" loading="lazy"
-                decoding="async" class="w-full h-full object-cover object-top scale-120">
+            <img src="{{ url('img/Aset/IMG_0669.webp') }}" alt="Surya Paloh — Tokoh Nasional &amp; Pendiri Media Group"
+                width="320" height="320" loading="lazy" decoding="async"
+                class="w-full h-full object-cover object-top scale-120">
         </div>
         {{-- Foto kecil tablet --}}
         <div data-aos="fade-left" data-aos-duration="700" data-aos-delay="200"
             class="hidden md:block lg:hidden absolute bottom-4 right-4 w-40 h-48 rounded-xl border-2 border-secondary overflow-hidden z-10">
-            <img src="{{ url('img/Bina Pusaka/Aset/IMG_0669.webp') }}"
-                alt="Surya Paloh — Tokoh Nasional &amp; Pendiri Media Group" width="128" height="160" loading="lazy"
-                decoding="async" class="w-full h-full object-cover object-top">
+            <img src="{{ url('img/Aset/IMG_0669.webp') }}" alt="Surya Paloh — Tokoh Nasional &amp; Pendiri Media Group"
+                width="128" height="160" loading="lazy" decoding="async" class="w-full h-full object-cover object-top">
         </div>
 
         <figure data-aos="fade-right" data-aos-duration="700" data-aos-delay="150"

@@ -7,11 +7,10 @@
 @section('meta_description', 'Learn the story behind BPMarine.Co — a family-rooted Pinisi shipyard in Bulukumba, South
 Sulawesi, dedicated to preserving the art of traditional Indonesian boatbuilding since 1998.')
 
-@section('og_image', url('img/Bina Pusaka/Aset/BINA PUSAKA.jpg'))
+@section('og_image', url('img/Aset/BINA PUSAKA.jpg'))
 
 @push('preload')
-<link rel="preload" as="image"
-    href="{{ url('img/Bina Pusaka/The Maj Oceanic/TMO-Areal-view-scaled-e1664971034548 (2).webp') }}"
+<link rel="preload" as="image" href="{{ url('img/The Maj Oceanic/TMO-Areal-view-scaled-e1664971034548 (2).webp') }}"
     fetchpriority="high" type="image/webp">
 @endpush
 
@@ -87,7 +86,7 @@ Sulawesi, dedicated to preserving the art of traditional Indonesian boatbuilding
 
         <div data-aos="custom-zoom-in-up" data-aos-delay="200"
             class="rounded-2xl overflow-hidden h-56 sm:h-64 w-full mt-24">
-            <img src="{{ url('img/Bina Pusaka/Tiger Blue/tiger-blue-phinisi.webp') }}"
+            <img src="{{ url('img/Tiger Blue/tiger-blue-phinisi.webp') }}"
                 alt="Kapal Pinisi Tiger Blue — buatan BP Marine Co Bulukumba" width="600" height="256" loading="eager"
                 fetchpriority="high" decoding="sync"
                 class="h-full w-full object-cover hover:scale-110 transition duration-500">
@@ -160,7 +159,7 @@ Sulawesi, dedicated to preserving the art of traditional Indonesian boatbuilding
             </div>
             <div data-aos="custom-zoom-in-up" data-aos-duration="800" data-aos-delay="100"
                 class="flex-1 min-h-0 rounded-2xl overflow-hidden">
-                <img src="{{ url('img/Bina Pusaka/The Maj Oceanic/TMO-Areal-view-scaled-e1664971034548__2_.webp') }}"
+                <img src="{{ url('img/The_Maj_Oceanic/TMO-Areal-view-scaled-e1664971034548__2_.webp') }}"
                     alt="Aerial view kapal Pinisi The Maj Oceanic — buatan BP Marine Co" width="480" height="640"
                     loading="eager" fetchpriority="high" decoding="sync"
                     class="h-full w-full object-cover hover:scale-110 transition duration-500">
@@ -515,8 +514,7 @@ Sulawesi, dedicated to preserving the art of traditional Indonesian boatbuilding
         {{-- Founder --}}
         <div
             class="bg-background xl:border-r-2 xl:border-accentsecond border-b-2 xl:border-b-0 border-accentsecond flex w-full xl:w-1/2">
-            <img data-aos="custom-zoom-in-up" data-aos-duration="800"
-                src="{{ url('img/Bina Pusaka/Aset/co Founder.webp') }}"
+            <img data-aos="custom-zoom-in-up" data-aos-duration="800" src="{{ url('img/Aset/co Founder.webp') }}"
                 alt="H. Abdullah Hasan — Founder Bina Pusaka Marine" width="400" height="560" loading="lazy"
                 decoding="async"
                 class="w-2/5 md:w-[50%] h-56 md:h-120 lg:h-[48vh] xl:h-[83.5vh] object-cover flex-shrink-0">
@@ -574,7 +572,7 @@ Sulawesi, dedicated to preserving the art of traditional Indonesian boatbuilding
                     </p>
                 </div>
             </div>
-            <img data-aos="custom-zoom-in-up" data-aos-duration="800" src="{{ url('img/Bina Pusaka/Aset/CEO.webp') }}"
+            <img data-aos="custom-zoom-in-up" data-aos-duration="800" src="{{ url('img/Aset/CEO.webp') }}"
                 alt="Pahrul Islami — CEO Bina Pusaka Marine" width="400" height="560" loading="lazy" decoding="async"
                 class="w-2/5 md:w-[50%] h-56 md:h-120 lg:h-[48vh] xl:h-[83.5vh] object-cover flex-shrink-0">
         </div>
@@ -647,7 +645,7 @@ Sulawesi, dedicated to preserving the art of traditional Indonesian boatbuilding
             </div>
         </div>
         <div class="group relative w-full lg:w-1/2 min-h-[220px] md:min-h-[280px] overflow-hidden block">
-            <img src="{{ url('img/Bina Pusaka/Prana/679c9730b8ad5230db05317b.webp') }}"
+            <img src="{{ url('img/Prana/679c9730b8ad5230db05317b.webp') }}"
                 alt="Kapal Pinisi Prana — warisan budaya maritim Indonesia" width="512" height="280" loading="lazy"
                 decoding="async"
                 class="w-full h-full object-cover object-center absolute inset-0 group-hover:scale-110 transition duration-500">
@@ -680,22 +678,20 @@ Sulawesi, dedicated to preserving the art of traditional Indonesian boatbuilding
     {{-- Quote Card --}}
     <div data-aos="custom-zoom-in-up" data-aos-duration="800"
         class="relative h-80 md:h-[420px] lg:h-140 rounded-xl border border-secondary overflow-hidden bg-background">
-        <img src="{{ url('img/Bina Pusaka/Aset/IMG_0668_2.webp') }}" alt="Suasana kapal Pinisi BP Marine Co"
-            width="1200" height="560" loading="lazy" decoding="async"
-            class="absolute inset-0 w-full h-full object-cover object-top">
+        <img src="{{ url('img/Aset/IMG_0668_2.webp') }}" alt="Suasana kapal Pinisi BP Marine Co" width="1200"
+            height="560" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover object-top">
         <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/20" aria-hidden="true"></div>
 
         <div data-aos="fade-left" data-aos-duration="700" data-aos-delay="200"
             class="hidden lg:block absolute bottom-8 right-8 w-80 h-80 rounded-xl border-2 border-secondary overflow-hidden z-10">
-            <img src="{{ url('img/Bina Pusaka/Aset/IMG_0669.webp') }}"
-                alt="Surya Paloh — Tokoh Nasional &amp; Pendiri Media Group" width="320" height="320" loading="lazy"
-                decoding="async" class="w-full h-full object-cover object-top scale-120">
+            <img src="{{ url('img/Aset/IMG_0669.webp') }}" alt="Surya Paloh — Tokoh Nasional &amp; Pendiri Media Group"
+                width="320" height="320" loading="lazy" decoding="async"
+                class="w-full h-full object-cover object-top scale-120">
         </div>
         <div data-aos="fade-left" data-aos-duration="700" data-aos-delay="200"
             class="hidden md:block lg:hidden absolute bottom-4 right-4 w-40 h-48 rounded-xl border-2 border-secondary overflow-hidden z-10">
-            <img src="{{ url('img/Bina Pusaka/Aset/IMG_0669.webp') }}"
-                alt="Surya Paloh — Tokoh Nasional &amp; Pendiri Media Group" width="160" height="192" loading="lazy"
-                decoding="async" class="w-full h-full object-cover object-top">
+            <img src="{{ url('img/Aset/IMG_0669.webp') }}" alt="Surya Paloh — Tokoh Nasional &amp; Pendiri Media Group"
+                width="160" height="192" loading="lazy" decoding="async" class="w-full h-full object-cover object-top">
         </div>
 
         <figure data-aos="fade-right" data-aos-duration="700" data-aos-delay="150"

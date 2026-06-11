@@ -8,7 +8,7 @@
 
 @section('og_image', $project->cover_image
     ? url('storage/' . $project->cover_image)
-    : url('img/Bina Pusaka/Aset/BINA PUSAKA.png')
+    : url('img/Aset/BINA PUSAKA.png')
 )
 
 @section('content')
