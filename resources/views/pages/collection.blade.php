@@ -1,15 +1,12 @@
 @extends('layouts.app')
 
-@section('title', $project->name . ' — BPMarineCo Pinisi Shipyard')
+@section('title', 'Our Pinisi Collection — BPMarine.Co')
 
-@section('og_title', $project->name . ' | Handcrafted Pinisi by Bina Pusaka')
+@section('og_title', 'Handcrafted Pinisi Vessels — BPMarine.Co Collection')
 
-@section('meta_description', 'Discover ' . $project->name . ', a handcrafted Pinisi vessel by Bina Pusaka, built with traditional Indonesian craftsmanship, timeless design, and maritime excellence.')
+@section('meta_description', 'Browse our collection of handcrafted Pinisi vessels — from traditional phinisi liveaboards to luxury charter yachts, each built to order at our shipyard in Bulukumba, South Sulawesi.')
 
-@section('og_image', $project->cover_image
-    ? asset('storage/' . $project->cover_image)
-    : asset('img/Bina Pusaka/Aset/BINA PUSAKA.png')
-)
+@section('og_image', url('img/Bina Pusaka/Aset/BINA PUSAKA.png'))
 
 @section('content')
 

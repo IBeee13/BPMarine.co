@@ -7,8 +7,8 @@
 @section('meta_description', 'Follow the construction progress of ' . $project->name . ', a handcrafted Pinisi vessel currently being built by Bina Pusaka through traditional craftsmanship, precision, and maritime expertise.')
 
 @section('og_image', $project->cover_image
-    ? asset('storage/' . $project->cover_image)
-    : asset('img/Bina Pusaka/Aset/BINA PUSAKA.png')
+    ? url('storage/' . $project->cover_image)
+    : url('img/Bina Pusaka/Aset/BINA PUSAKA.png')
 )
 
 @section('content')

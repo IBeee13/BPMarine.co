@@ -7,8 +7,8 @@
 @section('meta_description', \Illuminate\Support\Str::limit(strip_tags($project->description), 155))
 
 @section('og_image', $project->cover_image
-    ? asset('storage/' . $project->cover_image)
-    : asset('img/Bina Pusaka/Aset/BINA PUSAKA.png')
+    ? url('storage/' . $project->cover_image)
+    : url('img/Bina Pusaka/Aset/BINA PUSAKA.png')
 )
 
 @section('content')
