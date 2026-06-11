@@ -34,13 +34,13 @@
     <meta name="twitter:title" content="@yield('og_title', 'BPMarineCo — Traditional Pinisi Shipyard')">
     <meta name="twitter:description"
         content="@yield('meta_description', 'Traditional Phinisi, built for global luxury. Handcrafted in Indonesia by Bina Pusaka, preserving authentic Pinisi craftsmanship since 1998.')">
-    <meta name="twitter:image" content="@yield('og_image', url('img/Bina Pusaka/Aset/favicon.ico'))">
+    <meta name="twitter:image" content="@yield('og_image', url('img/Bina Pusaka/Aset/BINA PUSAKA.jpg'))">
 
-    <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
+    <link rel="icon" href="{{ url('img/Bina Pusaka/Aset/favicon.ico') }}" type="image/x-icon">
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('favicon-16x16.png') }}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicon-32x32.png') }}">
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url('img/Bina Pusaka/Aset/favicon-16x16.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url('img/Bina Pusaka/Aset/favicon-32x32.png') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url('img/Bina Pusaka/Aset/apple-touch-icon.png') }}">
 
     <meta name="theme-color" content="#18254D">
 
