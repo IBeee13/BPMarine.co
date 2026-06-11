@@ -3,7 +3,7 @@
     {{-- Logo --}}
     <div class="flex items-center gap-1 ">
         <picture>
-            <img src="{{ url('img/Bina Pusaka/Aset/LOGO BINA PUSAKA 21.webp') }}" alt="BP Marine Logo"
+            <img src="{{ url('img/Bina Pusaka/Aset/favicon.ico) }}" alt="BP Marine Logo"
                 class="h-12 w-auto">
         </picture>
         <div class="flex flex-col leading-tight">
