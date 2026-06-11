@@ -50,7 +50,8 @@
 </section>
 
 {{-- OVERVIEW + GALLERY --}}
-<section class="w-full px-6 md:px-12 lg:px-16 xl:px-23 py-8 overflow-x-hidden">
+<div class="w-full overflow-x-hidden">
+<section class="w-full px-6 md:px-12 lg:px-16 xl:px-23 py-8">
     <div class="flex flex-col md:flex-row gap-6 md:gap-8 lg:gap-14">
 
         {{-- KIRI: Overview --}}
@@ -155,7 +156,7 @@
         </div>
     </div>
 </section>
-
+</div>
 
 {{-- ACCENT BAND --}}
 <div data-aos="fade-up" data-aos-duration="700"
