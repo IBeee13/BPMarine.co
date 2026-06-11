@@ -6,7 +6,7 @@
 
 @section('meta_description', 'Reach out to Bina Pusaka for custom Pinisi builds, charter inquiries, or shipyard visits. Our team in Bulukumba, South Sulawesi is ready to bring your vessel vision to life.')
 
-@section('og_image', url('img/Bina Pusaka/Aset/BINA PUSAKA.png'))
+@section('og_image', url('img/Bina Pusaka/Aset/BINA PUSAKA.jpg'))
 
 @section('content')
 

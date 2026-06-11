@@ -6,7 +6,7 @@
 
 @section('meta_description', 'Browse our collection of handcrafted Pinisi vessels — from traditional phinisi liveaboards to luxury charter yachts, each built to order at our shipyard in Bulukumba, South Sulawesi.')
 
-@section('og_image', url('img/Bina Pusaka/Aset/BINA PUSAKA.png'))
+@section('og_image', url('img/Bina Pusaka/Aset/BINA PUSAKA.jpg'))
 
 @section('content')
 
