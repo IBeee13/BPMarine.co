@@ -13,8 +13,8 @@
     <meta property="og:image" content="@yield('og_image', url('img/Bina Pusaka/Aset/BINA PUSAKA.png'))">
     <meta property="og:image:secure_url" content="@yield('og_image', url('img/Bina Pusaka/Aset/BINA PUSAKA.png'))">
     <meta property="og:image:type" content="image/jpeg">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
+    <meta property="og:image:width" content="1721">
+    <meta property="og:image:height" content="909">
     <meta property="og:image:alt" content="BPMarineCo - Traditional Pinisi Shipyard in Bulukumba, Indonesia">
 
     <meta property="og:type" content="website">
@@ -28,6 +28,10 @@
     <meta name="twitter:image" content="@yield('og_image', url('img/Bina Pusaka/Aset/BINA PUSAKA.png'))">
 
     <link rel="icon" href="{{ url('img/Bina Pusaka/Aset/Binapusaka.ico') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url('img/Bina Pusaka/Aset/Binapusaka.ico') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url('img/Bina Pusaka/Aset/Binapusaka.ico') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url('img/Bina Pusaka/Aset/Binapusaka.ico') }}">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
