@@ -84,7 +84,7 @@
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
 
-<body class="bg-background relative min-h-screen m-0 p-0 overflow-x-hidden" style="font-family: 'Jost', sans-serif;">
+<body class="bg-background relative min-h-screen m-0 p-0" style="font-family: 'Jost', sans-serif; overflow-x: clip;">
 
     {{-- Garis background --}}
     <div class="absolute inset-0 pointer-events-none z-0" aria-hidden="true"
@@ -146,7 +146,7 @@
             </aside>
 
             {{-- Konten --}}
-            <main class="relative z-10 overflow-x-hidden">
+            <main class="relative z-10" style="overflow-x: clip;">
                 @yield('content')
             </main>
 
