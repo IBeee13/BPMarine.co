@@ -1,9 +1,13 @@
 @extends('layouts.app')
 
-@section('title', 'BPMarine.Co — Traditional Pinisi Shipyard')
-@section('og_title', 'BPMarine.Co — Traditional Pinisi Shipyard')
-@section('meta_description', 'BPMarine.Co builds handcrafted Pinisi vessels that blend 600 years of Indonesian maritime
+@section('title', 'BPMarineCo — Traditional Pinisi Shipyard')
+
+@section('og_title', 'BPMarineCo — Traditional Pinisi Shipyard')
+
+@section('meta_description', 'BPMarineCo builds handcrafted Pinisi vessels that blend 600 years of Indonesian maritime
 heritage with modern shipbuilding excellence. Discover our fleet and legacy.')
+
+@section('og_image', asset('img/Bina Pusaka/Aset/BINA PUSAKA.png'))
 
 @push('preload')
 <link rel="preload" as="image" href="{{ url('img/Bina Pusaka/Vela/vela-exterior-11.webp') }}" fetchpriority="high"

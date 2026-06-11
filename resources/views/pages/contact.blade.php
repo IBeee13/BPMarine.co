@@ -1,7 +1,12 @@
 @extends('layouts.app')
+
 @section('title', 'Contact BPMarine.Co — Inquire About a Custom Pinisi')
-@section('og_title', 'Get in Touch with BPMarine.Co — Pinisi Shipyard Inquiries')
-@section('meta_description', 'Reach out to BPMarine.Co for custom Pinisi builds, charter inquiries, or shipyard visits. Our team in Bulukumba, South Sulawesi is ready to bring your vessel vision to life.')
+
+@section('og_title', 'Get in Touch with Bina Pusaka — Pinisi Shipyard Inquiries')
+
+@section('meta_description', 'Reach out to Bina Pusaka for custom Pinisi builds, charter inquiries, or shipyard visits. Our team in Bulukumba, South Sulawesi is ready to bring your vessel vision to life.')
+
+@section('og_image', asset('img/Bina Pusaka/Aset/BINA PUSAKA.png'))
 
 @section('content')
 

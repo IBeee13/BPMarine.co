@@ -1,9 +1,15 @@
 @extends('layouts.app')
 
-@section('title', $project->name . ' — BPMarine.Co Pinisi Shipyard')
-@section('og_title', $project->name . ' | Handcrafted Pinisi by BPMarine.Co')
-@section('meta_description', Str::limit($project->description, 155))
-@section('og_image', asset('storage/' . $project->cover_image))
+@section('title', $project->name . ' — BPMarineCo Pinisi Shipyard')
+
+@section('og_title', $project->name . ' | Handcrafted Pinisi by Bina Pusaka')
+
+@section('meta_description', \Illuminate\Support\Str::limit(strip_tags($project->description), 155))
+
+@section('og_image', $project->cover_image
+    ? asset('storage/' . $project->cover_image)
+    : asset('img/Bina Pusaka/Aset/BINA PUSAKA.png')
+)
 
 @section('content')
 

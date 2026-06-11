@@ -2,21 +2,31 @@
 <html lang="en" style="font-family: 'Jost', sans-serif;">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>@yield('title', 'BPMarineCo — Traditional Pinisi Shipyard')</title>
     <meta name="description"
-        content="@yield('meta_description', 'BP Marine Co — A traditional Pinisi shipyard based in Bulukumba, South Sulawesi, Indonesia.')">
-    <meta name="keywords" content="kapal pinisi, pinisi bulukumba, pinisi luxury, BP Marine">
-
-    <meta property="og:title" content="@yield('og_title', 'BP Marine Co — Traditional Pinisi Shipyard')">
+        content="@yield('meta_description', 'Bina Pusaka is a traditional Pinisi shipyard based in Bulukumba, Indonesia, crafting handcrafted wooden vessels that blend maritime heritage with modern shipbuilding excellence.')">
+    <meta name="keywords"
+        content="BPMarineCo, Bina Pusaka, Pinisi shipyard, Phinisi Indonesia, traditional Pinisi, luxury Pinisi, Bulukumba shipyard, handcrafted vessels, wooden boatbuilding, Sulawesi shipyard">
+    <meta property="og:title" content="@yield('og_title', 'BPMarineCo — Traditional Pinisi Shipyard')">
     <meta property="og:description"
-        content="@yield('meta_description', 'Handcrafted Pinisi vessels from Bulukumba, South Sulawesi.')">
-    <meta property="og:image" content="@yield('og_image', url('img/Bina Pusaka/Aset/og image Binapusaka.webp'))">
+        content="@yield('meta_description', 'Traditional Phinisi, built for global luxury. Handcrafted in Indonesia by Bina Pusaka, preserving authentic Pinisi craftsmanship since 1998.')">
+    <meta property="og:image" content="@yield('og_image', url('img/Bina Pusaka/Aset/BINA PUSAKA.png'))">
+    <meta property="og:image:secure_url" content="@yield('og_image', url('img/Bina Pusaka/Aset/BINA PUSAKA.png'))">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="BPMarineCo - Traditional Pinisi Shipyard in Bulukumba, Indonesia">
+
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:site_name" content="BPMarineCo">
 
-    <title>@yield('title', 'BPMarine.co')</title>
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="@yield('og_title', 'BPMarineCo — Traditional Pinisi Shipyard')">
+    <meta name="twitter:description"
+        content="@yield('meta_description', 'Traditional Phinisi, built for global luxury. Handcrafted in Indonesia by Bina Pusaka, preserving authentic Pinisi craftsmanship since 1998.')">
+    <meta name="twitter:image" content="@yield('og_image', url('img/Bina Pusaka/Aset/BINA PUSAKA.png'))">
+
     <link rel="icon" href="{{ url('img/Bina Pusaka/Aset/Binapusaka.ico') }}" type="image/x-icon">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -76,71 +86,73 @@
         @include('partials.navbar')
     </div>
 
-    {{-- Burger button — mobile & tablet (< lg) --}}
-    <div class="relative z-20 lg:hidden py-4 px-6 md:px-12 flex items-center justify-between">
+    {{-- Burger button — mobile & tablet (< lg) --}} <div
+        class="relative z-20 lg:hidden py-4 px-6 md:px-12 flex items-center justify-between">
         <div class="flex items-center gap-1">
             <img src="{{ url('img/Bina Pusaka/Aset/LOGO BINA PUSAKA 21.webp') }}" alt="Logo BP Marine Co" width="40"
                 height="40" class="h-10 -ml-2 w-auto">
             <div class="flex flex-col leading-tight mt-1">
                 <span class="text-[3.8vw] md:text-[2vh] xl:text-[2.7vh] font-light">BINA PUSAKA</span>
-                <span class="text-[1.7vw] md:text-[0.9vh] xl:text-[2.7vh] font-light text-accentsecond tracking-wide">Design and Pinisi
+                <span
+                    class="text-[1.7vw] md:text-[0.9vh] xl:text-[2.7vh] font-light text-accentsecond tracking-wide">Design
+                    and Pinisi
                     Construction</span>
             </div>
         </div>
         <button onclick="toggleSidebar()" aria-label="Buka menu navigasi" aria-expanded="false" id="burger-btn">
             <i id="burger-icon" class="ri-menu-line text-2xl cursor-pointer" aria-hidden="true"></i>
         </button>
-    </div>
-
-    {{-- Sidebar overlay — mobile & tablet (< lg) --}}
-    <div id="sidebar-overlay" class="fixed inset-0 bg-black/50 z-30 hidden lg:hidden" onclick="toggleSidebar()"
-        aria-hidden="true">
-    </div>
-    <aside id="sidebar"
-        class="fixed top-0 left-0 z-40 w-80 h-dvh bg-background transform -translate-x-full transition-transform duration-300 lg:hidden overflow-hidden"
-        aria-label="Menu navigasi mobile">
-        <div class="flex items-center justify-between px-6 py-5 border-b border-accentthird">
-            <div class="flex items-center gap-1">
-                <img src="{{ url('img/Bina Pusaka/Aset/LOGO BINA PUSAKA 21.webp') }}" alt="Logo BP Marine Co" width="40"
-                    height="40" class="h-10 w-auto">
-                <div class="flex flex-col leading-tight mt-1">
-                    <span class="text-[2.8vw] md:text-[1.8vw] font-light">BINA PUSAKA</span>
-                    <span class="text-[clamp(9px,1.3vw,13px)] font-light text-accentsecond tracking-wide">Design and
-                        Pinisi Construction</span>
-                </div>
-            </div>
-            <button onclick="toggleSidebar()" aria-label="Tutup menu navigasi"
-                class="flex items-center justify-center text-accentsecond hover:text-accent transition-colors duration-300 bg-transparent border-none cursor-pointer p-0">
-                <i class="ti ti-x text-xl" aria-hidden="true"></i>
-            </button>
         </div>
 
-        @include('layouts.sidebar')
-    </aside>
+        {{-- Sidebar overlay — mobile & tablet (< lg) --}} <div id="sidebar-overlay"
+            class="fixed inset-0 bg-black/50 z-30 hidden lg:hidden" onclick="toggleSidebar()" aria-hidden="true">
+            </div>
+            <aside id="sidebar"
+                class="fixed top-0 left-0 z-40 w-80 h-dvh bg-background transform -translate-x-full transition-transform duration-300 lg:hidden overflow-hidden"
+                aria-label="Menu navigasi mobile">
+                <div class="flex items-center justify-between px-6 py-5 border-b border-accentthird">
+                    <div class="flex items-center gap-1">
+                        <img src="{{ url('img/Bina Pusaka/Aset/LOGO BINA PUSAKA 21.webp') }}" alt="Logo BP Marine Co"
+                            width="40" height="40" class="h-10 w-auto">
+                        <div class="flex flex-col leading-tight mt-1">
+                            <span class="text-[2.8vw] md:text-[1.8vw] font-light">BINA PUSAKA</span>
+                            <span class="text-[clamp(9px,1.3vw,13px)] font-light text-accentsecond tracking-wide">Design
+                                and
+                                Pinisi Construction</span>
+                        </div>
+                    </div>
+                    <button onclick="toggleSidebar()" aria-label="Tutup menu navigasi"
+                        class="flex items-center justify-center text-accentsecond hover:text-accent transition-colors duration-300 bg-transparent border-none cursor-pointer p-0">
+                        <i class="ti ti-x text-xl" aria-hidden="true"></i>
+                    </button>
+                </div>
 
-    {{-- Konten --}}
-    <main class="relative z-10 overflow-x-hidden">
-        @yield('content')
-    </main>
+                @include('layouts.sidebar')
+            </aside>
 
-    {{-- Footer --}}
-    <div class="relative z-10">
-        @include('partials.footer')
-    </div>
+            {{-- Konten --}}
+            <main class="relative z-10 overflow-x-hidden">
+                @yield('content')
+            </main>
+
+            {{-- Footer --}}
+            <div class="relative z-10">
+                @include('partials.footer')
+            </div>
 
 
-    <script defer src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            AOS.init({
-                duration: 800,
-                once: false,
-                mirror: true,
-                offset: 80,
-                easing: 'ease-out-cubic',
-            });
-        });
-    </script>
+            <script defer src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
+            <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                    AOS.init({
+                        duration: 800,
+                        once: false,
+                        mirror: true,
+                        offset: 80,
+                        easing: 'ease-out-cubic',
+                    });
+                });
+            </script>
 </body>
 
 </html>

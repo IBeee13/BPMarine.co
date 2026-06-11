@@ -1,9 +1,13 @@
 @extends('layouts.app')
 
 @section('title', 'About BPMarine.Co — Pinisi Shipyard Since 1998')
+
 @section('og_title', 'About BPMarine.Co — Traditional Pinisi Shipyard Since 1998')
+
 @section('meta_description', 'Learn the story behind BPMarine.Co — a family-rooted Pinisi shipyard in Bulukumba, South
 Sulawesi, dedicated to preserving the art of traditional Indonesian boatbuilding since 1998.')
+
+@section('og_image', asset('img/Bina Pusaka/Aset/BINA PUSAKA.png'))
 
 @push('preload')
 <link rel="preload" as="image"

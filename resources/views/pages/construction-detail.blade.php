@@ -1,5 +1,15 @@
 @extends('layouts.app')
-@section('title', $project->name . ' — Under Construction · BPMarine.Co')
+
+@section('title', $project->name . ' — Under Construction · BPMarineCo')
+
+@section('og_title', $project->name . ' | Pinisi Under Construction by Bina Pusaka')
+
+@section('meta_description', 'Follow the construction progress of ' . $project->name . ', a handcrafted Pinisi vessel currently being built by Bina Pusaka through traditional craftsmanship, precision, and maritime expertise.')
+
+@section('og_image', $project->cover_image
+    ? asset('storage/' . $project->cover_image)
+    : asset('img/Bina Pusaka/Aset/BINA PUSAKA.png')
+)
 
 @section('content')
 
