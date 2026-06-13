@@ -344,4 +344,88 @@
 </section>
 @endif
 
+
+{{-- PROGRESS VIDEOS --}}
+@php
+    $hasVideoFiles = $project->progress_videos && count($project->progress_videos);
+    $hasVideoUrls  = $project->progress_video_urls && count(array_filter($project->progress_video_urls, fn($v) => !empty($v['url'])));
+@endphp
+
+@if($hasVideoFiles || $hasVideoUrls)
+<section class="px-6 md:px-12 lg:px-16 xl:px-23 py-10 md:py-14 lg:py-24 border-t border-accentthird/40">
+    <div>
+        {{-- Heading --}}
+        <div class="overflow-hidden flex items-center gap-4 mb-8 md:mb-10">
+            <div data-aos="fade-right" data-aos-duration="500" class="w-8 h-0.5 rounded-full bg-accent shrink-0"></div>
+            <p data-aos="fade-up" data-aos-duration="500" class="text-lg font-medium text-accent tracking-[0.1em]">/Progress Videos</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
+
+            {{-- Video file uploads --}}
+            @if($hasVideoFiles)
+                @foreach($project->progress_videos as $index => $video)
+                @php $delay = ($index % 4) * 80; @endphp
+                <div data-aos="fade-up" data-aos-duration="600" data-aos-delay="{{ $delay }}"
+                    class="rounded-xl overflow-hidden bg-secondbackground border border-accentthird">
+                    <video
+                        controls
+                        preload="metadata"
+                        class="w-full aspect-video object-cover bg-black"
+                        src="{{ Storage::url($video) }}">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                @endforeach
+            @endif
+
+            {{-- YouTube / Vimeo URLs --}}
+            @if($hasVideoUrls)
+                @foreach($project->progress_video_urls as $index => $item)
+                @if(empty($item['url'])) @continue @endif
+                @php
+                    $delay  = ($index % 4) * 80;
+                    $url    = $item['url'];
+                    $caption = $item['caption'] ?? null;
+
+                    // Konversi URL ke embed
+                    if (preg_match('/(?:youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/', $url, $m)) {
+                        $embedUrl = 'https://www.youtube.com/embed/' . $m[1] . '?rel=0&modestbranding=1';
+                    } elseif (preg_match('/vimeo\.com\/(\d+)/', $url, $m)) {
+                        $embedUrl = 'https://player.vimeo.com/video/' . $m[1] . '?dnt=1';
+                    } else {
+                        $embedUrl = null;
+                    }
+                @endphp
+
+                @if($embedUrl)
+                <div data-aos="fade-up" data-aos-duration="600" data-aos-delay="{{ $delay }}"
+                    class="rounded-xl overflow-hidden bg-secondbackground border border-accentthird flex flex-col">
+                    <div class="relative w-full aspect-video">
+                        <iframe
+                            src="{{ $embedUrl }}"
+                            class="absolute inset-0 w-full h-full"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen
+                            loading="lazy"
+                            title="{{ $caption ?? 'Progress video' }}">
+                        </iframe>
+                    </div>
+                    @if($caption)
+                    <div class="px-4 py-3 border-t border-accentthird/60">
+                        <p class="text-xs md:text-sm text-accent">{{ $caption }}</p>
+                    </div>
+                    @endif
+                </div>
+                @endif
+
+                @endforeach
+            @endif
+
+        </div>
+    </div>
+</section>
+@endif
+
 @endsection

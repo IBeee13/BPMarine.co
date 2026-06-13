@@ -35,6 +35,8 @@ return new class extends Migration
             $table->date('estimated_launch_date')->nullable();
             $table->string('construction_cover')->nullable();
             $table->json('progress_photos')->nullable();
+            $table->json('progress_videos')->nullable();       // file upload video progress
+            $table->json('progress_video_urls')->nullable();   // URL YouTube / Vimeo
 
             $table->timestamps();
         });

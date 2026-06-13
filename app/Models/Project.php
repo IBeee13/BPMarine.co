@@ -31,10 +31,14 @@ class Project extends Model
         'estimated_launch_date',
         'construction_cover',
         'progress_photos',
+        'progress_videos',
+        'progress_video_urls',
     ];
 
     protected $casts = [
         'gallery_images'       => 'array',
+        'progress_videos'    => 'array',
+        'progress_video_urls' => 'array',
         'progress_photos'      => 'array',
         'ensuite'              => 'boolean',
         'is_under_construction'=> 'boolean',

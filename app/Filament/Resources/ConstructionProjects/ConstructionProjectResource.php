@@ -10,6 +10,7 @@ use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Hidden;
+use Filament\Forms\Components\Repeater;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 use Filament\Resources\Resource;
@@ -19,7 +20,7 @@ use Filament\Tables\Table;
 class ConstructionProjectResource extends Resource
 {
     protected static ?string $model = Project::class;
-    protected static ?string $modelLabel = 'Construction';           // tambah ini
+    protected static ?string $modelLabel = 'Construction';
     protected static ?string $pluralModelLabel = 'Construction';
     protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-wrench-screwdriver';
     protected static ?string $navigationLabel = 'Construction';
@@ -100,6 +101,46 @@ class ConstructionProjectResource extends Resource
                         ->image()->multiple()->reorderable()->maxFiles(10)
                         ->disk('public')->imagePreviewHeight('150')
                         ->directory('projects/construction')->columnSpanFull(),
+
+                    // ── VIDEO PROGRESS ─────────────────────────────────────
+                    FileUpload::make('progress_videos')
+                        ->label('Video Progress (Upload File)')
+                        ->helperText('Maks 3 video — format MP4, MOV, AVI. Maks 512 MB per file.')
+                        ->acceptedFileTypes([
+                            'video/mp4',
+                            'video/quicktime',   // .mov
+                            'video/x-msvideo',   // .avi
+                            'video/mpeg',
+                        ])
+                        ->multiple()
+                        ->reorderable()
+                        ->maxFiles(3)
+                        ->maxSize(512000) // 512 MB dalam KB
+                        ->disk('public')
+                        ->directory('projects/construction-videos')
+                        ->columnSpanFull(),
+
+                    Repeater::make('progress_video_urls')
+                        ->label('Video Progress (URL YouTube / Vimeo)')
+                        ->helperText('Tambahkan link YouTube atau Vimeo untuk video progress konstruksi')
+                        ->schema([
+                            TextInput::make('url')
+                                ->label('URL Video')
+                                ->placeholder('https://www.youtube.com/watch?v=... atau https://vimeo.com/...')
+                                ->url()
+                                ->suffixIcon('heroicon-o-video-camera')
+                                ->columnSpan(2),
+                            TextInput::make('caption')
+                                ->label('Keterangan (opsional)')
+                                ->placeholder('Contoh: Progress Minggu ke-3, Hull Framing')
+                                ->columnSpan(2),
+                        ])
+                        ->columns(2)
+                        ->addActionLabel('+ Tambah URL Video')
+                        ->collapsible()
+                        ->maxItems(10)
+                        ->columnSpanFull(),
+                    // ───────────────────────────────────────────────────────
 
                 ])->columns(2),
 

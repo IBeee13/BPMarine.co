@@ -43,6 +43,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="{{ url('img/Aset/apple-touch-icon.png') }}">
 
     <meta name="theme-color" content="#18254D">
+    <meta name="msvalidate.01" content="920FA4A1628FBD9845F4CC92F0E2BC84" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

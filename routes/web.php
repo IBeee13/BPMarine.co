@@ -24,15 +24,59 @@ Route::get('/img-optimized/{path}', function ($path) {
         ->header('Cache-Control', 'public, max-age=31536000');
 })->where('path', '.*');
 
+Route::get('/sitemap.xml', function () {
+    $projects = App\Models\Project::all();
+
+    $urls = [];
+
+    // Static pages
+    $staticPages = [
+        ['url' => url('/'), 'priority' => '1.0', 'changefreq' => 'weekly'],
+        ['url' => url('/about'), 'priority' => '0.8', 'changefreq' => 'monthly'],
+        ['url' => url('/collection'), 'priority' => '0.9', 'changefreq' => 'weekly'],
+        ['url' => url('/contact'), 'priority' => '0.7', 'changefreq' => 'monthly'],
+    ];
+
+    // Dynamic project pages
+    foreach ($projects as $project) {
+        $staticPages[] = [
+            'url' => route('collection.show', $project->id),
+            'priority' => '0.8',
+            'changefreq' => 'monthly',
+        ];
+        $staticPages[] = [
+            'url' => route('collection.construction', $project->id),
+            'priority' => '0.6',
+            'changefreq' => 'monthly',
+        ];
+    }
+
+    $content = '<?xml version="1.0" encoding="UTF-8"?>';
+$content .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
+
+    foreach ($staticPages as $page) {
+    $content .= '<url>';
+        $content .= '<loc>' . $page['url'] . '</loc>';
+        $content .= '<changefreq>' . $page['changefreq'] . '</changefreq>';
+        $content .= '<priority>' . $page['priority'] . '</priority>';
+        $content .= '<lastmod>' . now()->toAtomString() . '</lastmod>';
+        $content .= '</url>';
+    }
+
+    $content .= '</urlset>';
+
+return response($content, 200)->header('Content-Type', 'application/xml');
+});
+
 Route::get('/', [TestimonialController::class, 'index']);
 Route::get('/about', function () {
-    return view('pages.about', [
-        'testimonials' => Testimonial::where('is_active', true)->orderBy('sort_order')->get(),
-    ]);
+return view('pages.about', [
+'testimonials' => Testimonial::where('is_active', true)->orderBy('sort_order')->get(),
+]);
 });
 
 Route::get('/collection/{project}/construction', [ProjectController::class, 'showConstruction'])
-    ->name('collection.construction');
+->name('collection.construction');
 
 Route::get('/collection', [ProjectController::class, 'index'])->name('collection.index');
 Route::get('/collection/{project}', [ProjectController::class, 'show'])->name('collection.show');
