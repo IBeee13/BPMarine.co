@@ -29,9 +29,9 @@ class BPMarineCoPanelProvider extends PanelProvider
             ->path('BPMarineCo')
             ->login()
             ->brandName('BP Marine Co')
-            ->brandLogo(url('img/Bina Pusaka/Aset/Binapusaka.ico'))
+            ->brandLogo(url('img/Aset/apple-touch-icon.png'))
             ->brandLogoHeight('3rem')
-            ->favicon(asset('img/Bina Pusaka/Aset/Binapusaka.ico'))
+            ->favicon(asset('img/Aset/apple-touch-icon.png'))
             ->colors([
                 'primary' => \Filament\Support\Colors\Color::hex('#18254D'),
                 'secondary' => \Filament\Support\Colors\Color::hex('#C7A578'),
