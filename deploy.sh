@@ -2,6 +2,7 @@
 
 # ============================================================
 # deploy.sh — BPMarine Co (Hostinger Shared Hosting)
+# Aman untuk upload admin di storage_link
 # Jalankan: bash deploy.sh
 # ============================================================
 
@@ -24,12 +25,15 @@ if [ -f .env ]; then
 fi
 
 # ------------------------------------------------------------
-# 2. PULL LATEST CODE (uncomment jika pakai git)
+# 2. PULL LATEST CODE
+# Catatan:
+# Jika deploy.sh dijalankan manual, git pull boleh aktif.
+# Jika dipanggil otomatis oleh hPanel setelah pull, biarkan tetap comment.
 # ------------------------------------------------------------
 # git pull origin main
 
 # ------------------------------------------------------------
-# 3. RESTORE .env jika hilang setelah git pull
+# 3. RESTORE .env jika hilang
 # ------------------------------------------------------------
 if [ ! -f .env ] && [ -f /tmp/bpmarine.env.backup ]; then
     cp /tmp/bpmarine.env.backup .env
@@ -46,39 +50,55 @@ chmod +x "$APP_DIR/artisan"
 echo "[OK] Artisan permission set" | tee -a "$LOG_FILE"
 
 # ------------------------------------------------------------
-# 5. BUAT SEMUA FOLDER STORAGE DI public/storage
+# 5. PASTIKAN FOLDER SYSTEM LARAVEL ADA
 # ------------------------------------------------------------
-mkdir -p public/storage/projects/covers
-mkdir -p public/storage/projects/gallery
-mkdir -p public/storage/projects/construction
-mkdir -p public/storage/projects/construction-covers
-mkdir -p public/storage/testimonials
-mkdir -p public/storage/clients
 mkdir -p storage/logs
 mkdir -p storage/framework/cache/data
 mkdir -p storage/framework/sessions
 mkdir -p storage/framework/views
+mkdir -p storage/app/public
 mkdir -p bootstrap/cache
-echo "[OK] Storage directories created" | tee -a "$LOG_FILE"
+
+cat > storage/app/public/.gitignore <<'GITIGNORE'
+*
+!.gitignore
+GITIGNORE
+
+echo "[OK] Laravel storage directories verified" | tee -a "$LOG_FILE"
 
 # ------------------------------------------------------------
-# 6. COPY ASSETS KE ROOT
+# 6. PASTIKAN FOLDER UPLOAD ADMIN ADA
+# Jangan hapus isi storage_link karena ini berisi gambar/video admin.
+# ------------------------------------------------------------
+mkdir -p storage_link
+mkdir -p storage_link/projects/covers
+mkdir -p storage_link/projects/gallery
+mkdir -p storage_link/projects/construction
+mkdir -p storage_link/projects/construction-covers
+mkdir -p storage_link/projects/construction-videos
+mkdir -p storage_link/testimonials
+mkdir -p storage_link/clients
+mkdir -p storage_link/livewire-tmp
+
+cat > storage_link/.gitignore <<'GITIGNORE'
+*
+!.gitignore
+GITIGNORE
+
+echo "[OK] Upload directories verified" | tee -a "$LOG_FILE"
+
+# ------------------------------------------------------------
+# 7. COPY PUBLIC ASSETS KE ROOT
+# Karena document root Hostinger kamu langsung public_html.
+# Ini hanya copy asset bawaan website, bukan upload admin.
 # ------------------------------------------------------------
 cp -r public/js ./js 2>/dev/null || true
 cp -r public/css ./css 2>/dev/null || true
 cp -r public/img ./img 2>/dev/null || true
 cp -r public/build ./build 2>/dev/null || true
 cp -r public/fonts ./fonts 2>/dev/null || true
-echo "[OK] Assets copied to root" | tee -a "$LOG_FILE"
 
-# ------------------------------------------------------------
-# 7. HAPUS SYMLINK LAMA JIKA ADA
-# ------------------------------------------------------------
-if [ -L public/storage ]; then
-    rm public/storage
-    mkdir -p public/storage
-    echo "[OK] Symlink lama dihapus, diganti folder" | tee -a "$LOG_FILE"
-fi
+echo "[OK] Assets copied to root" | tee -a "$LOG_FILE"
 
 # ------------------------------------------------------------
 # 8. PASTIKAN index.php ADA DI ROOT DAN PATH-NYA BENAR
@@ -87,8 +107,10 @@ if [ ! -f index.php ]; then
     cp public/index.php ./index.php
     echo "[OK] index.php copied to root" | tee -a "$LOG_FILE"
 fi
+
 sed -i "s|__DIR__.'/../vendor|__DIR__.'/vendor|g" index.php
 sed -i "s|__DIR__.'/../bootstrap|__DIR__.'/bootstrap|g" index.php
+
 echo "[OK] index.php paths verified" | tee -a "$LOG_FILE"
 
 # ------------------------------------------------------------
@@ -119,12 +141,15 @@ php artisan config:cache
 php artisan route:cache
 php artisan view:cache
 php artisan optimize
+
 echo "[OK] Cache rebuilt" | tee -a "$LOG_FILE"
 
 # ------------------------------------------------------------
 # 12. PERMISSION
 # ------------------------------------------------------------
-chmod -R 755 storage bootstrap/cache public/storage
+chmod -R 755 storage bootstrap/cache storage_link
+chmod -R 755 public/storage 2>/dev/null || true
+
 echo "[OK] Permissions set" | tee -a "$LOG_FILE"
 
 # ------------------------------------------------------------
@@ -132,6 +157,9 @@ echo "[OK] Permissions set" | tee -a "$LOG_FILE"
 # ------------------------------------------------------------
 echo "" | tee -a "$LOG_FILE"
 echo "=== VERIFIKASI ===" | tee -a "$LOG_FILE"
+
+echo -n "Branch Git: " | tee -a "$LOG_FILE"
+git branch --show-current | tee -a "$LOG_FILE"
 
 echo -n "index.php di root: " | tee -a "$LOG_FILE"
 [ -f index.php ] && echo "ADA ✓" | tee -a "$LOG_FILE" || echo "TIDAK ADA ✗" | tee -a "$LOG_FILE"
@@ -142,8 +170,14 @@ echo -n ".htaccess di root: " | tee -a "$LOG_FILE"
 echo -n ".env di root: " | tee -a "$LOG_FILE"
 [ -f .env ] && echo "ADA ✓" | tee -a "$LOG_FILE" || echo "TIDAK ADA ✗" | tee -a "$LOG_FILE"
 
-echo -n "public/storage folder: " | tee -a "$LOG_FILE"
-[ -d public/storage ] && echo "ADA ✓" | tee -a "$LOG_FILE" || echo "TIDAK ADA ✗" | tee -a "$LOG_FILE"
+echo -n "storage_link folder: " | tee -a "$LOG_FILE"
+[ -d storage_link ] && echo "ADA ✓" | tee -a "$LOG_FILE" || echo "TIDAK ADA ✗" | tee -a "$LOG_FILE"
+
+echo -n "storage_link/projects folder: " | tee -a "$LOG_FILE"
+[ -d storage_link/projects ] && echo "ADA ✓" | tee -a "$LOG_FILE" || echo "TIDAK ADA ✗" | tee -a "$LOG_FILE"
+
+echo -n "Jumlah file upload di storage_link/projects: " | tee -a "$LOG_FILE"
+find storage_link/projects -type f 2>/dev/null | wc -l | tee -a "$LOG_FILE"
 
 echo -n "build assets: " | tee -a "$LOG_FILE"
 [ -d build ] && echo "ADA ✓" | tee -a "$LOG_FILE" || echo "TIDAK ADA ✗" | tee -a "$LOG_FILE"
