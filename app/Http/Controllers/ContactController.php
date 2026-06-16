@@ -23,7 +23,7 @@ class ContactController extends Controller
 
         ContactMessage::create($validated);
 
-        Mail::to('binapusaka98@gmail.com')->send(new ContactMail($validated));
+        Mail::to('info@binapusakapinisi.com')->send(new ContactMail($validated));
 
         return redirect()->back()->with('success', true);
     }
