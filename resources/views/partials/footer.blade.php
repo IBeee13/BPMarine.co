@@ -83,7 +83,7 @@
                 </div>
                 <div data-aos="fade-up" class="flex flex-col gap-3 ml-9 lg:ml-14">
                     <span class="text-sm text-accent font-medium tracking-widest uppercase mb-1">Kontak</span>
-                    <span class="text-sm break-all">binapusaka98@gmail.com</span>
+                    <span class="text-sm break-all">info@binapusakapinisi.com</span>
                     <span class="text-sm">+62 821-3081-0592</span>
                 </div>
             </div>
@@ -126,7 +126,7 @@
             <div class="grid grid-cols-2 gap-8 w-full">
                 <div data-aos="fade-up" class="flex flex-col gap-3">
                     <span class="text-sm text-accent font-medium tracking-widest uppercase mb-1">Kontak</span>
-                    <span class="text-sm break-all">binapusaka98@gmail.com</span>
+                    <span class="text-sm break-all">info@binapusakapinisi.com</span>
                     <span class="text-sm">+62 821-3081-0592</span>
                 </div>
                 <div data-aos="fade-up" class="ml-[18vw]">
@@ -184,7 +184,7 @@
             <div class="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-0 w-full">
                 <div data-aos="fade-up" class="flex flex-col gap-3 md:w-[21.8vw]">
                     <span class="text-sm text-accent font-medium tracking-widest uppercase mb-1">Kontak</span>
-                    <span class="text-sm md:text-lg break-all">binapusaka98@gmail.com</span>
+                    <span class="text-sm md:text-lg break-all">info@binapusakapinisi.com</span>
                     <span class="text-sm md:text-lg">+62 821-3081-0592</span>
                 </div>
                 <div data-aos="fade-up" class="md:-ml-[0.3vw] ml-[18vw] md:w-[21.8vw]">

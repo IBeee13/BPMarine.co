@@ -52,7 +52,7 @@
         <div data-aos="fade-up"
             class="flex flex-col justify-center border-b-2 border-accentsecond w-full p-4 md:p-5 lg:p-8 gap-1">
             <h1 class="text-sm md:text-base text-accent font-medium">/Email</h1>
-            <h1 class="text-base md:text-lg lg:text-2xl text-primary font-medium break-all">binapusaka98@gmail.com</h1>
+            <h1 class="text-base md:text-lg lg:text-2xl text-primary font-medium break-all">info@binapusakapinisi.com</h1>
         </div>
         <div data-aos="fade-up" class="flex flex-col justify-center w-full p-4 md:p-5 lg:p-8 gap-1 border-accentsecond">
             <h1 class="text-sm md:text-base text-accent font-medium">/Location</h1>
