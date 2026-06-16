@@ -40,3 +40,6 @@ Thumbs.db
 /fonts/
 /img/
 /js/
+
+# External upload symlink - do not track in git
+/storage_link

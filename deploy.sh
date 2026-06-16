@@ -1,14 +1,14 @@
 #!/bin/bash
 
 # ============================================================
-# deploy.sh — BPMarine Co (Hostinger Shared Hosting)
-# Aman untuk upload admin di storage_link
-# Jalankan: bash deploy.sh
+# deploy.sh — BPMarine Co Hostinger
+# Upload admin disimpan di luar Git: /home/u722632723/bpmarine_uploads
 # ============================================================
 
 set -e
 
 APP_DIR="/home/u722632723/domains/binapusakapinisi.com/public_html"
+UPLOAD_DIR="/home/u722632723/bpmarine_uploads"
 LOG_FILE="/tmp/bpmarine_deploy.log"
 
 echo "=============================" >> "$LOG_FILE"
@@ -16,42 +16,17 @@ echo "Deploy started: $(date)" >> "$LOG_FILE"
 
 cd "$APP_DIR"
 
-# ------------------------------------------------------------
-# 1. BACKUP .env
-# ------------------------------------------------------------
+# 1. Backup .env
 if [ -f .env ]; then
     cp .env /tmp/bpmarine.env.backup
     echo "[OK] .env backed up" | tee -a "$LOG_FILE"
 fi
 
-# ------------------------------------------------------------
-# 2. PULL LATEST CODE
-# Catatan:
-# Jika deploy.sh dijalankan manual, git pull boleh aktif.
-# Jika dipanggil otomatis oleh hPanel setelah pull, biarkan tetap comment.
-# ------------------------------------------------------------
-# git pull origin main
-
-# ------------------------------------------------------------
-# 3. RESTORE .env jika hilang
-# ------------------------------------------------------------
-if [ ! -f .env ] && [ -f /tmp/bpmarine.env.backup ]; then
-    cp /tmp/bpmarine.env.backup .env
-    echo "[OK] .env restored" | tee -a "$LOG_FILE"
-fi
-
-# ------------------------------------------------------------
-# 4. INSTALL PHP DEPENDENCIES
-# ------------------------------------------------------------
+# 2. Install dependencies
 composer install --no-dev --optimize-autoloader --no-interaction
 echo "[OK] Composer install done" | tee -a "$LOG_FILE"
 
-chmod +x "$APP_DIR/artisan"
-echo "[OK] Artisan permission set" | tee -a "$LOG_FILE"
-
-# ------------------------------------------------------------
-# 5. PASTIKAN FOLDER SYSTEM LARAVEL ADA
-# ------------------------------------------------------------
+# 3. Laravel system storage
 mkdir -p storage/logs
 mkdir -p storage/framework/cache/data
 mkdir -p storage/framework/sessions
@@ -66,32 +41,28 @@ GITIGNORE
 
 echo "[OK] Laravel storage directories verified" | tee -a "$LOG_FILE"
 
-# ------------------------------------------------------------
-# 6. PASTIKAN FOLDER UPLOAD ADMIN ADA
-# Jangan hapus isi storage_link karena ini berisi gambar/video admin.
-# ------------------------------------------------------------
-mkdir -p storage_link
-mkdir -p storage_link/projects/covers
-mkdir -p storage_link/projects/gallery
-mkdir -p storage_link/projects/construction
-mkdir -p storage_link/projects/construction-covers
-mkdir -p storage_link/projects/construction-videos
-mkdir -p storage_link/testimonials
-mkdir -p storage_link/clients
-mkdir -p storage_link/livewire-tmp
+# 4. External upload directory
+mkdir -p "$UPLOAD_DIR"
+mkdir -p "$UPLOAD_DIR/projects/covers"
+mkdir -p "$UPLOAD_DIR/projects/gallery"
+mkdir -p "$UPLOAD_DIR/projects/construction"
+mkdir -p "$UPLOAD_DIR/projects/construction-covers"
+mkdir -p "$UPLOAD_DIR/projects/construction-videos"
+mkdir -p "$UPLOAD_DIR/testimonials"
+mkdir -p "$UPLOAD_DIR/clients"
+mkdir -p "$UPLOAD_DIR/livewire-tmp"
 
-cat > storage_link/.gitignore <<'GITIGNORE'
-*
-!.gitignore
-GITIGNORE
+# Jika storage_link masih folder biasa, pindahkan dulu
+if [ -e storage_link ] && [ ! -L storage_link ]; then
+    mv storage_link "storage_link.old-$(date +%F-%H%M%S)"
+fi
 
-echo "[OK] Upload directories verified" | tee -a "$LOG_FILE"
+# Buat ulang symlink setiap deploy
+ln -sfn "$UPLOAD_DIR" storage_link
 
-# ------------------------------------------------------------
-# 7. COPY PUBLIC ASSETS KE ROOT
-# Karena document root Hostinger kamu langsung public_html.
-# Ini hanya copy asset bawaan website, bukan upload admin.
-# ------------------------------------------------------------
+echo "[OK] storage_link symlink verified" | tee -a "$LOG_FILE"
+
+# 5. Copy public assets ke root public_html
 cp -r public/js ./js 2>/dev/null || true
 cp -r public/css ./css 2>/dev/null || true
 cp -r public/img ./img 2>/dev/null || true
@@ -100,12 +71,9 @@ cp -r public/fonts ./fonts 2>/dev/null || true
 
 echo "[OK] Assets copied to root" | tee -a "$LOG_FILE"
 
-# ------------------------------------------------------------
-# 8. PASTIKAN index.php ADA DI ROOT DAN PATH-NYA BENAR
-# ------------------------------------------------------------
+# 6. index.php root
 if [ ! -f index.php ]; then
     cp public/index.php ./index.php
-    echo "[OK] index.php copied to root" | tee -a "$LOG_FILE"
 fi
 
 sed -i "s|__DIR__.'/../vendor|__DIR__.'/vendor|g" index.php
@@ -113,23 +81,18 @@ sed -i "s|__DIR__.'/../bootstrap|__DIR__.'/bootstrap|g" index.php
 
 echo "[OK] index.php paths verified" | tee -a "$LOG_FILE"
 
-# ------------------------------------------------------------
-# 9. PASTIKAN .htaccess ADA DI ROOT
-# ------------------------------------------------------------
+# 7. .htaccess root
 if [ ! -f .htaccess ]; then
     cp public/.htaccess ./.htaccess 2>/dev/null || true
-    echo "[OK] .htaccess copied to root" | tee -a "$LOG_FILE"
 fi
 
-# ------------------------------------------------------------
-# 10. MIGRATION
-# ------------------------------------------------------------
+echo "[OK] .htaccess verified" | tee -a "$LOG_FILE"
+
+# 8. Migration
 php artisan migrate --force
 echo "[OK] Migration done" | tee -a "$LOG_FILE"
 
-# ------------------------------------------------------------
-# 11. CLEAR & REBUILD CACHE
-# ------------------------------------------------------------
+# 9. Cache
 php artisan config:clear
 php artisan cache:clear
 php artisan route:clear
@@ -144,55 +107,37 @@ php artisan optimize
 
 echo "[OK] Cache rebuilt" | tee -a "$LOG_FILE"
 
-# ------------------------------------------------------------
-# 12. PERMISSION
-# ------------------------------------------------------------
-chmod -R 755 storage bootstrap/cache storage_link
-chmod -R 755 public/storage 2>/dev/null || true
+# 10. Permissions
+find storage bootstrap/cache "$UPLOAD_DIR" -type d -exec chmod 755 {} \;
+find storage bootstrap/cache "$UPLOAD_DIR" -type f -exec chmod 644 {} \;
 
 echo "[OK] Permissions set" | tee -a "$LOG_FILE"
 
-# ------------------------------------------------------------
-# 13. VERIFIKASI AKHIR
-# ------------------------------------------------------------
+# 11. Verification
 echo "" | tee -a "$LOG_FILE"
 echo "=== VERIFIKASI ===" | tee -a "$LOG_FILE"
 
 echo -n "Branch Git: " | tee -a "$LOG_FILE"
 git branch --show-current | tee -a "$LOG_FILE"
 
-echo -n "index.php di root: " | tee -a "$LOG_FILE"
-[ -f index.php ] && echo "ADA ✓" | tee -a "$LOG_FILE" || echo "TIDAK ADA ✗" | tee -a "$LOG_FILE"
+echo -n "storage_link symlink: " | tee -a "$LOG_FILE"
+[ -L storage_link ] && echo "ADA ✓ -> $(readlink -f storage_link)" | tee -a "$LOG_FILE" || echo "TIDAK ADA ✗" | tee -a "$LOG_FILE"
 
-echo -n ".htaccess di root: " | tee -a "$LOG_FILE"
-[ -f .htaccess ] && echo "ADA ✓" | tee -a "$LOG_FILE" || echo "TIDAK ADA ✗" | tee -a "$LOG_FILE"
+echo -n "Upload directory: " | tee -a "$LOG_FILE"
+[ -d "$UPLOAD_DIR" ] && echo "ADA ✓" | tee -a "$LOG_FILE" || echo "TIDAK ADA ✗" | tee -a "$LOG_FILE"
 
-echo -n ".env di root: " | tee -a "$LOG_FILE"
-[ -f .env ] && echo "ADA ✓" | tee -a "$LOG_FILE" || echo "TIDAK ADA ✗" | tee -a "$LOG_FILE"
+echo -n "Jumlah file upload: " | tee -a "$LOG_FILE"
+find "$UPLOAD_DIR" -type f 2>/dev/null | wc -l | tee -a "$LOG_FILE"
 
-echo -n "storage_link folder: " | tee -a "$LOG_FILE"
-[ -d storage_link ] && echo "ADA ✓" | tee -a "$LOG_FILE" || echo "TIDAK ADA ✗" | tee -a "$LOG_FILE"
-
-echo -n "storage_link/projects folder: " | tee -a "$LOG_FILE"
-[ -d storage_link/projects ] && echo "ADA ✓" | tee -a "$LOG_FILE" || echo "TIDAK ADA ✗" | tee -a "$LOG_FILE"
-
-echo -n "Jumlah file upload di storage_link/projects: " | tee -a "$LOG_FILE"
-find storage_link/projects -type f 2>/dev/null | wc -l | tee -a "$LOG_FILE"
-
-echo -n "build assets: " | tee -a "$LOG_FILE"
-[ -d build ] && echo "ADA ✓" | tee -a "$LOG_FILE" || echo "TIDAK ADA ✗" | tee -a "$LOG_FILE"
-
-echo -n "img folder: " | tee -a "$LOG_FILE"
-[ -d img ] && echo "ADA ✓" | tee -a "$LOG_FILE" || echo "TIDAK ADA ✗" | tee -a "$LOG_FILE"
+echo -n "Cover folder: " | tee -a "$LOG_FILE"
+[ -d "$UPLOAD_DIR/projects/covers" ] && echo "ADA ✓" | tee -a "$LOG_FILE" || echo "TIDAK ADA ✗" | tee -a "$LOG_FILE"
 
 echo -n "APP_KEY di .env: " | tee -a "$LOG_FILE"
-grep -q "APP_KEY=base64:" .env && echo "ADA ✓" | tee -a "$LOG_FILE" || echo "KOSONG ✗ — jalankan: php artisan key:generate" | tee -a "$LOG_FILE"
+grep -q "APP_KEY=base64:" .env && echo "ADA ✓" | tee -a "$LOG_FILE" || echo "KOSONG ✗" | tee -a "$LOG_FILE"
 
 echo -n "APP_DEBUG di .env: " | tee -a "$LOG_FILE"
 grep -q "APP_DEBUG=false" .env && echo "false ✓" | tee -a "$LOG_FILE" || echo "PERIKSA! Pastikan APP_DEBUG=false" | tee -a "$LOG_FILE"
 
 echo ""
-echo "=============================" >> "$LOG_FILE"
 echo "Deploy finished: $(date)" >> "$LOG_FILE"
-echo ""
 echo "✓ Deploy selesai! Cek log lengkap di: $LOG_FILE"
