@@ -22,7 +22,7 @@ Sulawesi, dedicated to preserving the art of traditional Indonesian boatbuilding
 <section class="relative flex w-full xl:min-h-screen overflow-hidden px-6 md:px-12 lg:px-16 xl:px-23 py-8"
     aria-label="Hero — About BP Marine Co">
 
-    <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden flex top-99 md:top-64 lg:top-104 xl:top-88"
+    <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden flex top-99 md:top-64 lg:top-104 xl:top-64"
         aria-hidden="true">
         <div class="whitespace-nowrap animate-leftscroll text-[30vw] md:text-[20vw] font-medium">
             <p
