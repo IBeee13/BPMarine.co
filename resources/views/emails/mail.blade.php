@@ -36,7 +36,7 @@
                                         <table cellpadding="0" cellspacing="0" style="margin-bottom:20px;">
                                             <tr>
                                                 <td>
-                                                    <img src="{{ url('img/Aset/apple-touch-icon.png') }}"
+                                                    <img src="{{ asset('img/Aset/apple-touch-icon.png') }}"
                                                         alt="BP Marine Co" width="120" height="auto"
                                                         style="display:block; width:120px; height:auto;">
                                                 </td>
@@ -85,7 +85,7 @@
                                                 {{-- Avatar --}}
                                                 <td width="48" valign="top">
                                                     <div
-                                                        style="width:44px; height:44px; background-color:#18254D; border-radius:999px; text-align:center; line-height:44px;">
+                                                        style="width:44px; height:44px; background-color:#18254D; border-radius:999px; text-align:center; align-items: center; line-height:44px;">
                                                         <span style="font-size:18px; color:#C7A578; font-weight:700;">
                                                             {{ strtoupper(substr($data['name'], 0, 1)) }}
                                                         </span>
