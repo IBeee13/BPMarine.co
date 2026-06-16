@@ -11,7 +11,7 @@
     "src": "_aos-DvB2Xm2x.css"
   },
   "resources/css/app.css": {
-    "file": "assets/app-0n_w3dCz.css",
+    "file": "assets/app-CDY3Oh2Q.css",
     "src": "resources/css/app.css",
     "isEntry": true,
     "name": "app",
@@ -20,7 +20,7 @@
     ]
   },
   "resources/js/app.js": {
-    "file": "assets/app-BZBbIIW2.js",
+    "file": "assets/app-BgtOW8iB.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
@@ -28,7 +28,7 @@
       "_aos-BEAEiDF0.js"
     ],
     "css": [
-      "assets/app-0n_w3dCz.css"
+      "assets/app-CDY3Oh2Q.css"
     ]
   }
 }
