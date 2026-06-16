@@ -84,13 +84,19 @@
                                         <table width="100%" cellpadding="0" cellspacing="0">
                                             <tr>
                                                 {{-- Avatar --}}
-                                                <td width="48" valign="top">
-                                                    <div
-                                                        style="width:44px; height:44px; background-color:#18254D; border-radius:999px; text-align:center; justify-content: center; line-height:44px;">
-                                                        <span style="font-size:18px; color:#C7A578; font-weight:700;">
-                                                            {{ strtoupper(substr($data['name'], 0, 1)) }}
-                                                        </span>
-                                                    </div>
+                                                <td width="54" valign="middle" style="padding:0;">
+                                                    <table width="44" height="44" cellpadding="0" cellspacing="0" role="presentation"
+                                                        style="width:44px; height:44px; border-collapse:collapse;">
+                                                        <tr>
+                                                            <td width="44" height="44" align="center" valign="middle"
+                                                                style="width:44px; height:44px; background-color:#18254D; border-radius:50%; text-align:center; vertical-align:middle; line-height:44px; mso-line-height-rule:exactly;">
+                                                                <span
+                                                                    style="display:inline-block; font-size:18px; line-height:44px; color:#C7A578; font-weight:700; font-family:Arial, sans-serif;">
+                                                                    {{ strtoupper(substr($data['name'], 0, 1)) }}
+                                                                </span>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
                                                 </td>
                                                 {{-- Name & Email --}}
                                                 <td style="padding-left:14px;" valign="middle">
