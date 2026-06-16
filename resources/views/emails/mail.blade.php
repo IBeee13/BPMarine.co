@@ -36,7 +36,8 @@
                                         <table cellpadding="0" cellspacing="0" style="margin-bottom:20px;">
                                             <tr>
                                                 <td>
-                                                    <img src="{{ asset('img/Aset/apple-touch-icon.png') }}"
+                                                    {{-- <img src="{{ asset('img/Aset/apple-touch-icon.png') }}" --}}
+                                                    <img src="{{ $message->embed(public_path('img/Aset/apple-touch-icon.png')) }}"
                                                         alt="BP Marine Co" width="120" height="auto"
                                                         style="display:block; width:120px; height:auto;">
                                                 </td>
